@@ -7,6 +7,7 @@ import Login from "./components/login/Login";
 import Contact from "./components/contact/Contact";
 import NoPage from "./components/NoPage";
 import Layout from "./components/Layout";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
