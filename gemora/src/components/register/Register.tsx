@@ -1,7 +1,8 @@
+import React from 'react';
 import {Formik, Form, Field, ErrorMessage, FormikHelpers} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import {useNavigate} from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 
 interface FormValues {
     firstname: string;
@@ -15,34 +16,31 @@ const Register = () => {
         firstname: '',
         lastname: '',
         email: '',
-        password: ''
+        password: '',
     };
 
-
     const navigate = useNavigate();
-
 
     const validationSchema = Yup.object().shape({
         firstname: Yup.string().required('First name is required.'),
         lastname: Yup.string().required('Last name is required.'),
         email: Yup.string().email('Invalid email').required('Email is required.'),
-        password: Yup.string().required('Password is required.')
+        password: Yup.string().required('Password is required.'),
     });
 
     const handleSubmit = (
         values: FormValues,
         {setSubmitting}: FormikHelpers<FormValues>
     ) => {
-
         console.log(values);
-        axios.post('http://localhost:8080/api/v1/auth/register', values)
-            .then(response => {
+        axios
+            .post('http://localhost:8080/api/v1/auth/register', values)
+            .then((response) => {
                 console.log('Response from backend:', response.data);
                 navigate('/');
                 setSubmitting(false);
-
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error('Error sending data to backend:', error);
                 setSubmitting(false);
             });
@@ -51,7 +49,7 @@ const Register = () => {
     return (
         <div className="container">
             <div className="row justify-content-center">
-                <div className="col-md-6">
+                <div className="col-12 col-md-8 col-lg-6">
                     <div className="card card-container">
                         <div className="d-flex justify-content-center">
                             <img
@@ -121,5 +119,3 @@ const Register = () => {
 };
 
 export default Register;
-
-
