@@ -1,9 +1,9 @@
 import React from 'react';
 import {Carousel} from 'react-bootstrap';
 
-import img1 from '../../assets/images/img_1.jpg';
-import img2 from '../../assets/images/img_2.jpg';
-import img3 from '../../assets/images/img_3.jpg';
+import img1 from '../../assets/images/img1.jpg';
+import img2 from '../../assets/images/img2.jpg';
+import img3 from '../../assets/images/img6.jpg';
 
 const carouselData = [
     {
@@ -23,7 +23,7 @@ const carouselData = [
     },
 ];
 
-const CarouselComponent: React.FC = () => {
+const CarouselComponent = () => {
     return (
         <Carousel>
             {carouselData.map((slide, index) => (
