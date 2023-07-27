@@ -1,3 +1,78 @@
+/*.navbar-bg {*/
+/*    background-color: #FDF8F1 !important;*/
+/*}*/
+
+
+.accordion-button {
+    background-color: #f8f8f8 !important;
+    /*border: 1px solid #ddd !important;*/
+    color: #333 !important;
+    font-size: 30px !important;
+    font-weight: bold;
+    padding: 10px 20px !important;
+    margin: 5px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    position: relative; /* Dodajemy, aby można było ustawić linie wewnętrzne */
+    overflow: hidden;
+}
+
+
+.accordion-button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Wysokość kreski */
+    background-color: #555; /* Kolor kreski */
+    transform: scaleX(0); /* Zaczynamy z zerową szerokością, aby była niewidoczna */
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.accordion-button:hover::before {
+    transform: scaleX(1); /* Po najechaniu myszką kreska będzie się rozszerzać */
+}
+
+.accordion-button:hover {
+    background-color: #ddd;
+}
+
+.accordion-button.active {
+    background-color: #eaeaea;
+}
+
+
+
+.nav-link {
+    font-size: 16px;
+    color: #555;
+    margin: 5px;
+    padding: 5px 0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #333;
+}
+
+.me-auto {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+
 .navbar-bg {
     background-color: whitesmoke;
 }
+
+.red-text {
+    color: red !important;
+}
+
+
+
