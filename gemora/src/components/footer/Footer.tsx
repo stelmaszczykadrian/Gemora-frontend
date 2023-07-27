@@ -3,7 +3,7 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <footer className="footer-bg py-5">
+        <footer className="footer-bg py-2">
             <Container>
                 <Row className="justify-content-center">
                     <Col xs={12} md={6} lg={4} className="text-center">
@@ -16,16 +16,16 @@ const Footer = () => {
                     <Col xs={6} md={3} lg={2} className="text-center">
                         <h6>Gemora</h6>
                         <ul className="list-unstyled">
-                            <li><a href="/">About Us</a></li>
-                            <li><a href="/">Contact</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/contact">Contact</a></li>
                         </ul>
                     </Col>
                     <Col xs={6} md={3} lg={2} className="text-right">
                         <h6>Help</h6>
                         <ul className="list-unstyled">
-                            <li><a href="/">Support</a></li>
-                            <li><a href="/">Sign Up</a></li>
-                            <li><a href="/">Sign In</a></li>
+                            <li><a href="/support">Support</a></li>
+                            <li><a href="/register">Sign Up</a></li>
+                            <li><a href="/login">Sign In</a></li>
                         </ul>
                     </Col>
                 </Row>
