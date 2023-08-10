@@ -32,7 +32,7 @@ const Register = () => {
         values: FormValues,
         {setSubmitting}: FormikHelpers<FormValues>
     ) => {
-        console.log(values);
+        console.log(values); //async await zamiast then i catcha
         axios
             .post('http://localhost:8080/api/v1/auth/register', values)
             .then((response) => {
