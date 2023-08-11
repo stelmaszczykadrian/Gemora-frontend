@@ -9,6 +9,7 @@ import NoPage from "./components/NoPage";
 import Layout from "./components/Layout";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductDetails from "./components/ProductDetails";
+import StoreProducts from "./components/store/StoreProducts";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/product/:id" element={<ProductDetails/>}/>
                     <Route path="/login" element={<Login/>}/>
+                    <Route path="/store" element={<StoreProducts/>}/>
                     <Route path="/contact" element={<Contact/>}/>
                     <Route path="*" element={<NoPage/>}/>
                 </Routes>
