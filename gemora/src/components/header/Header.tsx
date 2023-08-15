@@ -1,16 +1,22 @@
 import './Header.css'
 import gemoraLogo from '../../assets/Gemorasmall.jpg';
 
-import React, { useState } from 'react';
-import { Container, Row, Col, Offcanvas, FormControl } from 'react-bootstrap';
+import React, {useState} from 'react';
+import {Container, Row, Col} from 'react-bootstrap';
 import SearchButton from "../buttons/SearchButton";
 import CartButton from "../buttons/CartButton";
 import ProfileButton from "../buttons/ProfileButton";
+import CartOffcanvas from "../cart/CartOffcanvas";
+import SearchOffcanvas from "../search/SearchOffcanvas";
 
 const Header: React.FC = () => {
-    const [showOffcanvas, setShowOffcanvas] = useState<boolean>(false);
-    const handleClose = () => setShowOffcanvas(false);
-    const handleShow = () => setShowOffcanvas(true);
+    const [showSearchOffcanvas, setShowSearchOffcanvas] = useState<boolean>(false);
+    const [showCartOffcanvas, setShowCartOffcanvas] = useState<boolean>(false);
+    const handleCloseSearchOffcanvas = () => setShowSearchOffcanvas(false);
+    const handleShowSearchOffcanvas = () => setShowSearchOffcanvas(true);
+
+    const handleCloseCartOffcanvas = () => setShowCartOffcanvas(false);
+    const handleShowCartOffcanvas = () => setShowCartOffcanvas(true);
 
     return (
         <div className="header-bg py-3">
@@ -20,21 +26,15 @@ const Header: React.FC = () => {
 
                     </Col>
                     <Col xs={12} sm={4} className="text-center">
-                        <img src={gemoraLogo} alt="Gemora logo" width="50%" height="50%" />
-                        <Offcanvas show={showOffcanvas} onHide={handleClose} placement="top">
-                            <Offcanvas.Header closeButton>
-                                <Offcanvas.Title>Enter your search term</Offcanvas.Title>
-                            </Offcanvas.Header>
-                            <Offcanvas.Body>
-                                <FormControl type="text" placeholder="Search product..." />
-                            </Offcanvas.Body>
-                        </Offcanvas>
+                        <img src={gemoraLogo} alt="Gemora logo" width="50%" height="50%"/>
+                        <SearchOffcanvas show={showSearchOffcanvas} onHide={handleCloseSearchOffcanvas}/>
                     </Col>
                     <Col xs={12} sm={4} className="text-center">
                         <div className="container mt-4">
-                            <SearchButton handleShow={handleShow} />
-                            <ProfileButton />
-                            <CartButton itemCount={0} />
+                            <SearchButton handleShow={handleShowSearchOffcanvas}/>
+                            <ProfileButton/>
+                            <CartButton handleShow={handleShowCartOffcanvas} itemCount={0}/>
+                            <CartOffcanvas show={showCartOffcanvas} onHide={handleCloseCartOffcanvas}/>
                         </div>
                     </Col>
                 </Row>
