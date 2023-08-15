@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
+import React, {FC, MouseEvent} from 'react';
 import {Button} from "react-bootstrap";
 
 
 interface CartButtonProps {
     itemCount: number;
+    handleShow: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const CartButton: FC<CartButtonProps> = ({ itemCount }) => (
+const CartButton: FC<CartButtonProps> = ({ itemCount ,handleShow}) => (
     <Button
         style={{
             width: '3rem',
@@ -16,6 +17,7 @@ const CartButton: FC<CartButtonProps> = ({ itemCount }) => (
         }}
         variant="outline-dark"
         className="rounded-circle"
+        onClick={handleShow}
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
