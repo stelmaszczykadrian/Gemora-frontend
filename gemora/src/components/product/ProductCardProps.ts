@@ -1,8 +1,8 @@
-interface CartItemProps {
+interface ProductCardProps {
     name: string;
     price: number;
     imageUrl: string;
     totalPrice: number;
 }
 
-export default CartItemProps;
+export default ProductCardProps;

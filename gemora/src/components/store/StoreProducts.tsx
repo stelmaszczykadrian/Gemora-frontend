@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import CartItem from "../cart/CartItem";
+import ProductCard from "../product/ProductCard";
 import './StoreProducts.css';
 import axios from "axios";
 
@@ -24,7 +24,7 @@ const StoreProducts: React.FC = () => {
                 <div className="row">
                     {products.map((product) => (
                         <div key={product.id} className="col-md-3 mb-1">
-                            <CartItem
+                            <ProductCard
                                 name={product.name}
                                 price={product.price}
                                 imageUrl={product.image}
