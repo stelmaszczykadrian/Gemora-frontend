@@ -18,12 +18,19 @@ Welcome to **Gemora**, your one-stop destination for stunning jewelry! Whether y
 
 <br><br>
 
-[Gemora Backend Repository](https://github.com/stelmaszczykadrian/Gemora-backend)
+**This repository contains the frontend code of our application.**
+
+**But don't stop there! We invite you to explore the backend code as well.**
+
+**Head over to: [Gemora Backend Repository](https://github.com/stelmaszczykadrian/Gemora-backend)**
+
+**Visit also our Admin panel : [Gemora Admin Panel Repository](https://github.com/stelmaszczykadrian/Gemora-admin-panel)**
 
 ## :star: Technologies
 <ul>
-  <li>Still in progress....</li></li>
-
+  <li>React</li></li>
+  <li>Typescript</li>
+  <li>Bootstrap</li>
 </ul>
 
 ## :rocket: Video of project
