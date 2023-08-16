@@ -20,7 +20,7 @@ Welcome to **Gemora**, your one-stop destination for stunning jewelry! Whether y
 
 **This repository contains the frontend code of our application.**
 
-**But don't stop there! We invite you to explore the backend code as well.**
+**But don't stop there! We invite you to explore the backend code as well and admin panel also!**
 
 **Head over to: [Gemora Backend Repository](https://github.com/stelmaszczykadrian/Gemora-backend)**
 
