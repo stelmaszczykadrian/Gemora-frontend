@@ -1,5 +1,5 @@
 import React from 'react';
-import {Offcanvas} from 'react-bootstrap';
+import {Button, Offcanvas} from 'react-bootstrap';
 
 interface ProfileOffcanvasProps {
     show: boolean;
@@ -8,13 +8,18 @@ interface ProfileOffcanvasProps {
 
 const ProfileOffcanvas: React.FC<ProfileOffcanvasProps> = ({ show, onHide }) => {
 
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+    };
+
+
     return (
         <Offcanvas show={show} onHide={onHide} placement="end">
             <Offcanvas.Header closeButton>
                 <Offcanvas.Title>Profile Information</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                Test
+                <Button onClick={handleLogout}>Logout</Button>
             </Offcanvas.Body>
         </Offcanvas>
     );
