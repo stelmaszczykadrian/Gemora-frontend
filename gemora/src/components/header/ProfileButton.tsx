@@ -1,7 +1,13 @@
-import React, { FC } from 'react';
+import React, {FC, MouseEvent} from 'react';
 import {Button} from "react-bootstrap";
 
-const ProfileButton: FC = () => (
+
+interface ProfileButtonProps {
+    handleShow: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+
+const ProfileButton: FC<ProfileButtonProps> = ({ handleShow }) => (
     <Button
         style={{
             width: '3rem',
@@ -11,6 +17,7 @@ const ProfileButton: FC = () => (
         }}
         variant="outline-dark"
         className="rounded-circle"
+        onClick={handleShow}
     >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person" viewBox="0 0 16 16">
             <path

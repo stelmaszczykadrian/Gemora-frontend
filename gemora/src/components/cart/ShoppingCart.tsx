@@ -9,14 +9,10 @@ import './Cart.css';
 import CartItem from "./CartItem";
 import {formatPrice} from "../../utils/utils";
 
-
-const ShoppingCart: React.FC<CartOffcanvasProps> = ({show, onHide}) => {
-
+const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
     const [productsFromDatabase, setProductsFromDatabase] = useState<Product[]>([]);
     const userEmail = AuthService.getUserEmailFromToken();
     const [totalPrice, setTotalPrice] = useState(0);
-
-    console.log(userEmail)
 
     useEffect(() => {
         const fetchDataFromDatabase = async () => {
@@ -33,42 +29,50 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({show, onHide}) => {
                 console.error("Error while retrieving data from the database:", error);
             }
         };
-        fetchDataFromDatabase();
-    }, []);
+
+        if (userEmail) {
+            fetchDataFromDatabase();
+        } else {
+            setProductsFromDatabase([]);
+            setTotalPrice(0);
+        }
+    }, [userEmail]);
 
     return (
         <Offcanvas show={show} onHide={onHide} placement="end">
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title/>
+                <Offcanvas.Title />
             </Offcanvas.Header>
             <Offcanvas.Body className="offcanvas-body">
                 <div className="container">
                     <div className="cart-container">
-                        <div className="row">
-                            {productsFromDatabase.map(item => (
-                                <CartItem key={item.id} item={item}/>
-                            ))}
-                        </div>
+                        {productsFromDatabase.length > 0 ? (
+                            <div className="row">
+                                {productsFromDatabase.map(item => (
+                                    <CartItem key={item.id} item={item} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="empty-cart-message">This cart is empty.</div>
+                        )}
                     </div>
                 </div>
             </Offcanvas.Body>
-            <div className="offcanvas-end-container">
-                <div className="order-summary">
-                    GRAND TOTAL:
-                    <span className="total-price">
-                        {formatPrice(totalPrice)}
-                    </span>
+            {productsFromDatabase.length > 0 && (
+                <div className="offcanvas-end-container">
+                    <div className="order-summary">
+                        GRAND TOTAL:
+                        <span className="total-price">
+                            {formatPrice(totalPrice)}
+                        </span>
+                    </div>
+                    <div>
+                        <button className="rounded-0 checkout-button">
+                            PROCEED TO CHECKOUT
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    <button
-                        className="rounded-0 checkout-button"
-                        // onClick={handleShow}>
-                        >
-                        PROCEED TO CHECKOUT
-                    </button>
-
-                </div>
-            </div>
+            )}
         </Offcanvas>
     );
 };
