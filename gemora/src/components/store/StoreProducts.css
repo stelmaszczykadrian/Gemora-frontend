@@ -1,3 +1,9 @@
 .products-bg {
     background-color: #FDF8F1 !important;
 }
+
+
+.customLink {
+    text-decoration: none;
+    color: black;
+}
