@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import {AuthService} from "../api/AuthService";
+import {AuthService} from "../../api/AuthService";
 import {Product} from "./ProductInterface";
+
 
 function ProductDetails() {
     const { id } = useParams<{ id: string }>();
