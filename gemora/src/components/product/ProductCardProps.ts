@@ -2,7 +2,7 @@ interface ProductCardProps {
     name: string;
     price: number;
     imageUrl: string;
-    totalPrice: number;
+    // totalPrice: number;
 }
 
 export default ProductCardProps;

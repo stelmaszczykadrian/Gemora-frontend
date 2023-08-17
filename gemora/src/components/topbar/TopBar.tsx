@@ -1,7 +1,7 @@
 import React from "react";
-import mailIcon from "../../assets/mail.svg";
-import signUpIcon from "../../assets/signup.svg";
-import signInIcon from "../../assets/singin.svg";
+import mailIcon from "../../assets/svg/mail.svg";
+import signUpIcon from "../../assets/svg/signup.svg";
+import signInIcon from "../../assets/svg/singin.svg";
 import {Container, Row, Col} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import './TopBar.css'
@@ -19,7 +19,7 @@ const TopBar = () => {
                     {/* Column with Sign In icon */}
                     <Col xs={4} style={{borderRight: "1px solid #888"}}>
                         <Link to="/login" className="customLink">
-                            <img src={signInIcon} alt="SignIn Icon" style={{marginRight: "8px"}} />
+                            <img src={signInIcon} alt="SignIn Icon" style={{marginRight: "8px"}}/>
                             <span className="d-none d-md-inline">Sign In</span>
                         </Link>
                     </Col>

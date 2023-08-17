@@ -1,4 +1,4 @@
-import {Product} from "../components/ProductInterface";
+import {Product} from "../components/product/ProductInterface";
 import axios from "axios";
 
 export const fetchProductsFromApi = async (productIds: number[]): Promise<Product[]> => {

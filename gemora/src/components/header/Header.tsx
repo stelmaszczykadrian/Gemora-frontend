@@ -3,10 +3,10 @@ import gemoraLogo from '../../assets/Gemorasmall.jpg';
 
 import React, {useState} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
-import SearchButton from "../buttons/SearchButton";
-import CartButton from "../buttons/CartButton";
-import ProfileButton from "../buttons/ProfileButton";
-import CartOffcanvas from "../cart/CartOffcanvas";
+import SearchButton from "./SearchButton";
+import CartButton from "./CartButton";
+import ProfileButton from "./ProfileButton";
+import ShoppingCart from "../cart/ShoppingCart";
 import SearchOffcanvas from "../search/SearchOffcanvas";
 
 const Header: React.FC = () => {
@@ -34,7 +34,7 @@ const Header: React.FC = () => {
                             <SearchButton handleShow={handleShowSearchOffcanvas}/>
                             <ProfileButton/>
                             <CartButton handleShow={handleShowCartOffcanvas} itemCount={0}/>
-                            <CartOffcanvas show={showCartOffcanvas} onHide={handleCloseCartOffcanvas}/>
+                            <ShoppingCart show={showCartOffcanvas} onHide={handleCloseCartOffcanvas}/>
                         </div>
                     </Col>
                 </Row>

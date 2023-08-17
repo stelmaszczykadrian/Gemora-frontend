@@ -1,4 +1,4 @@
-import CarouselComponent from "../carousel/CarouselComponent";
+import CarouselComponent from "./CarouselComponent";
 
 const Home = () => {
     return <>
