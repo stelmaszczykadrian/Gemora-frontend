@@ -12,7 +12,6 @@ const ProductCard: React.FC<ProductCardProps> = ({name, price, imageUrl}) => {
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">
                     {formatPrice(price)}
-
                 </p>
             </div>
         </div>

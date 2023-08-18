@@ -1,22 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {AuthService} from "../../api/AuthService";
 import {Product} from "./ProductInterface";
+import './ProductDetails.css'
+import {formatPrice} from "../../utils/utils";
 
 
 function ProductDetails() {
-    const { id } = useParams<{ id: string }>();
+    const {id} = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | null>(null);
     const [cart, setCart] = useState<Product[]>([]);
     const userEmail = AuthService.getUserEmailFromToken();
+    const [quantity, setQuantity] = useState(0);
 
+    const decreaseQuantity = () => {
+        if (quantity > 0) {
+            setQuantity(quantity - 1);
+        }
+    };
+
+    const increaseQuantity = () => {
+        setQuantity(quantity + 1);
+    };
 
     const addToCart = () => {
-        if (product) {
+        if (product && quantity > 0) {
             const tokenString = localStorage.getItem('token');
             if (tokenString) {
-                const quantity = 1;
                 axios.post(`http://localhost:8080/api/cart/${userEmail}/${product.id}/${quantity}`)
                     .then(response => {
                         console.log('Product added to cart:', response.data);
@@ -28,7 +39,6 @@ function ProductDetails() {
             }
         }
     };
-
 
     useEffect(() => {
         axios.get(`http://localhost:8080/api/products/${id}`)
@@ -42,16 +52,54 @@ function ProductDetails() {
 
     return (
         <div>
-            <h1>Product Details</h1>
             {product && (
                 <>
-                    <h2>Name: {product.name}</h2>
-                    <p>Description: {product.description}</p>
-                    <p>Manufacturer: {product.manufacturer}</p>
-                    <p>Category: {product.category}</p>
-                    <p>Price: {product.price}</p>
-                    <img src={`data:image/jpeg;base64,${product.image}`} alt={product.name} width="300px" height="300px"/>
-                    <button onClick={addToCart}>Add to Cart</button>
+                    <div className="product-details-container">
+                        <div className="card-wrapper">
+                            <div className="card-grid">
+                                <div className="product-imgs">
+                                    <img className="img" src={`data:image/jpeg;base64,${product.image}`}
+                                         alt={product.name}
+                                         width="500px" height="500px"/>
+                                </div>
+                                <div className="product-details-content">
+                                    <div className="product-details-title">{product.name}</div>
+                                    <div className="product-details-price">
+                                        {formatPrice(product.price)}
+                                    </div>
+                                    <div>
+                                        <p className="product-detail-description">{product.description}</p>
+                                        <ul className="product-info-list">
+                                            <li className="product-info-item">Manufacturer :
+                                                <span> {product.manufacturer}</span>
+                                            </li>
+                                            <li className="product-info-item">Category :
+                                                <span> {product.category}</span>
+                                            </li>
+                                            <li className="product-info-item">Shipping Area :
+                                                <span> All over the world</span>
+                                            </li>
+                                            <li className="product-info-item">Shipping Fee :
+                                                <span> Free</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className="purchase-info-container">
+                                        <div className="product-quantity">
+                                            <div className="quantity-buttons-container">
+                                                <button onClick={decreaseQuantity} className="quantity-decrease">-</button>
+                                                <div className="quantity">{quantity}</div>
+                                                <button onClick={increaseQuantity} className="quantity-increase">+</button>
+                                            </div>
+                                        </div>
+                                        <div className="button-container">
+                                            <button onClick={addToCart} className="add-to-cart-button">ADD TO CART</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </>
             )}
         </div>
