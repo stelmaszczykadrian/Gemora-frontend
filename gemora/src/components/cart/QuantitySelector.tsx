@@ -1,29 +1,51 @@
 import React, {useState} from 'react';
-import './Cart.css'
+import './ShoppingCart.css'
+import axios from "axios";
 
-const QuantitySelector: React.FC = () => {
-    const [quantity, setQuantity] = useState<number>(1);
+interface QuantitySelectorProps {
+    quantity: number;
+    productId: number;
+}
 
-    const handleIncrease = () => {
-        setQuantity(quantity + 1);
+const QuantitySelector: React.FC<QuantitySelectorProps> = ({quantity, productId }) => {
+
+    const [localQuantity, setLocalQuantity] = useState(quantity);
+
+    const handleIncrease = async () => {
+        const newQuantity = localQuantity + 1;
+        setLocalQuantity(newQuantity);
+        await updateQuantity(newQuantity);
     };
 
-    const handleDecrease = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
+    const handleDecrease = async () => {
+        const newQuantity = localQuantity - 1;
+
+        if (newQuantity >= 1) {
+            setLocalQuantity(newQuantity);
+            await updateQuantity(newQuantity);
+        }
+    };
+
+    const updateQuantity = async (newQuantity: number) => {
+        try {
+            await axios.post('http://localhost:8080/api/cart/updateQuantity', {
+                productId,
+                newQuantity,
+            });
+
+        } catch (error) {
+            console.error('Error during quantity update:', error);
         }
     };
 
     return (
         <div className="d-flex align-items-center">
             <div className="cart-product-quantity">
-                <button onClick={() => handleDecrease()}>
-                    -
-                </button>
-                <div className="count">{quantity}</div>
-                <button onClick={() => handleIncrease()}>
-                    +
-                </button>
+                <div className="cart-quantity-buttons-container">
+                    <button className="cart-quantity-decrease" onClick={handleDecrease}>-</button>
+                    <div className="cart-quantity">{localQuantity}</div>
+                    <button className="cart-quantity-increase" onClick={handleIncrease}>+</button>
+                </div>
             </div>
         </div>
     );
