@@ -5,9 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FDF8F1 !important;
+  background-color: var(--main-bg) !important;
   --main-font: Montserrat, serif;
-  --main-bg: #FDF8F1;
+  --main-bg: whitesmoke;
 }
 
 code {

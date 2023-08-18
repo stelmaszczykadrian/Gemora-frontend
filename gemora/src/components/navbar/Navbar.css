@@ -1,9 +1,9 @@
 .navbar-bg {
-    background-color: #FDF8F1 !important;
+    background-color: var(--main-bg) !important;
 }
 
 .accordion-button {
-    background-color: #FDF8F1 !important;
+    background-color: var(--main-bg) !important;
     color: #333 !important;
     font-size: 30px !important;
     font-weight: bold;
@@ -64,6 +64,7 @@
 
 .navbar-bg {
     background-color: whitesmoke;
+    border-bottom: 1px solid #888;
 }
 
 .red-text {

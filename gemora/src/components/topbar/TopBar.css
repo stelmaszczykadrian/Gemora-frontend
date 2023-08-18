@@ -1,5 +1,5 @@
 .info-top-bar {
-    background-color: #FDF8F1;
+    background-color: var(--main-bg) !important;
     border-bottom: 1px solid #888;
 }
 

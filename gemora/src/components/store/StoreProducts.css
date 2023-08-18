@@ -1,7 +1,6 @@
 .products-bg {
-    background-color: #FDF8F1 !important;
+    background-color: var(--main-bg) !important;
 }
-
 
 .customLink {
     text-decoration: none;
