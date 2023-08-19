@@ -1,20 +1,21 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter} from "react-router-dom";
+
 
 import Layout from "./components/Layout";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {AppRouter} from "./router/App.router";
+import {UserContextProvider} from "./context/UserContext";
 
 
 function App() {
     return (
-        <BrowserRouter>
+        <UserContextProvider>
             <Layout>
                 <AppRouter/>
             </Layout>
-        </BrowserRouter>
+        </UserContextProvider>
     );
 }
 
