@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import './ShoppingCart.css'
 import axios from "axios";
+import UserContext from "../../context/UserContext";
+import {BaseUrl} from "../../constants/constants";
 
 interface QuantitySelectorProps {
     quantity: number;
@@ -10,6 +12,7 @@ interface QuantitySelectorProps {
 const QuantitySelector: React.FC<QuantitySelectorProps> = ({quantity, productId }) => {
 
     const [localQuantity, setLocalQuantity] = useState(quantity);
+    const { currentUser} = useContext(UserContext);
 
     const handleIncrease = async () => {
         const newQuantity = localQuantity + 1;
@@ -19,8 +22,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({quantity, productId 
 
     const handleDecrease = async () => {
         const newQuantity = localQuantity - 1;
-
-        if (newQuantity >= 1) {
+        if (newQuantity > 0) {
             setLocalQuantity(newQuantity);
             await updateQuantity(newQuantity);
         }
@@ -28,9 +30,10 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({quantity, productId 
 
     const updateQuantity = async (newQuantity: number) => {
         try {
-            await axios.post('http://localhost:8080/api/cart/updateQuantity', {
+            await axios.post(`${BaseUrl}/api/cart/updateQuantity`, {
                 productId,
                 newQuantity,
+                userId: currentUser?.id
             });
 
         } catch (error) {
