@@ -10,6 +10,7 @@ const ProfileOffcanvas: React.FC<ProfileOffcanvasProps> = ({ show, onHide }) => 
 
     const handleLogout = () => {
         localStorage.removeItem('token');
+        window.location.reload();
     };
 
 
