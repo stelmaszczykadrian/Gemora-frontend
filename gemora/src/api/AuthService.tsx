@@ -12,9 +12,7 @@ export class AuthService {
             try {
                 const tokenData: TokenData = JSON.parse(tokenString);
                 const decodedAccessToken: any = jwtDecode(tokenData.access_token);
-                const userEmail = decodedAccessToken.sub;
-                // console.log('User email:', userEmail);
-                return userEmail;
+                return decodedAccessToken.sub;
             } catch (error) {
                 console.error('Error decoding token:', error);
             }

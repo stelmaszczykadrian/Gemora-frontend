@@ -3,6 +3,7 @@ import {Formik, Form, Field, ErrorMessage, FormikHelpers} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import {BaseUrl} from "../../constants/constants";
 
 interface FormValues {
     firstname: string;
@@ -34,7 +35,7 @@ const Register = () => {
     ) => {
         console.log(values); //async await zamiast then i catcha
         axios
-            .post('http://localhost:8080/api/v1/auth/register', values)
+            .post(`${BaseUrl}/api/v1/auth/register`, values)
             .then((response) => {
                 console.log('Response from backend:', response.data);
                 navigate('/');

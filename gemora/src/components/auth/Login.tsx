@@ -3,6 +3,7 @@ import {ErrorMessage, Field, Form, Formik, FormikHelpers} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import {BaseUrl} from "../../constants/constants";
 
 interface FormValues {
     email: string;
@@ -28,7 +29,7 @@ const Login = () => {
     ) => {
         console.log(values);
         axios
-            .post('http://localhost:8080/api/v1/auth/authenticate', values)
+            .post(`${BaseUrl}/api/v1/auth/authenticate`, values)
             .then((response) => {
                 console.log('Response from backend:', response.data);
 
