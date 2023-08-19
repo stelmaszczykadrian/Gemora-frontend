@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { Offcanvas } from "react-bootstrap";
 import axios from "axios";
-import { AuthService } from "../../api/AuthService";
+
 import { Product } from "../product/ProductInterface";
 import { fetchProductsFromApi } from "../../api/ProductApi";
 import "./ShoppingCart.css";
 import CartItem from "./CartItem";
 import { formatPrice } from "../../utils/utils";
+import UserContext from "../../context/UserContext";
+import {BaseUrl} from "../../constants/constants";
 
 interface CartItem {
     productId: number;
@@ -18,20 +20,23 @@ export interface CartOffcanvasProps {
     onHide: () => void;
 }
 
+
 const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
     const [productsFromDatabase, setProductsFromDatabase] = useState<Product[]>([]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [productQuantity, setProductQuantity] = useState<number[]>([]);
-    const userEmail = AuthService.getUserEmailFromToken();
+    const { currentUser} = useContext(UserContext);
+
+    console.log(currentUser)
 
     useEffect(() => {
         const fetchDataFromDatabase = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/cart/${userEmail}`);
+                const response = await axios.get(`${BaseUrl}/api/cart/${currentUser?.email}`);
                 const cartItems = response.data as CartItem[];
-
                 const productIds = cartItems.map(item => item.productId);
                 const products = await fetchProductsFromApi(productIds);
+
                 setProductsFromDatabase(products);
 
                 const total = products.reduce((acc, product) => acc + product.price, 0);
@@ -44,13 +49,13 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
             }
         };
 
-        if (userEmail) {
+        if (currentUser?.email) {
             fetchDataFromDatabase();
         } else {
             setProductsFromDatabase([]);
             setTotalPrice(0);
         }
-    }, [userEmail]);
+    }, [currentUser?.email]);
 
     return (
         <Offcanvas show={show} onHide={onHide} placement="end">
