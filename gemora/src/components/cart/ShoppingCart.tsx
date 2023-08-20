@@ -1,14 +1,15 @@
 import React, {useState, useEffect, useContext} from "react";
-import { Offcanvas } from "react-bootstrap";
+import {Offcanvas} from "react-bootstrap";
 import axios from "axios";
 
-import { Product } from "../product/ProductInterface";
-import { fetchProductsFromApi } from "../../api/ProductApi";
+import {Product} from "../product/ProductInterface";
+import {fetchProductsFromApi} from "../../api/ProductApi";
 import "./ShoppingCart.css";
 import CartItem from "./CartItem";
-import { formatPrice } from "../../utils/utils";
+import {formatPrice} from "../../utils/utils";
 import UserContext from "../../context/UserContext";
 import {BaseUrl} from "../../constants/constants";
+import EmptyCartImg from "../../assets/empty-cart.jpg";
 
 interface CartItem {
     productId: number;
@@ -21,11 +22,13 @@ export interface CartOffcanvasProps {
 }
 
 
-const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
+const ShoppingCart: React.FC<CartOffcanvasProps> = ({show, onHide}) => {
     const [productsFromDatabase, setProductsFromDatabase] = useState<Product[]>([]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [productQuantity, setProductQuantity] = useState<number[]>([]);
-    const { currentUser} = useContext(UserContext);
+    const {currentUser} = useContext(UserContext);
+    const [quantity] = useState<number>(0);
+
 
     console.log(currentUser)
 
@@ -60,7 +63,7 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
     return (
         <Offcanvas show={show} onHide={onHide} placement="end">
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title />
+                <Offcanvas.Title>Shopping Cart({quantity})</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className="offcanvas-body">
                 <div className="container">
@@ -68,11 +71,14 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
                         {productsFromDatabase.length > 0 ? (
                             <div className="row">
                                 {productsFromDatabase.map((item, index) => (
-                                    <CartItem key={item.id} item={item} quantity={productQuantity[index]} />
+                                    <CartItem key={item.id} item={item} quantity={productQuantity[index]}/>
                                 ))}
                             </div>
                         ) : (
-                            <div className="empty-cart-message">This cart is empty.</div>
+                            <div className="empty-cart-container">
+                                <img src={EmptyCartImg} alt="empty-cart"/>
+                                <p className="empty-cart-message">Your cart is empty</p>
+                            </div>
                         )}
                     </div>
                 </div>

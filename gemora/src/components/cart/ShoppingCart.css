@@ -127,3 +127,18 @@
     color: white;
     border: none;
 }
+
+/* Styles for Empty cart */
+.empty-cart-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 10rem;
+    margin: 10rem auto;
+}
+
+.empty-cart-message{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
