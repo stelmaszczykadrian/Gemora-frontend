@@ -1,64 +1,48 @@
-import React, {useState, useEffect, useContext} from "react";
-import {Offcanvas} from "react-bootstrap";
-import axios from "axios";
+import React, {useCallback, useContext, useMemo, useState} from "react";
+import { Offcanvas } from "react-bootstrap";
 
-import {Product} from "../product/ProductInterface";
-import {fetchProductsFromApi} from "../../api/ProductApi";
 import "./ShoppingCart.css";
 import CartItem from "./CartItem";
-import {formatPrice} from "../../utils/utils";
-import UserContext from "../../context/UserContext";
-import {BaseUrl} from "../../constants/constants";
+import {formatPrice, groupBy} from "../../utils/utils";
 import EmptyCartImg from "../../assets/empty-cart.jpg";
-
-interface CartItem {
-    productId: number;
-    quantity: number;
-}
+import CartContext from "../../context/CartContext";
 
 export interface CartOffcanvasProps {
     show: boolean;
     onHide: () => void;
 }
 
-
-const ShoppingCart: React.FC<CartOffcanvasProps> = ({show, onHide}) => {
-    const [productsFromDatabase, setProductsFromDatabase] = useState<Product[]>([]);
+const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
+    const { products, addProduct, removeProduct } = useContext(CartContext);
     const [totalPrice, setTotalPrice] = useState<number>(0);
-    const [productQuantity, setProductQuantity] = useState<number[]>([]);
-    const {currentUser} = useContext(UserContext);
     const [quantity] = useState<number>(0);
 
 
-    console.log(currentUser)
+    const groupItems = useCallback(() => {
+        const grouped = groupBy(products, (product) => product.id);
 
-    useEffect(() => {
-        const fetchDataFromDatabase = async () => {
-            try {
-                const response = await axios.get(`${BaseUrl}/api/cart/${currentUser?.email}`);
-                const cartItems = response.data as CartItem[];
-                const productIds = cartItems.map(item => item.productId);
-                const products = await fetchProductsFromApi(productIds);
+        const result = [];
 
-                setProductsFromDatabase(products);
-
-                const total = products.reduce((acc, product) => acc + product.price, 0);
-                setTotalPrice(total);
-
-                const productQuantityArray = cartItems.map(item => item.quantity);
-                setProductQuantity(productQuantityArray);
-            } catch (error) {
-                console.error("Error while retrieving data from the database:", error);
-            }
-        };
-
-        if (currentUser?.email) {
-            fetchDataFromDatabase();
-        } else {
-            setProductsFromDatabase([]);
-            setTotalPrice(0);
+        for (const key in grouped) {
+            result.push({
+                items: grouped[key],
+                amount: grouped[key].length,
+                totalPrice: grouped[key].reduce(
+                    (partialSum, product) => partialSum + product.price,
+                    0
+                ),
+            });
         }
-    }, [currentUser?.email]);
+        if(result.length > 0){
+            setTotalPrice(result[0].totalPrice)
+        }
+
+
+        return result;
+    }, [products]);
+
+    const groupedItems = useMemo(() => groupItems(), [groupItems]);
+
 
     return (
         <Offcanvas show={show} onHide={onHide} placement="end">
@@ -68,10 +52,11 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({show, onHide}) => {
             <Offcanvas.Body className="offcanvas-body">
                 <div className="container">
                     <div className="cart-container">
-                        {productsFromDatabase.length > 0 ? (
+                        {products.length > 0 ? (
                             <div className="row">
-                                {productsFromDatabase.map((item, index) => (
-                                    <CartItem key={item.id} item={item} quantity={productQuantity[index]}/>
+                                {groupedItems.map((item, index) => (
+                                    <CartItem key={item.items[0].id} item={item.items[0]} quantity={item.amount}
+                                    />
                                 ))}
                             </div>
                         ) : (
@@ -83,7 +68,7 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({show, onHide}) => {
                     </div>
                 </div>
             </Offcanvas.Body>
-            {productsFromDatabase.length > 0 && (
+            {groupedItems.length > 0 && (
                 <div className="offcanvas-end-container">
                     <div className="order-summary">
                         GRAND TOTAL:
