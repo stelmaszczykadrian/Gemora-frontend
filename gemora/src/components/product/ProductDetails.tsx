@@ -4,16 +4,15 @@ import {useParams} from 'react-router-dom';
 import {Product} from "./ProductInterface";
 import './ProductDetails.css'
 import {formatPrice} from "../../utils/utils";
-import UserContext from "../../context/UserContext";
 import {BaseUrl} from "../../constants/constants";
+import CartContext from "../../context/CartContext";
 
 
 function ProductDetails() {
     const {id} = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | null>(null);
-    const [cart, setCart] = useState<Product[]>([]);
-    const { currentUser} = useContext(UserContext);
     const [quantity, setQuantity] = useState(0);
+    const { addProduct} = useContext(CartContext);
 
     const decreaseQuantity = () => {
         if (quantity > 0) {
@@ -23,22 +22,6 @@ function ProductDetails() {
 
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
-    };
-
-    const addToCart = () => {
-        if (product && quantity > 0) {
-            const tokenString = localStorage.getItem('token');
-            if (tokenString) {
-                axios.post(`${BaseUrl}/api/cart/${currentUser?.email}/${product.id}/${quantity}`)
-                    .then(response => {
-                        console.log('Product added to cart:', response.data);
-                        setCart([...cart, product]);
-                    })
-                    .catch(error => {
-                        console.error('Error adding product to cart:', error);
-                    });
-            }
-        }
     };
 
     useEffect(() => {
@@ -94,7 +77,7 @@ function ProductDetails() {
                                             </div>
                                         </div>
                                         <div className="button-container">
-                                            <button onClick={addToCart} className="add-to-cart-button">ADD TO CART</button>
+                                            <button onClick={() => addProduct(product)} className="add-to-cart-button">ADD TO CART</button>
                                         </div>
                                     </div>
                                 </div>
@@ -108,4 +91,5 @@ function ProductDetails() {
 }
 
 export default ProductDetails;
+
 
