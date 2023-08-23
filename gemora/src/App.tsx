@@ -7,14 +7,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {AppRouter} from "./router/App.router";
 import {UserContextProvider} from "./context/UserContext";
+import {CartContextProvider} from "./context/CartContext";
 
 
 function App() {
     return (
         <UserContextProvider>
-            <Layout>
-                <AppRouter/>
-            </Layout>
+            <CartContextProvider>
+                <Layout>
+                    <AppRouter/>
+                </Layout>
+            </CartContextProvider>
         </UserContextProvider>
     );
 }
