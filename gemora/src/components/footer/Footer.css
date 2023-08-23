@@ -1,3 +1,78 @@
-.footer-bg {
-    background-color: var(--main-bg);
+.footer-container {
+    padding: 2rem 0;
+    margin-top: 0.5rem;
+    background-color: #30373e;
 }
+
+.first-column-title {
+    font-weight: 700;
+    font-family: cursive;
+    letter-spacing: 2px;
+    padding: 0.5rem 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.first-column-description {
+    padding: 0rem 5rem 0.8rem 0;
+    font-weight: 500;
+    color: #b2b2b2;
+}
+
+.footer-nav {
+    list-style: none;
+    padding-left: 0;
+}
+
+.third-column-title,
+.second-column-title {
+    color: #ffffff;
+}
+
+.footer-nav-item {
+    padding: 0.35rem 0;
+    font-weight: 500;
+}
+
+.footer-nav-link {
+    text-decoration: none;
+    color: #b2b2b2;
+}
+.footer-email a:hover,
+.footer-second-column ul a:hover {
+    color: #daa14c;
+}
+
+.footer-third-column p {
+    font-weight: 500;
+    padding: 0.1rem 0;
+    color: #b2b2b2;
+}
+
+.footer-third-column i {
+    padding-right: 0.5rem;
+
+}
+
+.footer-icon {
+    color: #daa14c;
+}
+
+.footer-divider {
+    background-color: #daa14c;
+    height: 3px;
+    width: 40px;
+    display: inline-block;
+}
+
+.footer-second-row {
+    background-color: #30373e;
+    font-weight: 600;
+    color: #b2b2b2;
+    text-align: center;
+    justify-content: center;
+    border-top: 0.5px solid #b2b2b2;
+    padding: 10px;
+}
+
