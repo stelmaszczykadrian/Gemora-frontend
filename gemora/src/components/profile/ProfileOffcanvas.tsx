@@ -13,6 +13,11 @@ const ProfileOffcanvas: React.FC<ProfileOffcanvasProps> = ({ show, onHide }) => 
         window.location.reload();
     };
 
+    const handleClean = () => {
+        localStorage.removeItem('cart');
+        window.location.reload();
+    };
+
 
     return (
         <Offcanvas show={show} onHide={onHide} placement="end">
@@ -21,6 +26,7 @@ const ProfileOffcanvas: React.FC<ProfileOffcanvasProps> = ({ show, onHide }) => 
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <Button onClick={handleLogout}>Logout</Button>
+                <Button onClick={handleClean}>Czyść Koszyk</Button>
             </Offcanvas.Body>
         </Offcanvas>
     );
