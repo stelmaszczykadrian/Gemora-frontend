@@ -15,7 +15,7 @@ const ProfileButton: FC<ProfileButtonProps> = ({ handleShow }) => (
             position: 'relative',
             marginLeft: '3%',
         }}
-        variant="outline-dark"
+        variant="outline-light"
         className="rounded-circle"
         onClick={handleShow}
     >

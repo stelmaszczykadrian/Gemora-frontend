@@ -15,7 +15,7 @@ const CartButton: FC<CartButtonProps> = ({ itemCount ,handleShow}) => (
             position: 'relative',
             marginLeft: '3%',
         }}
-        variant="outline-dark"
+        variant="outline-light"
         className="rounded-circle"
         onClick={handleShow}
     >

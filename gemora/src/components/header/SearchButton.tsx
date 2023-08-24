@@ -14,7 +14,7 @@ const SearchButton: FC<SearchButtonProps> = ({ handleShow }) => (
             position: 'relative',
             marginLeft: 'auto',
         }}
-        variant="outline-dark"
+        variant="outline-light"
         className="rounded-circle"
         onClick={handleShow}
     >
