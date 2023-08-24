@@ -1,0 +1,102 @@
+/* Styles for Recommended single item */
+a {
+    text-decoration: none;
+}
+
+.recommended-product-item {
+    outline: 2px solid rgba(0, 0, 0, .205);
+    cursor: pointer;
+    transition: all 0.15s ease-in;
+}
+
+.recommended-product-item:hover {
+    outline: 2px solid rgba(0, 0, 0, .6);
+}
+
+
+.recommended-product-image {
+    width: 21rem;
+}
+
+.recommended-product-price,
+.recommended-product-name {
+    color: black;
+    text-align: center;
+}
+
+.recommended-product-description {
+    font-size: 1.7rem;
+    padding: 1rem;
+}
+
+.recommended-product-item {
+    display: flex;
+}
+
+/* Styles for Recommended Slider */
+.recommended-slider-container {
+    padding-bottom: 1rem;
+}
+
+.recommended-slider-header {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.slider-divider {
+    background-color: #daa14c;
+    height: 3px;
+    width: 40px;
+    margin-top: 5px;
+}
+
+.slider-container {
+    display: flex;
+    gap: 2.2rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    position: relative;
+    padding: 1rem .6rem;
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.buttons-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1.2rem !important;
+}
+
+.slider-buttons {
+    display: flex;
+    gap: .4rem;
+}
+
+.slider-buttons button {
+    color: white;
+    background-color: #373737;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+
+
+.slider-buttons button:hover {
+    background-color: black;
+}
