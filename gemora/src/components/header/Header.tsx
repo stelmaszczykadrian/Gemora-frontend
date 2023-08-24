@@ -1,5 +1,5 @@
 import './Header.css'
-import gemoraLogo from '../../assets/Gemorasmall.jpg';
+import gemoraLogo from '../../assets/GemoraLogo.jpg';
 
 import React, {useState} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
