@@ -1,3 +1,4 @@
+/* Styles for Banner */
 .banner-container {
     display: flex;
     justify-content: space-between;
@@ -16,7 +17,7 @@
 }
 
 .banner {
-    padding-bottom: 10rem;
+    padding-bottom: 3rem;
 }
 
 .text {
@@ -46,9 +47,25 @@
 }
 
 .img-side {
+    position: relative;
     width: 50%;
-    text-align: end;
-    background-color: #E9E9E9;
+    height: 100%;
+}
+
+.img-side::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.img-side:hover::before {
+    opacity: 1;
 }
 
 .img-side img {
@@ -75,6 +92,7 @@
     color: black;
 }
 
+/* Media query */
 @media (max-width:750px) {
     .shop-button {
         margin-top: 0.5rem;
