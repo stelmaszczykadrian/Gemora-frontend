@@ -1,0 +1,29 @@
+/* Styles for Logos Gallery */
+.scale-element {
+    filter: grayscale(80%);
+    transition: all 0.5s;
+}
+
+.scale-element:hover {
+    filter: grayscale(0%);
+}
+
+.scale-element {
+    transition: all 0.3s;
+}
+
+.logos-container {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 32px;
+    border-bottom: 1px solid #64646438;
+    padding-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.logo-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px;
+}
