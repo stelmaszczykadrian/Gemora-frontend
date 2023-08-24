@@ -1,9 +1,9 @@
 .info-top-bar {
-    background-color: var(--main-bg) !important;
-    border-bottom: 1px solid #888;
+    background-color: #30373e !important;
+    border-bottom: 1px solid whitesmoke;
 }
 
 .customLink {
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
 }

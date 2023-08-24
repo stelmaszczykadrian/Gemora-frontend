@@ -12,12 +12,12 @@ const TopBar = () => {
             <Container fluid>
                 <Row className="align-items-center">
                     {/* Column with mail icon */}
-                    <Col xs={4} style={{borderRight: "1px solid #888"}}>
+                    <Col xs={4} style={{borderRight: "1px solid whitesmoke"}}>
                         <img src={mailIcon} alt="Email Icon" style={{marginRight: "8px"}}/>
-                        <span className="d-none d-md-inline">gemora@contact.pl</span>
+                        <span className="d-none d-md-inline" style={{color: 'whitesmoke'}}>gemora@contact.pl</span>
                     </Col>
                     {/* Column with Sign In icon */}
-                    <Col xs={4} style={{borderRight: "1px solid #888"}}>
+                    <Col xs={4} style={{borderRight: "1px solid whitesmoke"}}>
                         <Link to="/login" className="customLink">
                             <img src={signInIcon} alt="SignIn Icon" style={{marginRight: "8px"}}/>
                             <span className="d-none d-md-inline">Sign In</span>
