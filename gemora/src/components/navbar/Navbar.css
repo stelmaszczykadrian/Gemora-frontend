@@ -1,21 +1,21 @@
+/* Styles for Navbar */
 .navbar-bg {
-    background-color: var(--main-bg) !important;
+    background-color: white !important;
+    border-bottom: 1px solid #30373e;
 }
 
 .accordion-button {
-    background-color: var(--main-bg) !important;
-    color: #333 !important;
-    font-size: 30px !important;
+    background-color: white !important;
+    color: black !important;
+    font-size: 20px !important;
+    font-family: Blinker, sans-serif;
     font-weight: bold;
-    padding: 10px 20px !important;
-    margin: 5px !important;
-    border-radius: 5px !important;
+    padding: 0px 30px !important;
     cursor: pointer !important;
     transition: background-color 0.3s ease !important;
     position: relative;
     overflow: hidden;
 }
-
 
 .accordion-button::before {
     content: '';
@@ -24,7 +24,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #555;
+    background-color: #daa14c;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -42,34 +42,8 @@
     background-color: #eaeaea;
 }
 
-.nav-link {
-    font-size: 16px;
-    color: #555;
-    margin: 5px;
-    padding: 5px 0;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #333;
-}
-
 .me-auto {
     margin: auto;
-    display: flex;
-    justify-content: center;
 }
-
-
-.navbar-bg {
-    background-color: whitesmoke;
-    border-bottom: 1px solid #888;
-}
-
-.red-text {
-    color: red !important;
-}
-
 
 
