@@ -1,6 +1,6 @@
 /* Styles for Newsletter */
 .newsletter-container {
-    background-color: #fcf5f5;
+    background-color: #ded5c3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,32 +10,34 @@
 .newsletter-title {
     font-size: 45px;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 2%;
     text-align: center;
+    color: #30373e;
 }
 
 .newsletter-description {
     font-size: 22px;
     font-weight: 300;
-    margin-bottom: 25px;
+    margin-bottom: 2%;
     text-align: center;
+    color: #30373e;
 }
 
 .newsletter-input-container {
-    width: 50%;
-    height: 40px;
+    width: 40%;
+    height: 50px;
     background-color: white;
     display: flex;
     justify-content: space-between;
     border: 1px solid lightgray;
     border-radius: 5px;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 3%;
 }
 
 .newsletter-input {
     border: none;
-    flex: 8;
+    flex: 5;
     padding-left: 20px;
     width: 100%;
 }
@@ -43,7 +45,37 @@
 .newsletter-button {
     flex: 1;
     border: none;
-    background-color: teal;
+    background-color: #30373e;
     color: white;
     font-size: 1rem;
+}
+
+
+
+@media screen and (max-width: 1324px) {
+    .newsletter-container {
+        width: 100%;
+    }
+
+    .newsletter-title {
+        font-size: 20px;
+    }
+
+    .newsletter-description {
+        font-size: 15px;
+    }
+
+    .newsletter-input-container {
+        width: 80%;
+        height: 40px;
+    }
+
+    .newsletter-input {
+        width: 100%;
+    }
+
+    .newsletter-button {
+        width: 100%;
+        font-size: 12px;
+    }
 }
