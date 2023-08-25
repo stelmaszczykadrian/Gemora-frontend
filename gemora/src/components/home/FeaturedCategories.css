@@ -1,10 +1,8 @@
 /* Grid container for featured categories */
 .grid-container {
     display: grid;
-    height: 30rem;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: 'one two four' 'one two four-low';
     gap: 1.3rem;
     margin-top: 1.3rem;
 }
@@ -19,12 +17,14 @@
 /* Styling for category descriptions */
 .category-description {
     position: absolute;
-    bottom: 0rem;
-    left: 1rem;
-    color: white;
+    top: 5px;
+    left: 0;
+    right: 0;
+    color: #30373e;
     font-size: 1.8rem;
     font-weight: 600;
-    font-family: var(--main-font);
+    font-family: Blinker, serif;
+    text-align: center;
 }
 
 /* Styling for category images */
@@ -32,33 +32,9 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: 50% 90%;
 }
 
-/* Special styling for earrings category image */
-.category-img-earrings {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: 60% 100%;
-}
 
-/* Assigning grid areas to specific category classes */
-.engagement {
-    grid-area: one;
-}
-
-.earrings {
-    grid-area: two;
-}
-
-.necklaces {
-    grid-area: four;
-}
-
-.rings {
-    grid-area: four-low;
-}
 
 /* Styling for category overlays */
 .category-overlay {
@@ -67,7 +43,6 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in;
 }
 
@@ -76,7 +51,7 @@
 #earrings:hover,
 #necklaces:hover,
 #rings:hover {
-    background-color: rgba(0, 0, 0, 0.5) !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Media query for smaller screens (max-width: 750px) */
@@ -99,7 +74,7 @@
     .category-description {
         bottom: 1rem;
         left: 1rem;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }
 

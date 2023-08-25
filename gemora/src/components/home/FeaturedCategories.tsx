@@ -2,10 +2,12 @@ import React from "react";
 import {Link} from "react-router-dom";
 import './FeaturedCategories.css'
 
-import engagementRingImage from "../../assets/images/engagement-ring.jpg";
-import earringsImage from "../../assets/images/earrings.jpg";
-import necklaceImage from "../../assets/images/necklace.jpg";
-import goldenRingImage from "../../assets/images/golden-ring.jpg";
+import engagementRing from "../../assets/categories/engagement-rings.jpg";
+import bracelets from "../../assets/categories/bracelets.jpg";
+import pendants from "../../assets/categories/pendants.jpg";
+import rings from "../../assets/categories/rings.jpg";
+import earrings from "../../assets/categories/earrings.jpg";
+import gemstones from "../../assets/categories/gemstones.jpg";
 
 const FeaturedCategories = () => {
     return (
@@ -13,32 +15,46 @@ const FeaturedCategories = () => {
             <div>
                 <div className="container">
                     <div className="grid-container">
-                        <div className="featured-category engagement">
-                            <Link to="categories/engagement">
-                                <div id="engagement-ring" className="category-overlay"></div>
-                                <img className="category-img" src={engagementRingImage} alt="Engagement Ring"/>
-                                <p className="category-description">Engagement</p>
+                        <div className="featured-category">
+                            <Link to="categories/rings">
+                                <div id="rings" className="category-overlay"></div>
+                                <img className="category-img" src={engagementRing} alt="Engagement rings"/>
+                                <p className="category-description">Engagements</p>
                             </Link>
                         </div>
-                        <div className="featured-category earrings">
-                            <Link to="categories/earrings">
-                                <div id="earrings" className="category-overlay"></div>
-                                <img className="category-img-earrings" src={earringsImage} alt="Earrings"/>
+                        <div className="featured-category">
+                            <Link to="categories/rings">
+                                <div id="rings" className="category-overlay"></div>
+                                <img className="category-img" src={earrings} alt="Earrings"/>
                                 <p className="category-description">Earrings</p>
                             </Link>
                         </div>
-                        <div className="featured-category necklaces">
+                        <div className="featured-category">
                             <Link to="categories/necklaces">
-                                <div id="necklaces" className="category-overlay"></div>
-                                <img className="category-img" src={necklaceImage} alt="Necklace"/>
+                                <div id="rings" className="category-overlay"></div>
+                                <img className="category-img" src={pendants} alt="Pendants"/>
                                 <p className="category-description">Necklaces</p>
                             </Link>
                         </div>
-                        <div className="featured-category rings">
+                        <div className="featured-category">
                             <Link to="categories/rings">
                                 <div id="rings" className="category-overlay"></div>
-                                <img className="category-img" src={goldenRingImage} alt="Golden Ring"/>
+                                <img className="category-img" src={rings} alt="Rings"/>
                                 <p className="category-description">Rings</p>
+                            </Link>
+                        </div>
+                        <div className="featured-category">
+                            <Link to="categories/rings">
+                                <div id="rings" className="category-overlay"></div>
+                                <img className="category-img" src={bracelets} alt="Bracelets"/>
+                                <p className="category-description">Bracelets</p>
+                            </Link>
+                        </div>
+                        <div className="featured-category">
+                            <Link to="categories/rings">
+                                <div id="rings" className="category-overlay"></div>
+                                <img className="category-img" src={gemstones} alt="Gemstones"/>
+                                <p className="category-description">Gemstones</p>
                             </Link>
                         </div>
                     </div>
