@@ -33,8 +33,14 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
                 ),
             });
         }
+
+
         if(result.length > 0){
-            setTotalPrice(result[0].totalPrice)
+            let totalPrice = 0;
+            result.forEach((element) =>{
+                totalPrice += element.totalPrice
+            })
+            setTotalPrice(totalPrice);
         }
 
 
@@ -54,7 +60,7 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
                     <div className="cart-container">
                         {products.length > 0 ? (
                             <div className="row">
-                                {groupedItems.map((item, index) => (
+                                {groupedItems.map((item) => (
                                     <CartItem key={item.items[0].id} item={item.items[0]} quantity={item.amount}
                                     />
                                 ))}

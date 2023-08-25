@@ -42,7 +42,7 @@ const Header: React.FC = () => {
                         <div className="container mt-4">
                             <SearchButton handleShow={handleShowSearchOffcanvas}/>
                             <ProfileButton handleShow={handleShowProfileOffcanvas}/>
-                            <CartButton handleShow={handleShowCartOffcanvas} itemCount={0}/>
+                            <CartButton handleShow={handleShowCartOffcanvas}/>
                             <ShoppingCart show={showCartOffcanvas} onHide={handleCloseCartOffcanvas}/>
                             <ProfileOffcanvas show={showProfileOffcanvas} onHide={handleCloseProfileOffcanvas}/>
                         </div>
