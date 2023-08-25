@@ -1,5 +1,6 @@
 import "./ProductItem.css";
 import React from "react";
+import {formatPrice} from "../../utils/utils";
 
 interface ProductProps {
     name: string;
@@ -21,7 +22,9 @@ const ProductItem: React.FC<ProductProps> = ({name, price, imageUrl}) => {
                 </div>
                 <div className="product-details">
                     <p>{name}</p>
-                    <p className="product-item-price ">{price}$</p>
+                    <p className="product-item-price ">
+                        {formatPrice(price)}
+                    </p>
                 </div>
             </div>
         </>

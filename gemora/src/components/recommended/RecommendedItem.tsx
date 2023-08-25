@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./RecommendedSlider.css";
 import React, {useEffect, useState} from "react";
 import {fetchProductDataFromApi} from "../../api/ProductApi";
+import {formatPrice} from "../../utils/utils";
 
 function RecommendedItem() {
 
@@ -30,7 +31,9 @@ function RecommendedItem() {
                         </div>
                         <div className="recommended-product-description">
                             <p className="recommended-product-name">{item.name}</p>
-                            <p className="recommended-product-price">{item.price}$</p>
+                            <p className="recommended-product-price">
+                                {formatPrice(item.price)}
+                            </p>
                         </div>
                     </Link>
                 </div>
