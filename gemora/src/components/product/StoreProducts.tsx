@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import './StoreProducts.css';
 import {fetchProductDataFromApi} from "../../api/ProductApi";
 import {Link} from "react-router-dom";
-import Product from "../product/Product";
+import ProductItem from "./ProductItem";
 
 const StoreProducts: React.FC = () => {
     const [products, setProducts] = useState<any[]>([]);
@@ -20,12 +20,11 @@ const StoreProducts: React.FC = () => {
             <div className="container">
                 <div className="store-products-grid">
                     {products.map((product) => (
-                        <div key={product.id} className="product-container">
+                        <div key={product.id} className="container">
                             <Link
-                                className="product-link"
                                 to={`/product/${product.id}`}
                             >
-                                <Product
+                                <ProductItem
                                     key={product.id}
                                     name={product.name}
                                     price={product.price}
