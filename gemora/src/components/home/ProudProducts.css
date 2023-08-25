@@ -1,0 +1,34 @@
+/* Styles for Proud products */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.proud-products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+/* queries */
+@media (max-width:750px) {
+    .proud-products-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width:600px) {
+    .proud-products-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width:430px) {
+    .proud-products-grid {
+        grid-template-columns: 1fr;
+    }
+}
