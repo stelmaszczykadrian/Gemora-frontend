@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "../components/home/Home";
 import ProductDetails from "../components/product/ProductDetails";
 import Login from "../components/auth/Login";
-import StoreProducts from "../components/store/StoreProducts";
+import StoreProducts from "../components/product/StoreProducts";
 import Contact from "../components/contact/Contact";
 import NoPage from "../components/NoPage";
 import Register from "../components/auth/Register";
