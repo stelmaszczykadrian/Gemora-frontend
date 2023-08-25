@@ -11,9 +11,6 @@ const CustomNavbar: React.FC = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/">
-                                <button className="accordion-button">Home</button>
-                            </Nav.Link>
                             <Nav.Link href="/store">
                                 <button className="accordion-button">Products</button>
                             </Nav.Link>
