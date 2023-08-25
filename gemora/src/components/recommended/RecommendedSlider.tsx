@@ -23,11 +23,6 @@ function RecommendedSlider() {
         <div className="recommended-slider-container">
             <div className="container">
                 <div className="buttons-header">
-                    <div className="recommended-slider-header">
-                        Special Products
-                        <p className="slider-divider"></p>
-                    </div>
-
                     <div className="slider-buttons">
                         <button title="scroll left" onClick={slideLeft}>
                             <i><FontAwesomeIcon icon={faArrowLeft}/></i>
@@ -37,7 +32,7 @@ function RecommendedSlider() {
                         </button>
                     </div>
                 </div>
-                <div className="slider-container" id="slider">
+                <div className="row-container" id="slider">
                     <RecommendedItem />
                 </div>
             </div>
