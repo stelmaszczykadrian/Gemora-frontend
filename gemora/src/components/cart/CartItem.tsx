@@ -11,18 +11,18 @@ interface CartItemProps {
 
 const CartItem: React.FC<CartItemProps> = ({item,quantity}) => {
     return (
-        <div className="col-md-12 col-md-12 product-container">
-            <div className="product-item">
+        <div className="col-md-12 col-md-12 cart-product-container">
+            <div className="cart-product-item">
                 <img
                     src={`data:image/jpeg;base64,${item.image}`}
                     alt={item.name}
-                    className="img-fluid product-image"
+                    className="img-fluid cart-product-image"
                 />
-                <div className="product-details">
-                    <div className="product-name">{item.name}</div>
-                    <div className="product-info">
+                <div className="cart-product-details">
+                    <div className="cart-product-name">{item.name}</div>
+                    <div className="cart-product-info">
                         <QuantitySelector productId={item.id} quantity={quantity}/>
-                        <div className="product-price">
+                        <div className="cart-product-price">
                             {formatPrice(item.price)}
                         </div>
                     </div>
