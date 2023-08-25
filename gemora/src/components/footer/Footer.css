@@ -1,7 +1,6 @@
 /* Styles for Footer */
 .footer-container {
-    padding: 2rem 0;
-    margin-top: 0.5rem;
+    padding: 1rem 0;
     background-color: #30373e;
 }
 
@@ -10,7 +9,7 @@
     font-family: cursive;
     letter-spacing: 2px;
     padding: 0.5rem 0;
-    color: #ffffff;
+    color: #b2b2b2;
     text-align: center;
 }
 
@@ -27,7 +26,7 @@
 
 .third-column-title,
 .second-column-title {
-    color: #ffffff;
+    color: whitesmoke;
 }
 
 .footer-nav-item {

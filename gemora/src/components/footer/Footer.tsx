@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css'
+import gemoraLogo from '../../assets/GemoraLogo.jpg';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPhone, faEnvelope, faLocationDot} from '@fortawesome/free-solid-svg-icons';
@@ -11,8 +12,10 @@ const Footer: React.FC = () => {
                 <div className="footer-container">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-6 col-lg-5 col-12 footer-first-column">
-                                <h3 className="first-column-title">Gemora</h3>
+                            <div className="col-md-6 col-lg-5 col-12">
+                                <div className="text-center" style={{marginBottom: '20px'}}>
+                                    <img src={gemoraLogo} alt="Gemora logo" width="35%" height="35%" />
+                                </div>
                                 <p className="first-column-description">Discover exquisite, high-quality jewelry that adds
                                     sparkle and elegance to your style. Enhance your individuality with our unique
                                     accessories.</p>
