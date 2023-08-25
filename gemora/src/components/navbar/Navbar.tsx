@@ -19,7 +19,7 @@ const CustomNavbar: React.FC = () => {
                             </Nav.Link>
 
                             <Nav.Link href="#">
-                                <button className="accordion-button">Engagement</button>
+                                <button className="accordion-button">Engagements</button>
                             </Nav.Link>
 
                             <Nav.Link href="#">
@@ -32,6 +32,12 @@ const CustomNavbar: React.FC = () => {
 
                             <Nav.Link href="#">
                                 <button className="accordion-button">Rings</button>
+                            </Nav.Link>
+                            <Nav.Link href="#">
+                                <button className="accordion-button">Bracelets</button>
+                            </Nav.Link>
+                            <Nav.Link href="#">
+                                <button className="accordion-button">Gemstones</button>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
