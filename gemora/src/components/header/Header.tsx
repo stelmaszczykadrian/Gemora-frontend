@@ -9,6 +9,7 @@ import ProfileButton from "./ProfileButton";
 import ShoppingCart from "../cart/ShoppingCart";
 import SearchOffcanvas from "../search/SearchOffcanvas";
 import ProfileOffcanvas from "../profile/ProfileOffcanvas";
+import {Link} from "react-router-dom";
 
 const Header: React.FC = () => {
     const [showSearchOffcanvas, setShowSearchOffcanvas] = useState<boolean>(false);
@@ -35,7 +36,9 @@ const Header: React.FC = () => {
 
                     </Col>
                     <Col xs={12} sm={4} className="text-center">
-                        <img src={gemoraLogo} alt="Gemora logo" width="50%" height="50%"/>
+                        <Link to="/">
+                            <img src={gemoraLogo} alt="Gemora logo" width="50%" height="50%"/>
+                        </Link>
                         <SearchOffcanvas show={showSearchOffcanvas} onHide={handleCloseSearchOffcanvas}/>
                     </Col>
                     <Col xs={12} sm={4} className="text-center">
