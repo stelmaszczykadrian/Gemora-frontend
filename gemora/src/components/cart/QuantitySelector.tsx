@@ -1,17 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './ShoppingCart.css';
+import CartContext from "../../context/CartContext";
+import {Product} from "../../interfaces/ProductInterface";
 
 interface QuantitySelectorProps {
     quantity: number;
-    productId: number;
+    product: Product;
 }
 
-const QuantitySelector: React.FC<QuantitySelectorProps> = ({quantity, productId}) => {
+const QuantitySelector: React.FC<QuantitySelectorProps> = ({quantity, product}) => {
+    const {increaseQuantity, decreaseQuantity} = useContext(CartContext);
 
     const handleDecrease = () => {
+        if (product.quantity === 1) {
+            return;
+
+        }
+        decreaseQuantity(product)
     }
 
     const handleIncrease = () => {
+        increaseQuantity(product);
     }
 
     return (
@@ -19,7 +28,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({quantity, productId}
             <div className="cart-product-quantity">
                 <div className="cart-quantity-buttons-container">
                     <button className="cart-quantity-decrease" onClick={handleDecrease}>-</button>
-                    <div className="cart-quantity">{quantity}</div>
+                    <div className="cart-quantity">{product.quantity}</div>
                     <button className="cart-quantity-increase" onClick={handleIncrease}>+</button>
                 </div>
             </div>
