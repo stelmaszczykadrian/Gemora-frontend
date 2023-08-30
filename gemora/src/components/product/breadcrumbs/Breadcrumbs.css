@@ -1,0 +1,39 @@
+/* Styles for Breadcrumbs */
+.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    color: black;
+    font-weight: bold;
+}
+
+.breadcrumbs li {
+    font-size: larger;
+    display: inline;
+    margin-right: 10px;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.breadcrumbs-list {
+    padding: 10px;
+    background-color: #b5a27a;
+}
+
+.pathname {
+    font-size: larger;
+}
+
+/* Media */
+@media screen and (max-width: 768px) {
+    .breadcrumbs li {
+        font-size: smaller;
+        margin-right: 5px;
+    }
+
+    .pathname {
+        font-size: smaller;
+    }
+}
