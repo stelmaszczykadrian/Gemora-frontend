@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useEffect, useState} from "react";
-import {Product} from '../components/product/ProductInterface';
+import {Product} from '../interfaces/ProductInterface';
 
 import UserContext from "./UserContext";
 
@@ -8,6 +8,8 @@ export type CartContextType = {
     products: Product[];
     addProduct: (product: Product) => void;
     removeProduct: (product: Product) => void;
+    increaseQuantity: (product: Product) => void;
+    decreaseQuantity: (product: Product) => void;
 };
 
 const defaultSettings: CartContextType = {
@@ -15,6 +17,10 @@ const defaultSettings: CartContextType = {
     addProduct: (product: Product) => {
     },
     removeProduct: (product: Product) => {
+    },
+    increaseQuantity: (product: Product) => {
+    },
+    decreaseQuantity: (product: Product) => {
     },
 };
 
@@ -36,7 +42,6 @@ export const CartContextProvider = ({children}: React.PropsWithChildren) => {
 
                 const cartContents = JSON.parse(serializedCart)
 
-                console.log(cartContents)
                 setProducts(cartContents);
             } catch (error) {
                 console.error("Error fetching cart contents:", error);
@@ -65,26 +70,76 @@ export const CartContextProvider = ({children}: React.PropsWithChildren) => {
             localStorage.setItem("cart", JSON.stringify(cartContents))
 
             setProducts([...products, product]);
-            console.log(products)
 
         } catch (error) {
             console.error("Error adding product to cart:", error);
         }
     };
 
+    const removeProduct = (productToRemove: Product) => {
+        try {
+            const serializedCart = localStorage.getItem("cart");
 
-    const removeProduct = async (product: Product) => {
-        // try {
-        //     await removeFromCart(product); // Implementacja funkcji removeFromCart z Twojego API
-        //     const updatedProducts = products.filter((item) => item.id !== product.id);
-        //     setProducts(updatedProducts);
-        // } catch (error) {
-        //     console.error("Error removing product from cart:", error);
-        // }
+            let cartContents: Product[] = [];
+            if (serializedCart) {
+                cartContents = JSON.parse(serializedCart);
+            }
+
+            const productIndex = cartContents.findIndex((product) => product.id === productToRemove.id);
+
+            if (productIndex !== -1) {
+                cartContents.splice(productIndex, 1);
+
+                localStorage.setItem("cart", JSON.stringify(cartContents));
+
+                setProducts(cartContents);
+
+            } else {
+                console.log("Product not found in cart");
+            }
+        } catch (error) {
+            console.error("Error removing product from cart:", error);
+        }
     };
 
+
+    const changeQuantity = (productToIncrease: Product, amount: number) => {
+        try {
+            const serializedCart = localStorage.getItem("cart");
+
+            let cartContents: Product[] = [];
+            if (serializedCart) {
+                cartContents = JSON.parse(serializedCart);
+            }
+
+            const productIndex = cartContents.findIndex((product) => product.id === productToIncrease.id);
+
+            if (productIndex !== -1) {
+
+                cartContents[productIndex].quantity += amount;
+
+                localStorage.setItem("cart", JSON.stringify(cartContents));
+
+                setProducts(cartContents);
+            } else {
+                console.log("Product not found in cart");
+            }
+        } catch (error) {
+            console.error("Error increasing product quantity in cart:", error);
+        }
+    };
+
+    const increaseQuantity = (productToIncrease: Product) => {
+        changeQuantity(productToIncrease, 1)
+    }
+
+    const decreaseQuantity = (productToIncrease: Product) => {
+        changeQuantity(productToIncrease, -1)
+    }
+
+
     return (
-        <CartContext.Provider value={{products, addProduct, removeProduct}}>
+        <CartContext.Provider value={{products, addProduct, removeProduct, increaseQuantity, decreaseQuantity}}>
             {children}
         </CartContext.Provider>
     );
