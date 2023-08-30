@@ -1,8 +1,11 @@
-import React from 'react';
-import {Product} from '../product/ProductInterface';
+import React, {useContext} from 'react';
+import {Product} from '../../interfaces/ProductInterface';
 import QuantitySelector from "./QuantitySelector";
 import './ShoppingCart.css';
 import {formatPrice} from "../../utils/utils";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import CartContext from "../../context/CartContext";
 
 interface CartItemProps {
     item: Product;
@@ -10,6 +13,10 @@ interface CartItemProps {
 }
 
 const CartItem: React.FC<CartItemProps> = ({item,quantity}) => {
+
+    const {removeProduct } = useContext(CartContext);
+
+
     return (
         <div className="col-md-12 col-md-12 cart-product-container">
             <div className="cart-product-item">
@@ -21,10 +28,15 @@ const CartItem: React.FC<CartItemProps> = ({item,quantity}) => {
                 <div className="cart-product-details">
                     <div className="cart-product-name">{item.name}</div>
                     <div className="cart-product-info">
-                        <QuantitySelector productId={item.id} quantity={quantity}/>
+                        <QuantitySelector product={item} quantity={quantity}/>
                         <div className="cart-product-price">
                             {formatPrice(item.price)}
                         </div>
+                        <FontAwesomeIcon
+                            icon={faXmark}
+                            onClick={() => removeProduct(item)}
+                            style={{ cursor: 'pointer' }}
+                        />
                     </div>
                 </div>
             </div>
