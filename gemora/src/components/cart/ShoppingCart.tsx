@@ -13,9 +13,8 @@ export interface CartOffcanvasProps {
 }
 
 const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
-    const { products, addProduct, removeProduct } = useContext(CartContext);
+    const { products} = useContext(CartContext);
     const [totalPrice, setTotalPrice] = useState<number>(0);
-    const [quantity] = useState<number>(0);
 
 
     const groupItems = useCallback(() => {
@@ -26,7 +25,7 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
         for (const key in grouped) {
             result.push({
                 items: grouped[key],
-                amount: grouped[key].length,
+                amount: grouped[key][0].quantity,
                 totalPrice: grouped[key].reduce(
                     (partialSum, product) => partialSum + product.price,
                     0
@@ -34,11 +33,12 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
             });
         }
 
+        console.log(result)
 
         if(result.length > 0){
             let totalPrice = 0;
             result.forEach((element) =>{
-                totalPrice += element.totalPrice
+                totalPrice += element.totalPrice * element.amount
             })
             setTotalPrice(totalPrice);
         }
@@ -53,7 +53,7 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
     return (
         <Offcanvas show={show} onHide={onHide} placement="end">
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Shopping Cart({quantity})</Offcanvas.Title>
+                <Offcanvas.Title/>
             </Offcanvas.Header>
             <Offcanvas.Body className="offcanvas-body">
                 <div className="container">
