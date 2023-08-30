@@ -21,7 +21,10 @@ function RecommendedItem() {
         <>
             {products.map((item) => (
                 <div key={item.id} className="recommended-product-item">
-                    <Link to={`/product/${item.id}`}>
+                    <Link
+                        to={`/products/${item.id}`}
+                        onClick={() => window.scrollTo(0, 0)}
+                    >
                         <div className="product-header">
                             <img
                                 src={`data:image/jpeg;base64,${item.image}`}

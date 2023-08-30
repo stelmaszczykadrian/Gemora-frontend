@@ -2,7 +2,7 @@ import "./ProudProducts.css";
 import React, {useEffect, useState} from "react";
 import {fetchProductDataFromApi} from "../../api/ProductApi";
 import {Link} from "react-router-dom";
-import ProductItem from "../product/ProductItem";
+import ProductItem from "../product/productitem/ProductItem";
 
 function ProudProducts() {
 
@@ -23,7 +23,8 @@ function ProudProducts() {
                 {products.map((product) => (
                         <Link
                             key={product.id}
-                            to={`/product/${product.id}`}
+                            to={`/products/${product.id}`}
+                            onClick={() => window.scrollTo(0, 0)}
                         >
                             <ProductItem
                                 key={product.id}
