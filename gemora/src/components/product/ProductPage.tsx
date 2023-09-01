@@ -6,12 +6,12 @@ import {formatPrice} from "../../utils/utils";
 import CartContext from "../../context/CartContext";
 import checkBox from '../../assets/svg/checkbox.svg';
 import RecommendedSlider from "../recommended/RecommendedSlider";
-import HeadingWithLines from "../home/HeadingWithLines";
+import HeadingWithLines from "../headingwithlines/HeadingWithLines";
 import Breadcrumbs from "./breadcrumbs/Breadcrumbs";
 import img from '../../assets/images/banner2.jpg';
-import FeatureBoxes from "../home/FeatureBoxes";
+import FeatureBoxes from "../featureboxes/FeatureBoxes";
 import PaymentLogos from "./paymentlogos/PaymentLogos";
-import MainBanner from "../home/MainBanner";
+import MainBanner from "../mainbanner/MainBanner";
 import {fetchProductData} from "../../api/ProductApi";
 
 

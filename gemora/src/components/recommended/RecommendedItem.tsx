@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./RecommendedSlider.css";
 import React, {useEffect, useState} from "react";
-import {fetchProductDataFromApi} from "../../api/ProductApi";
+import {fetchFeaturedProductsData} from "../../api/ProductApi";
 import {formatPrice} from "../../utils/utils";
 
 function RecommendedItem() {
@@ -10,7 +10,7 @@ function RecommendedItem() {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const data = await fetchProductDataFromApi();
+            const data = await fetchFeaturedProductsData();
             setProducts(data);
         };
         fetchProducts();
