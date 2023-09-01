@@ -1,0 +1,89 @@
+/* Styles for Store products */
+.store-product-listing-container {
+    padding: 9rem 0;
+}
+
+.store-products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Media queries */
+@media (max-width:750px) {
+    .store-products-grid  {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width:600px) {
+    .store-products-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width:430px) {
+    .store-products-grid  {
+        grid-template-columns: 1fr;
+    }
+}
+
+.catego-header {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -4rem;
+}
+
+.catego-header a {
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: black;
+}
+
+.filter-btns {
+    justify-content: center;
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-btns button {
+    padding: .6rem 1.6rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+}
+
+.filter-btns button:hover {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.title-home {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 6rem;
+}
+
+.title-home h3 {
+    font-size: 2.7rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title-home a {
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: black;
+    text-align: left;
+}
