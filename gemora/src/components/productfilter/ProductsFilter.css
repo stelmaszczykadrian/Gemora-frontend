@@ -1,0 +1,27 @@
+.filter-container {
+    float: right;
+}
+
+.filter {
+    float: right;
+    margin: 20px;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .filter {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.filter-text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.filter-select {
+    padding: 10px;
+    margin-right: 20px;
+}
