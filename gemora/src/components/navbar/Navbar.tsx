@@ -15,25 +15,25 @@ const CustomNavbar: React.FC = () => {
                                 <button className="accordion-button">Products</button>
                             </Nav.Link>
 
-                            <Nav.Link href="#">
+                            <Nav.Link href="/products/engagements">
                                 <button className="accordion-button">Engagements</button>
                             </Nav.Link>
 
-                            <Nav.Link href="#">
+                            <Nav.Link href="/products/earrings">
                                 <button className="accordion-button">Earrings</button>
                             </Nav.Link>
 
-                            <Nav.Link href="#">
-                                <button className="accordion-button">Necklaces</button>
+                            <Nav.Link href="/products/pendants">
+                                <button className="accordion-button">Pendants</button>
                             </Nav.Link>
 
-                            <Nav.Link href="#">
+                            <Nav.Link href="/products/rings">
                                 <button className="accordion-button">Rings</button>
                             </Nav.Link>
-                            <Nav.Link href="#">
+                            <Nav.Link href="/products/bracelets">
                                 <button className="accordion-button">Bracelets</button>
                             </Nav.Link>
-                            <Nav.Link href="#">
+                            <Nav.Link href="/products/gemstones">
                                 <button className="accordion-button">Gemstones</button>
                             </Nav.Link>
                         </Nav>
