@@ -1,20 +1,10 @@
-import React, {useState, useEffect} from "react";
-import './StoreProducts.css';
-import {fetchProductDataFromApi} from "../../api/ProductApi";
+import React from "react";
+import './ProductList.css';
+
 import {Link} from "react-router-dom";
 import ProductItem from "../product/productitem/ProductItem";
 
-const StoreProducts: React.FC = () => {
-    const [products, setProducts] = useState<any[]>([]);
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const data = await fetchProductDataFromApi();
-            setProducts(data);
-        };
-        fetchProducts();
-    }, []);
-
+const ProductList: React.FC<{ products: any[] }> = ({ products }) => {
     return (
         <div className="store-product-listing-container">
             <div className="container">
@@ -38,4 +28,4 @@ const StoreProducts: React.FC = () => {
     );
 };
 
-export default StoreProducts;
+export default ProductList;

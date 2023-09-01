@@ -1,6 +1,6 @@
 import "./ProudProducts.css";
 import React, {useEffect, useState} from "react";
-import {fetchProductDataFromApi} from "../../api/ProductApi";
+import {fetchFeaturedProductsData} from "../../api/ProductApi";
 import {Link} from "react-router-dom";
 import ProductItem from "../product/productitem/ProductItem";
 
@@ -10,7 +10,7 @@ function ProudProducts() {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const data = await fetchProductDataFromApi();
+            const data = await fetchFeaturedProductsData();
             setProducts(data);
         };
         fetchProducts();
@@ -32,7 +32,6 @@ function ProudProducts() {
                                 price={product.price}
                                 imageUrl={product.image}/>
                         </Link>
-
                 ))}
                 </div>
             </div>
