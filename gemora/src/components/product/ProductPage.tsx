@@ -5,14 +5,15 @@ import './ProductPage.css'
 import {formatPrice} from "../../utils/utils";
 import CartContext from "../../context/CartContext";
 import checkBox from '../../assets/svg/checkbox.svg';
-import RecommendedSlider from "../recommended/RecommendedSlider";
+import RecommendedSlider from "../recommended/recommendedslider/RecommendedSlider";
 import HeadingWithLines from "../headingwithlines/HeadingWithLines";
-import Breadcrumbs from "./breadcrumbs/Breadcrumbs";
 import img from '../../assets/images/banner2.jpg';
 import FeatureBoxes from "../featureboxes/FeatureBoxes";
-import PaymentLogos from "./paymentlogos/PaymentLogos";
+import PaymentLogos from "../paymentlogos/PaymentLogos";
 import MainBanner from "../mainbanner/MainBanner";
 import {fetchProductData} from "../../api/ProductApi";
+
+import {toast} from "react-toastify";
 
 
 function ProductPage() {
@@ -46,7 +47,6 @@ function ProductPage() {
             <MainBanner />
             {product && (
                 <>
-                    <Breadcrumbs productName={product.name}/>
                     <div className="product-details-container">
                         <div className="card-wrapper">
                             <div className="card-grid">
@@ -96,8 +96,9 @@ function ProductPage() {
                                                 if(!product){
                                                     return;
                                                 }
-                                                product.quantity = quantity
-                                                addProduct(product)
+                                                product.quantity = quantity;
+                                                addProduct(product);
+                                                toast.success("Product added.")
                                             }}
                                                     className="add-to-cart-button">ADD TO CART
                                             </button>
