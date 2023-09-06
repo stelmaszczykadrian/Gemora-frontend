@@ -1,19 +1,20 @@
 import React, {useCallback, useContext, useMemo, useState} from "react";
-import { Offcanvas } from "react-bootstrap";
+import {Offcanvas} from "react-bootstrap";
 
 import "./ShoppingCart.css";
 import CartItem from "./CartItem";
 import {formatPrice, groupBy} from "../../utils/utils";
 import EmptyCartImg from "../../assets/empty-cart.jpg";
 import CartContext from "../../context/CartContext";
+import {Link} from "react-router-dom";
 
 export interface CartOffcanvasProps {
     show: boolean;
     onHide: () => void;
 }
 
-const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
-    const { products} = useContext(CartContext);
+const ShoppingCart: React.FC<CartOffcanvasProps> = ({show, onHide}) => {
+    const {products} = useContext(CartContext);
     const [totalPrice, setTotalPrice] = useState<number>(0);
 
 
@@ -35,9 +36,9 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
 
         console.log(result)
 
-        if(result.length > 0){
+        if (result.length > 0) {
             let totalPrice = 0;
-            result.forEach((element) =>{
+            result.forEach((element) => {
                 totalPrice += element.totalPrice * element.amount
             })
             setTotalPrice(totalPrice);
@@ -48,6 +49,11 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
     }, [products]);
 
     const groupedItems = useMemo(() => groupItems(), [groupItems]);
+
+
+    const handleCheckoutClick = () => {
+        onHide();
+    };
 
 
     return (
@@ -83,9 +89,15 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({ show, onHide }) => {
             </span>
                     </div>
                     <div>
-                        <button className="rounded-0 checkout-button">
-                            PROCEED TO CHECKOUT
-                        </button>
+                        <Link className="checkout-link" to="/cart">
+                            <button
+                                className="rounded-0 checkout-button"
+                                onClick={handleCheckoutClick}
+
+                            >
+                                PROCEED TO CHECKOUT
+                            </button>
+                        </Link>
                     </div>
                 </div>
             )}
