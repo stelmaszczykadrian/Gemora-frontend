@@ -1,10 +1,10 @@
 import React from 'react';
 import './PaymentLogos.css'
-import visa from '../../../assets/payment/logo-visa.jpg';
-import masterCard from '../../../assets/payment/logo-mastercard.svg';
-import certum from '../../../assets/payment/certum_pl_ev.svg';
-import payU from '../../../assets/payment/payu-logo.svg';
-import blik from '../../../assets/payment/logo-blik.svg';
+import visa from '../../assets/payment/logo-visa.jpg';
+import masterCard from '../../assets/payment/logo-mastercard.svg';
+import certum from '../../assets/payment/certum_pl_ev.svg';
+import payU from '../../assets/payment/payu-logo.svg';
+import blik from '../../assets/payment/logo-blik.svg';
 
 function PaymentLogos() {
     return (

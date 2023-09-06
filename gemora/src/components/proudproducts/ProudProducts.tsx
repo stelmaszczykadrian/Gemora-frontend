@@ -2,7 +2,7 @@ import "./ProudProducts.css";
 import React, {useEffect, useState} from "react";
 import {fetchFeaturedProductsData} from "../../api/ProductApi";
 import {Link} from "react-router-dom";
-import ProductItem from "../product/productitem/ProductItem";
+import ProductItem from "../productitem/ProductItem";
 
 function ProudProducts() {
 

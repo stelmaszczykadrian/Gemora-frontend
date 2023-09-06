@@ -1,6 +1,6 @@
 import "./ProductItem.css";
 import React from "react";
-import {formatPrice} from "../../../utils/utils";
+import {formatPrice} from "../../utils/utils";
 
 interface ProductProps {
     name: string;

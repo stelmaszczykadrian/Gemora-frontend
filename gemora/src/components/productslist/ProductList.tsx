@@ -2,7 +2,7 @@ import React from "react";
 import './ProductList.css';
 
 import {Link} from "react-router-dom";
-import ProductItem from "../product/productitem/ProductItem";
+import ProductItem from "../productitem/ProductItem";
 
 const ProductList: React.FC<{ products: any[] }> = ({ products }) => {
     return (

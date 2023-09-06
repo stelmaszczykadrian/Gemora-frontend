@@ -5,7 +5,7 @@ import necklaceImage from '../assets/images/necklace.jpg'
 import giftImage from '../assets/images/gift.jpg'
 
 import LogosGallery from "../components/logosgallery/LogosGallery";
-import RecommendedSlider from "../components/recommended/RecommendedSlider";
+import RecommendedSlider from "../components/recommended/recommendedslider/RecommendedSlider";
 import HeadingWithLines from "../components/headingwithlines/HeadingWithLines";
 import React from "react";
 import ProudProducts from "../components/proudproducts/ProudProducts";

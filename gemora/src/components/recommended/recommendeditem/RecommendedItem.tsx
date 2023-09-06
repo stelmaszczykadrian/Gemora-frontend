@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import "./RecommendedSlider.css";
+import "./RecommendedItem.css";
 import React, {useEffect, useState} from "react";
-import {fetchFeaturedProductsData} from "../../api/ProductApi";
-import {formatPrice} from "../../utils/utils";
+import {fetchFeaturedProductsData} from "../../../api/ProductApi";
+import {formatPrice} from "../../../utils/utils";
 
 function RecommendedItem() {
 

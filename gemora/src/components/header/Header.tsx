@@ -3,9 +3,9 @@ import gemoraLogo from '../../assets/GemoraLogo.jpg';
 
 import React, {useState} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
-import SearchButton from "./SearchButton";
-import CartButton from "./CartButton";
-import ProfileButton from "./ProfileButton";
+import SearchButton from "../buttons/SearchButton";
+import CartButton from "../buttons/CartButton";
+import ProfileButton from "../buttons/ProfileButton";
 import ShoppingCart from "../cart/ShoppingCart";
 import SearchOffcanvas from "../search/SearchOffcanvas";
 import ProfileOffcanvas from "../profile/ProfileOffcanvas";
