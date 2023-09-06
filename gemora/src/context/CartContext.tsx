@@ -65,11 +65,17 @@ export const CartContextProvider = ({children}: React.PropsWithChildren) => {
             } else {
                 cartContents = [];
             }
+            const savedProduct = cartContents.find(p => p.id === product.id);
+            console.log(savedProduct);
+            if(savedProduct){
+                savedProduct.quantity += 1;
+            }else{
+                cartContents.push(product);
+            }
 
-            cartContents.push(product)
             localStorage.setItem("cart", JSON.stringify(cartContents))
 
-            setProducts([...products, product]);
+            setProducts([...cartContents]);
 
         } catch (error) {
             console.error("Error adding product to cart:", error);
