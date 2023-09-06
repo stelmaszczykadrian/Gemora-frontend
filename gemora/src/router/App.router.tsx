@@ -11,6 +11,7 @@ import Register from "../components/auth/Register";
 import ProductsPage from "../pages/ProductsPage";
 import CategoryProductPage from "../pages/CategoryProductPage";
 import {Categories} from "../constants/constants";
+import CartPage from "../pages/CartPage/CartPage";
 
 const allProductsPageName = "ALL PRODUCTS";
 const allProductsPageTitle = "Immerse yourself in our extraordinary world of jewelry, where every piece is meticulously crafted to express your personality and uniqueness. Our unparalleled craftsmanship and commitment to quality ensure that each of our jewelry pieces is exceptional and enduring. With our 30-day money-back guarantee, you can make your choices with confidence. Visit Gemora today and embark on your journey through the world of exquisite jewelry.";
@@ -44,8 +45,8 @@ export const AppRouter = () => {
             <Route path="/products/pendants" element={<CategoryProductPage category={Categories.PENDANTS} pageName={pendantsPageName} pageTitle={pendantsPageTitle}/>}/>
             <Route path="/products/rings" element={<CategoryProductPage category={Categories.RINGS} pageName={ringsPageName} pageTitle={ringsPageTitle}/>}/>
             <Route path="/products/bracelets" element={<CategoryProductPage category={Categories.BRACELETS} pageName={braceletsPageName} pageTitle={braceletsPageTitle}/>}/>
-            <Route path="/products/gemstones" element={<CategoryProductPage category={Categories.GEMSTONES} pageName={gemstonesPageName} pageTitle={gemstonesPageTitle}/>}/>
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/products/gemstones" element={<CategoryProductPage category={Categories.GEMSTONES} pageName={gemstonesPageName} pageTitle={gemstonesPageTitle}/>}/><Route path="/login" element={<Login/>}/>
+            <Route path="/cart" element={<CartPage/>}/>
             <Route path="/store" element={<ProductsPage pageName={allProductsPageName} pageTitle={allProductsPageTitle}/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="*" element={<NoPage/>}/>
