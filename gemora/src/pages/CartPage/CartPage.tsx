@@ -1,37 +1,39 @@
 import './CartPage.css';
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import CartContext from "../../context/CartContext";
-import {formatPrice} from "../../utils/utils";
-import QuantitySelector from "../../components/cart/QuantitySelector";
+import {calculateTotal, formatPrice} from "../../utils/utils";
+import QuantitySelector from "../../components/quantityselector/QuantitySelector";
 import HeadingWithLines from "../../components/headingwithlines/HeadingWithLines";
+import OrderSummary from "../../components/ordersummary/OrderSummary";
+import {Link} from "react-router-dom";
+import {shippingPrice} from "../../constants/constants";
 
 
 const CartPage = () => {
     const {products} = useContext(CartContext);
-    const [shippingPrice] = useState(0);
-
-    const calculateTotal = () => {
-        let total = 0;
-        products.forEach((item) => {
-            total += item.price * item.quantity;
-        });
-        return total;
-    };
-
+    const totalValue = calculateTotal(products);
 
     return (
         <div className="container">
             <div className="cart-page-wrapper">
                 <HeadingWithLines name="YOUR BAG"/>
                 <div className="cart-page-top-container">
-                    <button className="cart-page-continue-button">CONTINUE SHOPPING</button>
-                    <button className="cart-page-checkout-button">CHECKOUT NOW</button>
+                    <div>
+                        <Link className="checkout-link" to="/store">
+                            <button className="cart-page-continue-button">CONTINUE SHOPPING</button>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link className="checkout-link" to="/checkout">
+                            <button className="cart-page-checkout-button">CHECKOUT NOW</button>
+                        </Link>
+                    </div>
                 </div>
                 <h2 className="heading-with-lines"/>
                 <div className="cart-page-bottom-container">
                     <div className="cart-page-info-container">
                         {products.map((item) => (
-                            <div className="cart-page-product-container">
+                            <div key={item.id} className="cart-page-product-container">
                                 <div className="cart-page-product-details-container">
                                     <img
                                         src={`data:image/jpeg;base64,${item.image}`}
@@ -56,24 +58,13 @@ const CartPage = () => {
                         ))}
                     </div>
                     <h2 className="heading-with-lines"/>
-                    <div className="summary-container">
-                        <div className="cart-page-summary-container">
-                            <h1 className="cart-page-summary-title">ORDER SUMMARY</h1>
-                            <div className="cart-page-summary-item">
-                                <span>Subtotal:</span>
-                                <span>{formatPrice(calculateTotal())}</span>
-                            </div>
-                            <div className="cart-page-summary-item">
-                                <span>Shipping cost:</span>
-                                <span>{formatPrice(shippingPrice)}</span>
-                            </div>
-                            <div className="cart-page-summary-item">
-                                <span>Grand Total:</span>
-                                <span>{formatPrice(calculateTotal())}</span>
-                            </div>
+                    <OrderSummary subtotal={totalValue} shippingPrice={shippingPrice}/>
+                    <div className="checkout-button-container">
+                        <Link className="checkout-link" to="/checkout">
                             <button className="cart-page-proceed-button">CHECKOUT NOW</button>
-                        </div>
+                        </Link>
                     </div>
+
                 </div>
             </div>
         </div>

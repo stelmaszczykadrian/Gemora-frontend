@@ -38,7 +38,7 @@
 
 .cart-page-checkout-button {
     flex: 1;
-    padding: 10px;
+    padding: 10px 30px;
     background-color: black;
     color: white;
     font-weight: 600;
@@ -100,26 +100,12 @@
     font-weight: 200;
 }
 
-/* Styles for Summary Container */
-.summary-container {
+
+.checkout-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 7%;
-    margin-bottom: 3%;
-}
-
-.cart-page-summary-container {
-    width: 100%;
-    padding: 20px;
-    background-color: #ebebeb;
-    text-align: center;
-}
-
-.cart-page-summary-title {
-    font-weight: 200;
-    font-size: 24px;
-    margin-bottom: 20px;
+    margin: 30px;
 }
 
 .cart-page-proceed-button {
@@ -129,7 +115,6 @@
     color: white;
     font-weight: 600;
 }
-
 
 /* Media query */
 @media (min-width: 768px) {
