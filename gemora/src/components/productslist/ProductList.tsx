@@ -12,6 +12,7 @@ const ProductList: React.FC<{ products: any[] }> = ({ products }) => {
                     {products.map((product) => (
                         <div key={product.id} className="container">
                             <Link
+                                onClick={() => window.scrollTo(0, 0)}
                                 to={`/products/${product.id}`}
                             >
                                 <ProductItem
