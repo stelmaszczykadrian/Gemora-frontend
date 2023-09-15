@@ -1,0 +1,21 @@
+/* Styles for Summary Container */
+.summary-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    margin-bottom: 3%;
+}
+
+.cart-page-summary-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #ebebeb;
+    text-align: center;
+}
+
+.cart-page-summary-title {
+    font-weight: 200;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
