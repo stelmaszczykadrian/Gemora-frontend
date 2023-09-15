@@ -6,12 +6,14 @@ import Home from "../pages/Home";
 import ProductPage from "../components/product/ProductPage";
 import Login from "../components/auth/Login";
 import Contact from "../components/contact/Contact";
-import NoPage from "../components/NoPage";
+import NoPage from "../pages/NoPage/NoPage";
 import Register from "../components/auth/Register";
 import ProductsPage from "../pages/ProductsPage";
 import CategoryProductPage from "../pages/CategoryProductPage";
 import {Categories} from "../constants/constants";
 import CartPage from "../pages/CartPage/CartPage";
+import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
+import ThankYouPage from "../pages/ThankYouPage/ThankYouPage";
 
 const allProductsPageName = "ALL PRODUCTS";
 const allProductsPageTitle = "Immerse yourself in our extraordinary world of jewelry, where every piece is meticulously crafted to express your personality and uniqueness. Our unparalleled craftsmanship and commitment to quality ensure that each of our jewelry pieces is exceptional and enduring. With our 30-day money-back guarantee, you can make your choices with confidence. Visit Gemora today and embark on your journey through the world of exquisite jewelry.";
@@ -47,6 +49,8 @@ export const AppRouter = () => {
             <Route path="/products/bracelets" element={<CategoryProductPage category={Categories.BRACELETS} pageName={braceletsPageName} pageTitle={braceletsPageTitle}/>}/>
             <Route path="/products/gemstones" element={<CategoryProductPage category={Categories.GEMSTONES} pageName={gemstonesPageName} pageTitle={gemstonesPageTitle}/>}/><Route path="/login" element={<Login/>}/>
             <Route path="/cart" element={<CartPage/>}/>
+            <Route path="/checkout" element={<CheckoutPage/>}/>
+            <Route path="/thank-you" element={<ThankYouPage/>}/>
             <Route path="/store" element={<ProductsPage pageName={allProductsPageName} pageTitle={allProductsPageTitle}/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="*" element={<NoPage/>}/>
