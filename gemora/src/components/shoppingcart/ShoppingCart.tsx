@@ -2,7 +2,7 @@ import React, {useCallback, useContext, useMemo, useState} from "react";
 import {Offcanvas} from "react-bootstrap";
 
 import "./ShoppingCart.css";
-import CartItem from "./CartItem";
+import CartItem from "../cartitem/CartItem";
 import {formatPrice, groupBy} from "../../utils/utils";
 import EmptyCartImg from "../../assets/empty-cart.jpg";
 import CartContext from "../../context/CartContext";
@@ -33,8 +33,6 @@ const ShoppingCart: React.FC<CartOffcanvasProps> = ({show, onHide}) => {
                 ),
             });
         }
-
-        console.log(result)
 
         if (result.length > 0) {
             let totalPrice = 0;
