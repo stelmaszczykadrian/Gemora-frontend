@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Product} from '../../interfaces/ProductInterface';
-import QuantitySelector from "./QuantitySelector";
-import './ShoppingCart.css';
+import QuantitySelector from "../quantityselector/QuantitySelector";
+import './CartItem.css';
 import {formatPrice} from "../../utils/utils";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
