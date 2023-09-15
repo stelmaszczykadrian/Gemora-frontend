@@ -6,7 +6,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import SearchButton from "../buttons/SearchButton";
 import CartButton from "../buttons/CartButton";
 import ProfileButton from "../buttons/ProfileButton";
-import ShoppingCart from "../cart/ShoppingCart";
+import ShoppingCart from "../shoppingcart/ShoppingCart";
 import SearchOffcanvas from "../search/SearchOffcanvas";
 import ProfileOffcanvas from "../profile/ProfileOffcanvas";
 import {Link} from "react-router-dom";
