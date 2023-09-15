@@ -30,7 +30,6 @@ export const UserContext = createContext<UserContextType>(defaultSettings);
 export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
     const [currentUser, setCurrentUser] = useState<User | null>(null);
     const userEmail = AuthService.getUserEmailFromToken();
-    console.log(currentUser)
 
     const userModifier = (user: User | null) => {
         setCurrentUser(user);
