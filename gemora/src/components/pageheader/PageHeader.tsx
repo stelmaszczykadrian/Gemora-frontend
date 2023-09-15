@@ -1,5 +1,6 @@
 import React from 'react';
 import HeadingWithLines from "../headingwithlines/HeadingWithLines";
+import './PageHeader.css';
 
 interface PageHeaderProps {
     pageName: string;
@@ -8,7 +9,7 @@ interface PageHeaderProps {
 
 const PageHeader: React.FC<PageHeaderProps> = ({ pageName, pageTitle }) => {
     return (
-        <div style={{ textAlign: 'center', fontSize: '19px', marginBottom: '1rem' }}>
+        <div className="page-header">
             <HeadingWithLines name={pageName} />
             <div>{pageTitle}</div>
         </div>
