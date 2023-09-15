@@ -10,6 +10,7 @@ export type CartContextType = {
     removeProduct: (product: Product) => void;
     increaseQuantity: (product: Product) => void;
     decreaseQuantity: (product: Product) => void;
+    clearCart: () => void;
 };
 
 const defaultSettings: CartContextType = {
@@ -21,6 +22,8 @@ const defaultSettings: CartContextType = {
     increaseQuantity: (product: Product) => {
     },
     decreaseQuantity: (product: Product) => {
+    },
+    clearCart: () => {
     },
 };
 
@@ -66,9 +69,9 @@ export const CartContextProvider = ({children}: React.PropsWithChildren) => {
                 cartContents = [];
             }
             const savedProduct = cartContents.find(p => p.id === product.id);
-            console.log(savedProduct);
+
             if(savedProduct){
-                savedProduct.quantity += 1;
+                savedProduct.quantity += product.quantity;
             }else{
                 cartContents.push(product);
             }
@@ -143,9 +146,18 @@ export const CartContextProvider = ({children}: React.PropsWithChildren) => {
         changeQuantity(productToIncrease, -1)
     }
 
+    function clearCart() {
+        try {
+            localStorage.removeItem('cart');
+            setProducts([]);
+        } catch (error) {
+            console.error("Error clearing cart:", error);
+        }
+    }
+
 
     return (
-        <CartContext.Provider value={{products, addProduct, removeProduct, increaseQuantity, decreaseQuantity}}>
+        <CartContext.Provider value={{products, addProduct, removeProduct, increaseQuantity, decreaseQuantity, clearCart }}>
             {children}
         </CartContext.Provider>
     );
