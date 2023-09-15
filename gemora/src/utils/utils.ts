@@ -11,3 +11,11 @@ export function groupBy<T>(arr: T[], fn: (item: T) => any) {
         return { ...prev, [groupKey]: group };
     }, {});
 }
+
+export const calculateTotal = (products: Array<{ price: number; quantity: number; }>) => {
+    let total = 0;
+    products.forEach((item) => {
+        total += item.price * item.quantity;
+    });
+    return total;
+};
