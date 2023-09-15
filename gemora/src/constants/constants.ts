@@ -1,6 +1,8 @@
 export const ACCESS_TOKEN = 'token';
 export const BaseUrl = "http://localhost:8080";
 
+export const shippingPrice = 0;
+
 
 export enum Categories {
     ENGAGEMENTS= 'ENGAGEMENTS',
