@@ -32,13 +32,19 @@ const CategoryProductPage: React.FC<ProductsPageProps> = ({ category ,pageName,p
     };
 
     const handleSortOption = async (sortOption: string) => {
-        if (sortOption === "ascending") {
-            await fetchAndSetProducts(selectedCategory, SortType.ASCENDING);
-        } else if (sortOption === "descending") {
-            await fetchAndSetProducts(selectedCategory, SortType.DESCENDING);
-        } else {
-            await fetchAndSetProducts(selectedCategory, SortType.NEWEST);
+        let sortType;
+        switch (sortOption) {
+            case "ascending":
+                sortType = SortType.ASCENDING;
+                break;
+            case "descending":
+                sortType = SortType.DESCENDING;
+                break;
+            default:
+                sortType = SortType.NEWEST;
+                break;
         }
+        await fetchAndSetProducts(selectedCategory, sortType);
     };
 
     useEffect(() => {

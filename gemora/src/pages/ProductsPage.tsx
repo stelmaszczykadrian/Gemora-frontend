@@ -23,16 +23,18 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ pageName, pageTitle }) => {
     const handleChange = async (event: ChangeEvent<HTMLSelectElement>) => {
         const selectedSortOption = event.target.value;
         setSelectedValue(selectedSortOption);
+        const data = fetchDataBySortOption(selectedSortOption)
+        setProducts(await data);
+    };
 
-        if (selectedSortOption === "ascending") {
-            const data =  await fetchAllProductsDataFromApiBySortType(SortType.ASCENDING);
-            setProducts(data);
-        } else if (selectedSortOption === "descending") {
-            const data =  await fetchAllProductsDataFromApiBySortType(SortType.DESCENDING);
-            setProducts(data);
-        }else {
-            const data =  await fetchAllProductsDataFromApiBySortType(SortType.NEWEST);
-            setProducts(data);
+    const fetchDataBySortOption = async (sortOption: string) => {
+        switch (sortOption) {
+            case "ascending":
+                return fetchAllProductsDataFromApiBySortType(SortType.ASCENDING);
+            case "descending":
+                return fetchAllProductsDataFromApiBySortType(SortType.DESCENDING);
+            default:
+                return fetchAllProductsDataFromApiBySortType(SortType.NEWEST);
         }
     };
 
