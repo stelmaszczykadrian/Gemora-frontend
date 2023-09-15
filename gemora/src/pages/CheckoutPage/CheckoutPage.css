@@ -1,0 +1,28 @@
+.checkout-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-left-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.checkout-right-section {
+    flex: 1;
+    padding: 20px;
+}
+
+
+@media (max-width: 767px) {
+    .checkout-container {
+        flex-direction: column;
+    }
+
+    .checkout-left-section,
+    .checkout-right-section {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+    }
+}
