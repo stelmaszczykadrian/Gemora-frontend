@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Button, Offcanvas} from 'react-bootstrap';
+import CartContext from "../../context/CartContext";
 
 interface ProfileOffcanvasProps {
     show: boolean;
@@ -8,16 +9,12 @@ interface ProfileOffcanvasProps {
 
 const ProfileOffcanvas: React.FC<ProfileOffcanvasProps> = ({ show, onHide }) => {
 
+    const {clearCart} = useContext(CartContext);
+
     const handleLogout = () => {
         localStorage.removeItem('token');
         window.location.reload();
     };
-
-    const handleClean = () => {
-        localStorage.removeItem('cart');
-        window.location.reload();
-    };
-
 
     return (
         <Offcanvas show={show} onHide={onHide} placement="end">
@@ -26,7 +23,7 @@ const ProfileOffcanvas: React.FC<ProfileOffcanvasProps> = ({ show, onHide }) => 
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <Button onClick={handleLogout}>Logout</Button>
-                <Button onClick={handleClean}>Czyść Koszyk</Button>
+                <Button onClick={clearCart}>Czyść Koszyk</Button>
             </Offcanvas.Body>
         </Offcanvas>
     );
