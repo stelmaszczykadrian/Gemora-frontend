@@ -12,7 +12,7 @@ import ProudProducts from "../components/proudproducts/ProudProducts";
 import MainBanner from "../components/mainbanner/MainBanner";
 
 
-const firstBannerTitle = 'Discover Timeless Elegance with Gemora';
+const firstBannerTitle = 'Timeless Elegance with Gemora';
 const firstBannerDescription = 'Experience the fusion of artistry and comfort with Gemora\'s meticulously crafted products. Elevate your everyday moments with our exquisite range. Discover enduring style today!'
 
 const secondBannerTitle = "Embrace Harmony with Gemora";
