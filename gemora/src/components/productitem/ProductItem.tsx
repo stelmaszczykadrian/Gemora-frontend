@@ -9,6 +9,12 @@ interface ProductProps {
 }
 
 const ProductItem: React.FC<ProductProps> = ({name, price, imageUrl}) => {
+    // console.log(imageUrl)
+
+    // const blob = new Blob([imageUrl], { type: 'image/jpeg' });
+    // console.log(blob);
+
+
 
     return (
         <>
