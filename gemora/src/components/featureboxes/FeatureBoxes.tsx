@@ -1,10 +1,39 @@
 import React from "react";
 import './FeatureBoxes.css'
-import rocket from "../../assets/svg/rocket.svg";
-import headphones from "../../assets/svg/headphones.svg";
-import piggyBank from "../../assets/svg/piggy.svg";
+import rocketLogo from "../../assets/svg/rocket.svg";
+import headphonesLogo from "../../assets/svg/headphones.svg";
+import piggyBankLogo from "../../assets/svg/piggy.svg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import FeatureBox from "./FeatureBox";
+
+interface Feature {
+    id: number;
+    icon: string;
+    title: string;
+    description: string;
+}
+
+const featureData: Feature[] = [
+    {
+        id: 1,
+        icon: rocketLogo,
+        title: "Free Shipping world",
+        description: "Order Above $50."
+    },
+    {
+        id: 2,
+        icon: headphonesLogo,
+        title: "Best Online support",
+        description: "Hours: 8AM - 8PM"
+    },
+    {
+        id: 3,
+        icon: piggyBankLogo,
+        title: "Money Guarantee",
+        description: "Guarantee 30 days!"
+    },
+];
 
 const FeatureBoxes = () => {
     return (
@@ -12,29 +41,11 @@ const FeatureBoxes = () => {
             <div className="container">
                 <div className="feature-boxes-container">
                     <div className="feature-boxes">
-                        <div className="feature-box">
-                            <img src={rocket} alt="Rocket Icon SVG"/>
-                            <h3>Free Shipping world</h3>
-                            <p>
-                                Order Above $50.
-                            </p>
+                    {featureData.map((featureBox, index) => (
+                        <div className="feature-box" key={featureBox.id}>
+                            <FeatureBox key={index} title={featureBox.title} description={featureBox.description} icon={featureBox.icon} />
                         </div>
-
-                        <div className="feature-box">
-                            <img src={headphones} alt="Headphones Icon SVG"/>
-                            <h3>Best Online support</h3>
-                            <p>
-                                Hours: 8AM - 8PM
-                            </p>
-                        </div>
-
-                        <div className="feature-box">
-                            <img src={piggyBank} alt="Piggy Bank icon SVG"/>
-                            <h3>Money Guarantee</h3>
-                            <p>
-                                Guaarante 30 days!
-                            </p>
-                        </div>
+                    ))}
                     </div>
                 </div>
             </div>

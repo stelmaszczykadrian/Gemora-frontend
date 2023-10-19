@@ -20,29 +20,41 @@
     flex: 1;
     padding: 1rem 6rem;
     margin: 20px;
-    /*border-radius: 20px;*/
     border: 1px solid #b2b2b2;
     max-width: 30rem;
     min-width: 25%;
 }
 
-.feature-box img {
+.feature-box-img {
     width: 5rem;
     height: auto;
 }
 
-.feature-box h3 {
+.feature-box-h3 {
     font-size: 20px;
     font-weight: bold;
 }
 
-.feature-box p {
+.feature-box-p {
     font-size: 17px;
     color: black;
 }
 
 /* Media query */
 @media (max-width: 1200px) {
+    .feature-boxes {
+        align-items: center;
+    }
+
+    .feature-box {
+        padding: 1rem;
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+
+@media (max-width: 758px) {
     .feature-boxes {
         flex-direction: column;
         align-items: center;
