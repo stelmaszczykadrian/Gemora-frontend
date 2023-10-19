@@ -1,19 +1,26 @@
 import React from 'react';
 import './PaymentLogos.css'
-import visa from '../../assets/payment/logo-visa.jpg';
-import masterCard from '../../assets/payment/logo-mastercard.svg';
-import certum from '../../assets/payment/certum_pl_ev.svg';
-import payU from '../../assets/payment/payu-logo.svg';
-import blik from '../../assets/payment/logo-blik.svg';
+import visaLogo from '../../assets/payment/logo-visa.jpg';
+import masterCardLogo from '../../assets/payment/logo-mastercard.svg';
+import certumLogo from '../../assets/payment/certum_pl_ev.svg';
+import payULogo from '../../assets/payment/payu-logo.svg';
+import blikLogo from '../../assets/payment/logo-blik.svg';
+
+
+const paymentLogos = [
+    { src: visaLogo, alt: "Visa Logo" },
+    { src: masterCardLogo, alt: "Master Card Logo" },
+    { src: certumLogo, alt: "Certum Logo" },
+    { src: payULogo, alt: "PayU Logo" },
+    { src: blikLogo, alt: "Blik Logo" },
+];
 
 function PaymentLogos() {
     return (
         <div className="product-details-logo-container">
-            <img className="product-details-logo-image" src={visa} alt="Visa Logo" />
-            <img className="product-details-logo-image" src={masterCard} alt="Master Card Logo" />
-            <img className="product-details-logo-image" src={certum} alt="Certum Logo" />
-            <img className="product-details-logo-image" src={payU} alt="PayU Logo" />
-            <img className="product-details-logo-image" src={blik} alt="Blik Logo" />
+            {paymentLogos.map((logo, index) => (
+                <img key={index} className="product-details-logo-image" src={logo.src} alt={logo.alt} />
+            ))}
         </div>
     );
 }
