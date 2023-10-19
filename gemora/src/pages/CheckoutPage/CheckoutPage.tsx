@@ -2,10 +2,11 @@ import React, {useContext, useState} from "react";
 import {Form} from "react-bootstrap";
 import CartContext from "../../context/CartContext";
 import {calculateTotal} from "../../utils/utils";
-import axios from "axios";
 import OrderSummary from "../../components/ordersummary/OrderSummary";
 import {shippingPrice} from "../../constants/constants";
 import './CheckoutPage.css'
+import {payUconfig} from "../../env";
+import {createOrder} from "../../api/OrderApi";
 
 interface FormData {
     firstName: string;
@@ -37,29 +38,23 @@ const CheckoutForm = () => {
         });
     };
 
-
     const handlePayUClick = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
 
             const paymentData = {
-                // firstName: formData.firstName,
-                // lastName: formData.lastName,
-                // address: formData.address,
-                // city: formData.city,
-                // postalCode: formData.postalCode,
-                customerIp: "127.0.0.1",
-                merchantPosId: "470782",
-                currencyCode: "PLN",
-                description: "Gemora",
+                customerIp: payUconfig.customerIp,
+                merchantPosId: payUconfig.merchantPosId,
+                currencyCode: payUconfig.currencyCode,
+                description: payUconfig.description,
                 totalAmount: totalValue * 100
 
             };
 
-            const response = await axios.post("http://localhost:8080/api/orders", paymentData);
+            const order = await createOrder(paymentData);
 
-            window.location.href = response.data;
-            console.log(response);
+            window.location.href = order;
+            console.log(order);
             clearCart();
         } catch (error) {
             console.error("Error initiating PayU payment:", error);
