@@ -25,16 +25,13 @@ const Footer: React.FC = () => {
                                 <p className="footer-divider"></p>
                                 <ul className="footer-nav">
                                     <li className="footer-nav-item">
-                                        <a className="footer-nav-link" href="/">Contact Us</a>
+                                        <a className="footer-nav-link" href="/contact">Contact Us</a>
                                     </li>
                                     <li className="footer-nav-item">
-                                        <a className="footer-nav-link" href="/">About Us</a>
+                                        <a className="footer-nav-link" href="/register">Sign Up</a>
                                     </li>
                                     <li className="footer-nav-item">
-                                        <a className="footer-nav-link" href="/">Sign Up</a>
-                                    </li>
-                                    <li className="footer-nav-item">
-                                        <a className="footer-nav-link" href="/">Sign In</a>
+                                        <a className="footer-nav-link" href="/login">Sign In</a>
                                     </li>
                                 </ul>
                             </div>
