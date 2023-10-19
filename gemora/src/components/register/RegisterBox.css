@@ -1,0 +1,129 @@
+.register-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container {
+    background-color: #f0ece4;
+    padding: 33px 76px 39px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.register-button {
+    margin-top: 2rem;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: all 0.15s;
+}
+
+.register-button:hover {
+    background-color: transparent;
+    color: black;
+}
+
+.register-alreadyhaveaccount {
+    text-align: center;
+    margin-top: 4rem;
+    color: #000;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.log-in {
+    margin-left: 5px;
+    text-decoration: underline;
+}
+
+.register-form-field {
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+.form-control.register-form-field:focus {
+    border-color: black;
+    box-shadow: none;
+}
+
+.form-container {
+    padding: 0 50px 0;
+}
+
+.register-section-title {
+    font-size: 32px;
+    line-height: 48px;
+    font-family: spectral, serif;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    margin-bottom: 11px;
+}
+
+.register-divider {
+    background-color: #b5a27a;
+    height: 2px;
+    display: inline-block;
+    width: 173px;
+}
+
+.register-top-section {
+    text-align: center;
+}
+
+.register-txt {
+    font-size: 16px;
+    line-height: 21px;
+    margin: 0 0 34px;
+}
+
+/* BREAKPOINTS */
+/* For large devices */
+@media (max-width: 992px) {
+    .register-container {
+        padding: 20px;
+    }
+
+    .register-button {
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+    .register-alreadyhaveaccount {
+        margin-top: 2rem;
+        font-size: 14px;
+    }
+
+    .form-container {
+        padding: 0 20px 0;
+    }
+}
+
+/* For medium devices */
+@media (max-width: 767px) {
+    .register-container {
+        padding: 20px;
+    }
+
+    .register-button {
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+    .register-alreadyhaveaccount {
+        margin-top: 2rem;
+        font-size: 14px;
+    }
+
+    .form-container {
+        padding: 0 20px 0;
+    }
+}
