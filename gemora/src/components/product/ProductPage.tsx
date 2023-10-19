@@ -15,6 +15,13 @@ import {fetchProductData} from "../../api/ProductApi";
 
 import {toast} from "react-toastify";
 
+const productPromises = [
+    { text: "Satisfaction Guaranteed", id: 1 },
+    { text: "No Hassle Refunds", id: 2 },
+    { text: "Free shipping over the world", id: 3 },
+    { text: "Secure Payments", id: 4 },
+];
+
 
 function ProductPage() {
     const {id} = useParams<{ id: string }>();
@@ -31,6 +38,16 @@ function ProductPage() {
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
     };
+
+    const handleAddToCartClick = () => {
+        if (!product) {
+            return;
+        }
+        product.quantity = quantity;
+        addProduct(product);
+        toast.success("Product added.");
+    };
+
 
 
     useEffect(() => {
@@ -63,50 +80,28 @@ function ProductPage() {
                                     <div>
                                         <p className="product-detail-description">{product.description}</p>
                                         <ul className="product-info-list">
-                                            <div>
-                                                <img src={checkBox} alt={"Check box"}></img>
-                                                <span className="product-info-item">Satisfaction Guaranteed</span>
-                                            </div>
-                                            <div>
-                                                <img src={checkBox} alt={"Check box"}></img>
-                                                <span className="product-info-item">No Hassle Refunds</span>
-                                                <div>
+                                            {productPromises.map((info) => (
+                                                <div key={info.id}>
+                                                    <img src={checkBox} alt="Check box" />
+                                                    <span className="product-info-item">{info.text}</span>
                                                 </div>
-                                                <img src={checkBox} alt={"Check box"}></img>
-                                                <span className="product-info-item">Free shipping over the world</span>
-                                            </div>
-                                            <div>
-                                                <img src={checkBox} alt={"Check box"}></img>
-                                                <span className="product-info-item">Secure Payments</span>
-                                            </div>
+                                            ))}
                                         </ul>
                                     </div>
                                     <div className="purchase-info-container">
                                         <div className="product-quantity">
                                             <div className="quantity-buttons-container">
-                                                <button onClick={decreaseQuantity} className="quantity-decrease">-
-                                                </button>
+                                                <button onClick={decreaseQuantity} className="quantity-decrease">-</button>
                                                 <div className="quantity">{quantity}</div>
-                                                <button onClick={increaseQuantity} className="quantity-increase">+
-                                                </button>
+                                                <button onClick={increaseQuantity} className="quantity-increase">+</button>
                                             </div>
                                         </div>
                                         <div className="button-container">
-                                            <button onClick={() => {
-                                                if(!product){
-                                                    return;
-                                                }
-                                                product.quantity = quantity;
-                                                addProduct(product);
-                                                toast.success("Product added.")
-                                            }}
-                                                    className="add-to-cart-button">ADD TO CART
-                                            </button>
+                                            <button onClick={handleAddToCartClick} className="add-to-cart-button">ADD TO CART</button>
                                         </div>
                                     </div>
 
                                     <PaymentLogos/>
-
                                     <ul className="product-info-list">
                                         <li className="product-info-item">Manufacturer :
                                             <span> {product.manufacturer}</span>
