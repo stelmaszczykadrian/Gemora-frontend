@@ -1,0 +1,139 @@
+.login-container {
+    background-color: #f0ece4;
+    padding: 33px 76px 39px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.login-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-container {
+    padding: 0 50px 0;
+}
+
+.login-form-field {
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+.form-control.login-form-field:focus {
+    border-color: black;
+    box-shadow: none;
+}
+
+.login-button {
+    margin-top: 2rem;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: all 0.15s;
+}
+
+.login-button:hover {
+    background-color: transparent;
+    color: black;
+}
+
+.login-forgot-link {
+    text-align: center;
+    margin-top: 1rem;
+    color: #000;
+    font-size: 16px;
+    line-height: 21px;
+    text-decoration: underline;
+}
+
+.login-signup {
+    margin-right: 5px;
+    text-decoration: underline;
+}
+
+.login-signup-section {
+    text-align: center;
+    margin-top: 4rem;
+    color: #000;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.login-top-section {
+    text-align: center;
+}
+
+.login-section-title {
+    font-size: 32px;
+    line-height: 48px;
+    font-family: spectral, serif;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    margin-bottom: 11px;
+}
+
+.login-divider {
+    background-color: #b5a27a;
+    height: 2px;
+    display: inline-block;
+    width: 173px;
+}
+
+.login-txt {
+    font-size: 16px;
+    line-height: 21px;
+    margin: 0 0 34px;
+}
+
+
+/* BREAKPOINTS */
+/* For large devices */
+@media (max-width: 992px) {
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-button {
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+    .login-signup-section {
+        margin-top: 2rem;
+        font-size: 14px;
+    }
+
+    .login-form-container {
+        padding: 0 20px 0;
+    }
+}
+
+/* For medium devices */
+@media (max-width: 767px) {
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-button {
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+    .login-signup-section {
+        margin-top: 2rem;
+        font-size: 14px;
+    }
+
+    .login-form-container {
+        padding: 0 20px 0;
+    }
+}
