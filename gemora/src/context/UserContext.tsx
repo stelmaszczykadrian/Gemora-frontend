@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useEffect, useState } from "react";
-import {ACCESS_TOKEN} from "../constants/constants";
+import {ACCESS_TOKEN, BaseUrl} from "../constants/constants";
 import axios from "axios";
 import {AuthService} from "../api/AuthService";
 
@@ -35,12 +35,14 @@ export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
         setCurrentUser(user);
     };
 
+
+
     const fetchUser = useCallback(async () => {
         const token = localStorage.getItem(ACCESS_TOKEN);
 
         if (token) {
             try {
-                const response = await axios.get(`http://localhost:8080/api/users/profile/${userEmail}`);
+                const response = await axios.get(`${BaseUrl}/api/users/profile/${userEmail}`);
 
                 if (response.status === 200) {
                     const userData: UserResponse = response.data;
