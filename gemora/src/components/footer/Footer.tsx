@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                 <div className="footer-container">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-6 col-lg-5 col-12">
+                            <div className="col-md-4 col-lg-5 col-12">
                                 <div className="text-center" style={{marginBottom: '20px'}}>
                                     <img src={gemoraLogo} alt="Gemora logo" width="35%" height="35%" />
                                 </div>
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                                     sparkle and elegance to your style. Enhance your individuality with our unique
                                     accessories.</p>
                             </div>
-                            <div className="col-md-6 col-lg-3 col-12 footer-second-column">
+                            <div className="col-md-4 col-lg-3 col-12 footer-second-column">
                                 <h5 className="second-column-title">Our Company</h5>
                                 <p className="footer-divider"></p>
                                 <ul className="footer-nav">
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
                                     ))}
                                 </ul>
                             </div>
-                            <div className="col-md-6 col-lg-4 col-12 footer-third-column">
+                            <div className="col-md-4 col-lg-4 col-12 footer-third-column">
                                 <h5 className="third-column-title">Store Information</h5>
                                 <p className="footer-divider"></p>
                                 <p><FontAwesomeIcon icon={faPhone} className="footer-icon"/> {companyInfo.phone}</p>
