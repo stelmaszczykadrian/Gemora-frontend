@@ -3,26 +3,29 @@ import {ACCESS_TOKEN, BaseUrl} from "../constants/constants";
 import axios from "axios";
 import {AuthService} from "../api/AuthService";
 
-
 export type UserResponse = {
     id: number
     email: string
+    role: string
 
 }
 
 const defaultSettings: UserContextType = {
     currentUser: null,
     userModifier: (user: User | null) => {},
+    getUserRole: () => null,
 };
 
 export type UserContextType = {
     currentUser: User | null;
     userModifier: (user: User | null) => void;
+    getUserRole: () => string | null;
 };
 
 export type User = {
     id: number
     email: string
+    role: string
 }
 
 export const UserContext = createContext<UserContextType>(defaultSettings);
@@ -34,8 +37,6 @@ export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
     const userModifier = (user: User | null) => {
         setCurrentUser(user);
     };
-
-
 
     const fetchUser = useCallback(async () => {
         const token = localStorage.getItem(ACCESS_TOKEN);
@@ -49,7 +50,8 @@ export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
 
                     userModifier({
                         email: userData.email,
-                        id: userData.id
+                        id: userData.id,
+                        role: userData.role
                     });
                 } else {
                     console.error('Error while downloading user data');
@@ -59,6 +61,13 @@ export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
             }
         }
     }, []);
+
+    const getUserRole = (): string | null => {
+        if (currentUser) {
+            return currentUser.role;
+        }
+        return null;
+    };
 
     useEffect(() => {
         const token = localStorage.getItem(ACCESS_TOKEN);
@@ -71,7 +80,7 @@ export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
 
 
     return (
-        <UserContext.Provider value={{ currentUser, userModifier }}>
+        <UserContext.Provider value={{ currentUser, userModifier, getUserRole }}>
             {children}
         </UserContext.Provider>
     );
