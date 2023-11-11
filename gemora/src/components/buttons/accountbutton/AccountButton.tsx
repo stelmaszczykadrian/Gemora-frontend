@@ -7,7 +7,7 @@ interface ProfileButtonProps {
 }
 
 
-const ProfileButton: FC<ProfileButtonProps> = ({ handleShow }) => (
+const AccountButton: FC<ProfileButtonProps> = ({ handleShow }) => (
     <Button
         style={{
             width: '3rem',
@@ -26,4 +26,4 @@ const ProfileButton: FC<ProfileButtonProps> = ({ handleShow }) => (
     </Button>
 );
 
-export default ProfileButton;
+export default AccountButton;

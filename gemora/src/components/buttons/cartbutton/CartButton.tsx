@@ -1,6 +1,6 @@
 import React, {FC, MouseEvent, useContext} from 'react';
 import {Button} from "react-bootstrap";
-import CartContext from "../../context/CartContext";
+import CartContext from "../../../context/CartContext";
 
 
 interface CartButtonProps {

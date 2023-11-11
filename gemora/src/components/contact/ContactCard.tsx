@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ContactCardProps {
-    iconClassName: string; // Define the type for iconClassName
+    iconClassName: string;
     title: string;
     link: string;
     buttonText: string;

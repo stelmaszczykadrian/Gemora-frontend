@@ -10,28 +10,28 @@ interface ContactFormValues {
     message: string;
 }
 
-export default function ContactBox(){
-    const data = [
-        {
-            iconClassName: 'bx bxl-linkedin contact-card-icon',
-            title: 'LinkedIn',
-            link: 'https://linkedin.com/in/stelmaszczykadrian',
-            buttonText: 'LinkedIn profile',
-        },
-        {
-            iconClassName: 'bx bxl-github contact-card-icon',
-            title: 'GitHub',
-            link: 'https://github.com/stelmaszczykadrian',
-            buttonText: 'GitHub profile',
-        },
-        {
-            iconClassName: 'bx bx-mail-send contact-card-icon',
-            title: 'Email',
-            link: 'mailto:stelmaszczykadrian@gmail.com',
-            buttonText: 'Write me',
-        },
-    ];
+const data = [
+    {
+        iconClassName: 'bx bxl-linkedin contact-card-icon',
+        title: 'LinkedIn',
+        link: 'https://linkedin.com/in/stelmaszczykadrian',
+        buttonText: 'LinkedIn profile',
+    },
+    {
+        iconClassName: 'bx bxl-github contact-card-icon',
+        title: 'GitHub',
+        link: 'https://github.com/stelmaszczykadrian',
+        buttonText: 'GitHub profile',
+    },
+    {
+        iconClassName: 'bx bx-mail-send contact-card-icon',
+        title: 'Email',
+        link: 'mailto:stelmaszczykadrian@gmail.com',
+        buttonText: 'Write me',
+    },
+];
 
+export default function ContactBox(){
     const initialValues = {
         name: '',
         email: '',
@@ -55,9 +55,6 @@ export default function ContactBox(){
 
     return(
         <div className="contact-section">
-            {/*<h2 className="contact-section-title">*/}
-            {/*    Contact Us!*/}
-            {/*</h2>*/}
             <div className="container">
                 <div className="register-top-section">
                     <h1 className="register-section-title">Contact Us</h1>

@@ -3,12 +3,12 @@ import gemoraLogo from '../../assets/GemoraLogo.jpg';
 
 import React, {useState} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
-import SearchButton from "../buttons/SearchButton";
-import CartButton from "../buttons/CartButton";
-import ProfileButton from "../buttons/ProfileButton";
+import SearchButton from "../buttons/searchbutton/SearchButton";
+import CartButton from "../buttons/cartbutton/CartButton";
+import AccountButton from "../buttons/accountbutton/AccountButton";
 import ShoppingCart from "../cart/shoppingcart/ShoppingCart";
 import SearchOffcanvas from "../search/SearchOffcanvas";
-import ProfileOffcanvas from "../profile/ProfileOffcanvas";
+import ProfileOffcanvas from "../profile/profileoffcanvas/ProfileOffcanvas";
 import {Link} from "react-router-dom";
 
 const Header: React.FC = () => {
@@ -44,7 +44,7 @@ const Header: React.FC = () => {
                     <Col xs={12} sm={4} className="text-center">
                         <div className="container mt-4">
                             <SearchButton handleShow={handleShowSearchOffcanvas}/>
-                            <ProfileButton handleShow={handleShowProfileOffcanvas}/>
+                            <AccountButton handleShow={handleShowProfileOffcanvas}/>
                             <CartButton handleShow={handleShowCartOffcanvas}/>
                             <ShoppingCart show={showCartOffcanvas} onHide={handleCloseCartOffcanvas}/>
                             <ProfileOffcanvas show={showProfileOffcanvas} onHide={handleCloseProfileOffcanvas}/>
