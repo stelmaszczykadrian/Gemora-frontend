@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import "./RecommendedItem.css";
+import "./RecommendedProduct.css";
 import React, {useEffect, useState} from "react";
 import {fetchFeaturedProductsData} from "../../../api/ProductApi";
 import {formatPrice} from "../../../utils/utils";
 
-function RecommendedItem() {
+function RecommendedProduct() {
 
     const [products, setProducts] = useState<any[]>([]);
 
@@ -45,4 +45,4 @@ function RecommendedItem() {
     );
 }
 
-export default RecommendedItem;
+export default RecommendedProduct;

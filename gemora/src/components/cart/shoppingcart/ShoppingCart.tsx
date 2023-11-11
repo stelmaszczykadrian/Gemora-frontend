@@ -3,9 +3,9 @@ import {Offcanvas} from "react-bootstrap";
 
 import "./ShoppingCart.css";
 import CartItem from "../cartitem/CartItem";
-import {formatPrice, groupBy} from "../../utils/utils";
-import EmptyCartImg from "../../assets/empty-cart.jpg";
-import CartContext from "../../context/CartContext";
+import {formatPrice, groupBy} from "../../../utils/utils";
+import EmptyCartImg from "../../../assets/empty-cart.jpg";
+import CartContext from "../../../context/CartContext";
 import {Link} from "react-router-dom";
 
 export interface CartOffcanvasProps {

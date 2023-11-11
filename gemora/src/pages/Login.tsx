@@ -1,5 +1,5 @@
 import React from "react";
-import LoginBox from "../components/login/LoginBox";
+import LoginBox from "../components/auth/login/LoginBox";
 
 const Login = () => {
     return <>

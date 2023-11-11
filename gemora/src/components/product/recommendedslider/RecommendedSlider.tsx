@@ -1,5 +1,5 @@
 import "./RecommendedSlider.css";
-import RecommendedItem from "../recommendeditem/RecommendedItem";
+import RecommendedProduct from "../recommendedproduct/RecommendedProduct";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowRight, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import React from "react";
@@ -33,7 +33,7 @@ function RecommendedSlider() {
                     </div>
                 </div>
                 <div className="row-container" id="slider">
-                    <RecommendedItem />
+                    <RecommendedProduct />
                 </div>
             </div>
         </div>

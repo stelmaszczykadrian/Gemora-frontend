@@ -5,10 +5,10 @@ import necklaceImage from '../assets/images/necklace.jpg'
 import giftImage from '../assets/images/gift.jpg'
 
 import LogosGallery from "../components/logosgallery/LogosGallery";
-import RecommendedSlider from "../components/recommended/recommendedslider/RecommendedSlider";
+import RecommendedSlider from "../components/product/recommendedslider/RecommendedSlider";
 import HeadingWithLines from "../components/headingwithlines/HeadingWithLines";
 import React from "react";
-import ProudProducts from "../components/proudproducts/ProudProducts";
+import ProudProducts from "../components/product/proudproducts/ProudProducts";
 import MainBanner from "../components/mainbanner/MainBanner";
 
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import {BaseUrl} from "../constants/constants";
-import {RegisterFormValues} from "../components/register/RegisterBox";
-import {LoginFormValues} from "../components/login/LoginBox";
+import {RegisterFormValues} from "../components/auth/register/RegisterBox";
+import {LoginFormValues} from "../components/auth/login/LoginBox";
 
 export const registerUser = async (values: RegisterFormValues) => {
     try {

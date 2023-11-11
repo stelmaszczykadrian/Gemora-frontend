@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from "react";
 import './ProductsFilter.css'
-import {SortType} from "../../constants/constants";
+import {SortType} from "../../../constants/constants";
 
 interface ProductsFilterProps {
     selectedValue: string;

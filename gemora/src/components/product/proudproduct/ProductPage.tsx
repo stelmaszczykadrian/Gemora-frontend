@@ -1,17 +1,17 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {useParams} from 'react-router-dom';
-import {Product} from "../../interfaces/ProductInterface";
+import {Product} from "../../../interfaces/ProductInterface";
 import './ProductPage.css'
-import {formatPrice} from "../../utils/utils";
-import CartContext from "../../context/CartContext";
-import checkBox from '../../assets/svg/checkbox.svg';
-import RecommendedSlider from "../recommended/recommendedslider/RecommendedSlider";
-import HeadingWithLines from "../headingwithlines/HeadingWithLines";
+import {formatPrice} from "../../../utils/utils";
+import CartContext from "../../../context/CartContext";
+import checkBox from '../../../assets/svg/checkbox.svg';
+import RecommendedSlider from "../recommendedslider/RecommendedSlider";
+import HeadingWithLines from "../../headingwithlines/HeadingWithLines";
 import img from '../../assets/images/banner2.jpg';
-import FeatureBoxes from "../featureboxes/FeatureBoxes";
-import PaymentLogos from "../paymentlogos/PaymentLogos";
-import MainBanner from "../mainbanner/MainBanner";
-import {fetchProductData} from "../../api/ProductApi";
+import FeatureBoxes from "../../featureboxes/FeatureBoxes";
+import PaymentLogos from "../../paymentlogos/PaymentLogos";
+import MainBanner from "../../mainbanner/MainBanner";
+import {fetchProductDataById} from "../../../api/ProductApi";
 
 import {toast} from "react-toastify";
 
@@ -51,7 +51,7 @@ function ProductPage() {
 
 
     useEffect(() => {
-        fetchProductData(id)
+        fetchProductDataById(id)
             .then((data) => {
                 if (data) {
                     setProduct(data);

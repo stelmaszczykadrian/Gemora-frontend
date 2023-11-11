@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import {useNavigate} from 'react-router-dom';
 import './LoginBox.css';
 import {toast} from "react-toastify";
-import {authenticateUser} from "../../api/AuthApi";
+import {authenticateUser} from "../../../api/AuthApi";
 
 export interface LoginFormValues {
     email: string;
@@ -34,6 +34,7 @@ const LoginBox = () => {
             localStorage.setItem('token', JSON.stringify(response));
             navigate('/');
             toast.success('You are logged in.');
+            window.location.reload();
         } catch (error) {
             console.error('Error sending data to backend:', error);
             toast.error('Something goes wrong.');
@@ -83,7 +84,7 @@ const LoginBox = () => {
                                         />
                                     </div>
                                     <div className="login-forgot-link">
-                                        <a href="#">Forgot your password?</a>
+                                        <a href="gemora/src/components/auth/login#">Forgot your password?</a>
                                     </div>
                                     <div className="form-group text-center mt-4">
                                         <button type="submit" className="login-button">
@@ -91,7 +92,7 @@ const LoginBox = () => {
                                         </button>
                                     </div>
                                     <div className="login-signup-section">
-                                        <a href="/register" className="login-signup">Sign up</a>
+                                        <a href="/gemora/src/pages/Register" className="login-signup">Sign up</a>
                                         and join to our community!
                                     </div>
                                 </Form>

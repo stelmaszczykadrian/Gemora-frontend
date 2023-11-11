@@ -3,8 +3,9 @@ import {Formik, Form, Field, ErrorMessage, FormikHelpers} from 'formik';
 import * as Yup from 'yup';
 import {useNavigate} from 'react-router-dom';
 import './RegisterBox.css';
-import {registerUser} from "../../api/AuthApi";
+import {registerUser} from "../../../api/AuthApi";
 import {toast} from "react-toastify";
+import {AxiosError} from "axios";
 
 export interface RegisterFormValues {
     firstname: string;
@@ -40,7 +41,15 @@ const RegisterBox = () => {
             toast.success("Customer account created.")
             navigate('/login');
         } catch (error) {
-            console.error('Error sending data to backend:', error);
+            if (error instanceof AxiosError && error.response) {
+                if (error.response.status === 409) {
+                    toast.error('The user email already exists. Please select a different email.');
+                } else {
+                    toast.error('Something goes wrong.');
+                }
+            } else {
+                console.error('Error sending data to backend:', error);
+            }
         } finally {
             setSubmitting(false);
         }
@@ -114,7 +123,7 @@ const RegisterBox = () => {
                                     </div>
                                     <div className="register-alreadyhaveaccount">
                                         Already have an account?
-                                        <a href="/login" className="log-in">Sign in here</a>
+                                        <a href="/gemora/src/pages/Login" className="log-in">Sign in here</a>
                                     </div>
                                 </Form>
                             </Formik>

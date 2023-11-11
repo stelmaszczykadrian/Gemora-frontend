@@ -2,10 +2,10 @@ import React, {ChangeEvent, useEffect, useState} from "react";
 import {
     fetchAllProductsDataFromApiBySortType
 } from "../api/ProductApi";
-import ProductList from "../components/productslist/ProductList";
-import '../components/productfilter/ProductsFilter.css'
+import ProductList from "../components/product/productslist/ProductList";
+import '../components/product/productfilter/ProductsFilter.css'
 
-import ProductsFilter from "../components/productfilter/ProductsFilter";
+import ProductsFilter from "../components/product/productfilter/ProductsFilter";
 import PageHeader from "../components/pageheader/PageHeader";
 import {SortType} from "../constants/constants";
 
