@@ -3,7 +3,7 @@ import {Route, Routes} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "../pages/Home";
-import ProductPage from "../components/product/ProductPage";
+import ProductPage from "../components/product/proudproduct/ProductPage";
 import NoPage from "../pages/NoPage/NoPage";
 import ProductsPage from "../pages/ProductsPage";
 import CategoryProductPage from "../pages/CategoryProductPage";
@@ -14,6 +14,8 @@ import ThankYouPage from "../pages/ThankYouPage/ThankYouPage";
 import Contact from "../pages/Contact";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import ProductManagement from "../pages/ProductManagement";
+import AddProductComponent from "../components/product/productform/AddProductComponent";
 
 const allProductsPageName = "ALL PRODUCTS";
 const allProductsPageTitle = "Immerse yourself in our extraordinary world of jewelry, where every piece is meticulously crafted to express your personality and uniqueness. Our unparalleled craftsmanship and commitment to quality ensure that each of our jewelry pieces is exceptional and enduring. With our 30-day money-back guarantee, you can make your choices with confidence. Visit Gemora today and embark on your journey through the world of exquisite jewelry.";
@@ -42,17 +44,32 @@ export const AppRouter = () => {
             <Route path="/" element={<Home/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/product/management" element={<ProductManagement/>}/>
+            <Route path="/product/management/add" element={<AddProductComponent/>}/>
             <Route path="/products/:id" element={<ProductPage/>}/>
-            <Route path="/products/engagements" element={<CategoryProductPage category={Categories.ENGAGEMENTS} pageName={engagementRingsPageName} pageTitle={engagementRingsPageTitle}/>}/>
-            <Route path="/products/earrings" element={<CategoryProductPage category={Categories.EARRINGS} pageName={earringsPageName} pageTitle={earringsPageTitle}/>}/>
-            <Route path="/products/pendants" element={<CategoryProductPage category={Categories.PENDANTS} pageName={pendantsPageName} pageTitle={pendantsPageTitle}/>}/>
-            <Route path="/products/rings" element={<CategoryProductPage category={Categories.RINGS} pageName={ringsPageName} pageTitle={ringsPageTitle}/>}/>
-            <Route path="/products/bracelets" element={<CategoryProductPage category={Categories.BRACELETS} pageName={braceletsPageName} pageTitle={braceletsPageTitle}/>}/>
-            <Route path="/products/gemstones" element={<CategoryProductPage category={Categories.GEMSTONES} pageName={gemstonesPageName} pageTitle={gemstonesPageTitle}/>}/>
+            <Route path="/products/engagements"
+                   element={<CategoryProductPage category={Categories.ENGAGEMENTS} pageName={engagementRingsPageName}
+                                                 pageTitle={engagementRingsPageTitle}/>}/>
+            <Route path="/products/earrings"
+                   element={<CategoryProductPage category={Categories.EARRINGS} pageName={earringsPageName}
+                                                 pageTitle={earringsPageTitle}/>}/>
+            <Route path="/products/pendants"
+                   element={<CategoryProductPage category={Categories.PENDANTS} pageName={pendantsPageName}
+                                                 pageTitle={pendantsPageTitle}/>}/>
+            <Route path="/products/rings"
+                   element={<CategoryProductPage category={Categories.RINGS} pageName={ringsPageName}
+                                                 pageTitle={ringsPageTitle}/>}/>
+            <Route path="/products/bracelets"
+                   element={<CategoryProductPage category={Categories.BRACELETS} pageName={braceletsPageName}
+                                                 pageTitle={braceletsPageTitle}/>}/>
+            <Route path="/products/gemstones"
+                   element={<CategoryProductPage category={Categories.GEMSTONES} pageName={gemstonesPageName}
+                                                 pageTitle={gemstonesPageTitle}/>}/>
             <Route path="/cart" element={<CartPage/>}/>
             <Route path="/checkout" element={<CheckoutPage/>}/>
             <Route path="/thank-you" element={<ThankYouPage/>}/>
-            <Route path="/store" element={<ProductsPage pageName={allProductsPageName} pageTitle={allProductsPageTitle}/>}/>
+            <Route path="/store"
+                   element={<ProductsPage pageName={allProductsPageName} pageTitle={allProductsPageTitle}/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="*" element={<NoPage/>}/>
         </Routes>

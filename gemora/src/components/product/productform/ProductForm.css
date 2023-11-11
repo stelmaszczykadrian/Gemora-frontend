@@ -1,0 +1,122 @@
+/* ProductForm.css */
+
+/*.container {*/
+/*    width: 70%; !* Ustaw szerokość kontenera na 50% *!*/
+/*}*/
+
+/*.form-label,*/
+/*.form-control {*/
+/*    width: 70%; !* Ustaw szerokość etykiety i pola wejściowego na 50% *!*/
+/*}*/
+
+/*!* Dodatkowe stylizacje, jeśli są potrzebne *!*/
+/*.form-control {*/
+/*    margin-bottom: 10px; !* Dodaj odstęp między polami wejściowymi *!*/
+/*}*/
+
+/*.form-select {*/
+/*    width: 70%; !* Ustaw szerokość dla pola wyboru (select) na 50% *!*/
+/*}*/
+
+/*@media (max-width: 460px) {*/
+
+/*}*/
+
+/*@media (max-width: 300px) {*/
+/*    .product-card {*/
+/*        min-width: 250px;*/
+/*    }*/
+/*}*/
+
+
+.product-form-container {
+    max-width: 900px;
+    /*padding: 0 50px 0;*/
+    /*display: grid;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.product-form-card {
+    background-color: #f0ece4;
+    padding: 33px 76px 39px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.product-form-top-section {
+    text-align: center;
+}
+
+.product-form-section-title {
+    font-size: 32px;
+    line-height: 48px;
+    font-family: spectral, serif;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    margin-bottom: 11px;
+}
+
+.product-form-divider {
+    background-color: #b5a27a;
+    height: 2px;
+    display: inline-block;
+    width: 173px;
+}
+
+.product-form-section-txt {
+    font-size: 16px;
+    line-height: 21px;
+    margin: 0 0 34px;
+}
+
+.product-form-button {
+    margin-top: 2rem;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: all 0.15s;
+}
+
+.product-form-button:hover {
+    background-color: transparent;
+    color: black;
+}
+
+.product-form-field {
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+.form-control.product-form-field:focus {
+    border-color: black;
+    box-shadow: none;
+}
+
+@media (max-width: 460px) {
+    .product-form-container {
+        min-width: 350px;
+    }
+
+    .product-form-card {
+        padding: 10px 20px 10px;
+    }
+}
+
+@media (max-width: 300px) {
+    .product-form-container {
+        min-width: 280px;
+    }
+
+    .product-form-card {
+        padding: 3px 10px 3px;
+    }
+}

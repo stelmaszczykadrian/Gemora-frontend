@@ -24,7 +24,7 @@ export const fetchFeaturedProductsData = async () => {
 }
 
 
-export async function fetchProductData(id: string | undefined): Promise<Product | null> {
+export async function fetchProductDataById(id: string | undefined): Promise<Product | null> {
     if (!id) {
         return null;
     }
