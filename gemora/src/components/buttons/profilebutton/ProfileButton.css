@@ -1,0 +1,27 @@
+.profile-button {
+    max-width: 250px;
+    min-width: 250px;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: all 0.15s;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile-button:hover {
+    background-color: transparent;
+    color: black;
+}
+
+.profile-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

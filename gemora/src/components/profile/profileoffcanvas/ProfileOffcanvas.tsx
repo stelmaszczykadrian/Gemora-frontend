@@ -1,11 +1,10 @@
 import React, {useContext} from 'react';
 import {Offcanvas} from 'react-bootstrap';
-import CartContext from "../../context/CartContext";
-import UserContext from "../../context/UserContext";
+import UserContext from "../../../context/UserContext";
 import './ProfileOffCanvass.css'
-import AdminComponent from "./AdminComponent";
-import UserComponent from "./UserComponent";
-import NotLoggedIn from "./NotLoggedIn";
+import AdminComponent from "../admin/AdminComponent";
+import UserComponent from "../user/UserComponent";
+import NotLoggedIn from "../notloggedin/NotLoggedIn";
 
 interface ProfileOffcanvasProps {
     show: boolean;
@@ -13,11 +12,7 @@ interface ProfileOffcanvasProps {
 }
 
 const ProfileOffcanvas: React.FC<ProfileOffcanvasProps> = ({show, onHide}) => {
-
     const {currentUser, getUserRole} = useContext(UserContext);
-    console.log(currentUser)
-
-    const {clearCart} = useContext(CartContext);
 
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -30,20 +25,21 @@ const ProfileOffcanvas: React.FC<ProfileOffcanvasProps> = ({show, onHide}) => {
                 <Offcanvas.Title/>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                <div>
+                <div className="profile-container">
                     {currentUser ? (
-                        <div>
-                            <p>Email: {currentUser.email}</p>
-                            <p>Role: {getUserRole()}</p>
+                        <div className="profile-current-user-container">
+                            <div className="user-info">
+                                <p>Email: <span className="user-info-email">{currentUser.email}</span></p>
+                                <p>Role: <span className="user-info-role">{getUserRole()}</span></p>
+                            </div>
                             {getUserRole() === 'ADMIN' ? (
                                 <AdminComponent handleLogout={handleLogout}/>
                             ) : (
-                                <UserComponent handleLogout={handleLogout} clearCart={clearCart}/>
+                                <UserComponent handleLogout={handleLogout}/>
                             )}
                         </div>
                     ) : (
                         <NotLoggedIn/>
-
                     )}
                 </div>
             </Offcanvas.Body>

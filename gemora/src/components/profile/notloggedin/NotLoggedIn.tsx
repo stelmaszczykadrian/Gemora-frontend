@@ -1,5 +1,5 @@
 import React from "react";
-import padlockLogo from "../../assets/images/padlock.jpg";
+import padlockLogo from "../../../assets/images/padlock.jpg";
 
 
 export default function NotLoggedIn() {

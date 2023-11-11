@@ -5,6 +5,31 @@
     margin-top: 4rem;
 }
 
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-current-user-container {
+    width: 80%;
+}
+
+.user-info {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f5f4fa;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 1px rgba(0,0,0,.14),0 2px 1px rgba(0,0,0,.2);
+    padding: 15px;
+    margin-bottom: 3rem;
+}
+
+.user-info-email,
+.user-info-role {
+    color: red;
+}
+
 .padlock-logo {
     width: 300px;
     height: 300px;
@@ -48,6 +73,15 @@
 @media (max-width: 400px) {
     .not-loggedIn-container {
         margin-top: 1rem;
+    }
+
+    .profile-container {
+        width: 100%;
+    }
+
+    .user-info-email,
+    .user-info-role {
+        font-size: 15px;
     }
 
 }
