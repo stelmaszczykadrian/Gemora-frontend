@@ -6,7 +6,7 @@ interface AdminComponentProps {
 }
 
 const adminData = [
-    {to: "/product/management", text: "Products"},
+    {to: "/products/management", text: "Products"},
     {to: "#", text: "Orders"},
     {to: "#", text: "Users"},
     {to: "#", text: "Statistics"},

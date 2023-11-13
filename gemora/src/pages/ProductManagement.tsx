@@ -1,7 +1,7 @@
 import React from "react";
 
 import ProductCard from "../components/product/productcard/ProductCard";
-import PageHeader from "../components/pageheader/PageHeader";
+import PageHeader from "../components/ui/pageheader/PageHeader";
 
 const productManagementPageName = "PRODUCT MANAGEMENT";
 const productManagementPageTitle = "Effortlessly Manage Your Products";

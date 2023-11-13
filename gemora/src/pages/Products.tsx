@@ -6,7 +6,7 @@ import ProductList from "../components/product/productslist/ProductList";
 import '../components/product/productfilter/ProductsFilter.css'
 
 import ProductsFilter from "../components/product/productfilter/ProductsFilter";
-import PageHeader from "../components/pageheader/PageHeader";
+import PageHeader from "../components/ui/pageheader/PageHeader";
 import {SortType} from "../constants/constants";
 
 interface ProductsPageProps {

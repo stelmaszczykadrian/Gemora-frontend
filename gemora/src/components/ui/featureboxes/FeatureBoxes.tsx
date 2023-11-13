@@ -1,8 +1,8 @@
 import React from "react";
 import './FeatureBoxes.css'
-import rocketLogo from "../../assets/svg/rocket.svg";
-import headphonesLogo from "../../assets/svg/headphones.svg";
-import piggyBankLogo from "../../assets/svg/piggy.svg";
+import rocketLogo from "../../../assets/svg/rocket.svg";
+import headphonesLogo from "../../../assets/svg/headphones.svg";
+import piggyBankLogo from "../../../assets/svg/piggy.svg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import FeatureBox from "./FeatureBox";

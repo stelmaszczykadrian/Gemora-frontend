@@ -10,9 +10,6 @@ interface ProfileButtonProps {
 const ProfileButton: React.FC<ProfileButtonProps> = ({ to, text }) => (
 
         <Link to={to}>
-            {/*<div className="profile-button">*/}
-            {/*    {text}*/}
-            {/*</div>*/}
             <div className="profile-button-container">
                 <div className="profile-button">
                     {text}

@@ -6,11 +6,11 @@ import {formatPrice} from "../../../utils/utils";
 import CartContext from "../../../context/CartContext";
 import checkBox from '../../../assets/svg/checkbox.svg';
 import RecommendedSlider from "../recommendedslider/RecommendedSlider";
-import HeadingWithLines from "../../headingwithlines/HeadingWithLines";
+import HeadingWithLines from "../../ui/headingwithlines/HeadingWithLines";
 import img from '../../assets/images/banner2.jpg';
-import FeatureBoxes from "../../featureboxes/FeatureBoxes";
-import PaymentLogos from "../../paymentlogos/PaymentLogos";
-import MainBanner from "../../mainbanner/MainBanner";
+import FeatureBoxes from "../../ui/featureboxes/FeatureBoxes";
+import PaymentLogos from "../../ui/paymentlogos/PaymentLogos";
+import MainBanner from "../../ui/banners/mainbanner/MainBanner";
 import {fetchProductDataById} from "../../../api/ProductApi";
 
 import {toast} from "react-toastify";

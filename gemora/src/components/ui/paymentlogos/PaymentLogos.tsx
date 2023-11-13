@@ -1,10 +1,10 @@
 import React from 'react';
 import './PaymentLogos.css'
-import visaLogo from '../../assets/payment/logo-visa.jpg';
-import masterCardLogo from '../../assets/payment/logo-mastercard.svg';
-import certumLogo from '../../assets/payment/certum_pl_ev.svg';
-import payULogo from '../../assets/payment/payu-logo.svg';
-import blikLogo from '../../assets/payment/logo-blik.svg';
+import visaLogo from '../../../assets/payment/logo-visa.jpg';
+import masterCardLogo from '../../../assets/payment/logo-mastercard.svg';
+import certumLogo from '../../../assets/payment/certum_pl_ev.svg';
+import payULogo from '../../../assets/payment/payu-logo.svg';
+import blikLogo from '../../../assets/payment/logo-blik.svg';
 
 
 const paymentLogos = [

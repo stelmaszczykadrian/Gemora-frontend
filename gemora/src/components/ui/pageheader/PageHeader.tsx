@@ -1,6 +1,6 @@
 import React from 'react';
-import HeadingWithLines from "../headingwithlines/HeadingWithLines";
 import './PageHeader.css';
+import HeadingWithLines from "../headingwithlines/HeadingWithLines";
 
 interface PageHeaderProps {
     pageName: string;

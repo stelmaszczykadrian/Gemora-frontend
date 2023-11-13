@@ -3,7 +3,7 @@ import {Navbar, Container, Nav} from 'react-bootstrap';
 import './Navbar.css';
 
 const menuItems = [
-    { title: 'Products', link: '/store' },
+    { title: 'Products', link: '/products' },
     { title: 'Engagements', link: '/products/engagements' },
     { title: 'Earrings', link: '/products/earrings' },
     { title: 'Pendants', link: '/products/pendants' },

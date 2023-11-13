@@ -1,15 +1,15 @@
-import './CartPage.css';
+import './Cart.css';
 import React, {useContext} from "react";
 import CartContext from "../../context/CartContext";
 import {calculateTotal, formatPrice} from "../../utils/utils";
-import QuantitySelector from "../../components/quantityselector/QuantitySelector";
-import HeadingWithLines from "../../components/headingwithlines/HeadingWithLines";
+import QuantitySelector from "../../components/cart/quantityselector/QuantitySelector";
+import HeadingWithLines from "../../components/ui/headingwithlines/HeadingWithLines";
 import OrderSummary from "../../components/ordersummary/OrderSummary";
 import {Link} from "react-router-dom";
 import {shippingPrice} from "../../constants/constants";
 
 
-const CartPage = () => {
+const Cart = () => {
     const {products} = useContext(CartContext);
     const totalValue = calculateTotal(products);
 
@@ -71,4 +71,4 @@ const CartPage = () => {
     );
 };
 
-export default CartPage;
+export default Cart;

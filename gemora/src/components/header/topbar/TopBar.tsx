@@ -1,7 +1,7 @@
 import React from "react";
-import mailIcon from "../../assets/svg/mail.svg";
-import signUpIcon from "../../assets/svg/signup.svg";
-import signInIcon from "../../assets/svg/singin.svg";
+import mailIcon from "../../../assets/svg/mail.svg";
+import signUpIcon from "../../../assets/svg/signup.svg";
+import signInIcon from "../../../assets/svg/singin.svg";
 import {Container, Row, Col} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import './TopBar.css'

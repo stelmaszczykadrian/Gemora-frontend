@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import './QuantitySelector.css';
-import CartContext from "../../context/CartContext";
-import {Product} from "../../interfaces/ProductInterface";
+import CartContext from "../../../context/CartContext";
+import {Product} from "../../../interfaces/ProductInterface";
 
 interface QuantitySelectorProps {
     quantity: number;

@@ -123,7 +123,7 @@ const RegisterBox = () => {
                                     </div>
                                     <div className="register-alreadyhaveaccount">
                                         Already have an account?
-                                        <a href="/gemora/src/pages/Login" className="log-in">Sign in here</a>
+                                        <a href="/login" className="log-in">Sign in here</a>
                                     </div>
                                 </Form>
                             </Formik>

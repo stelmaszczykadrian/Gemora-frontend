@@ -2,10 +2,10 @@ import React from 'react';
 import {Row, Col} from 'react-bootstrap';
 import {CheckCircleFill} from 'react-bootstrap-icons';
 import {Link} from "react-router-dom";
-import LogosGallery from "../../components/logosgallery/LogosGallery";
-import './ThankYouPage.css'
+import LogosGallery from "../../components/ui/logosgallery/LogosGallery";
+import './ThankYou.css'
 
-function ThankYouPage() {
+function ThankYou() {
     return (
         <div className="container thank-you-container">
             <div>
@@ -34,4 +34,4 @@ function ThankYouPage() {
     );
 }
 
-export default ThankYouPage;
+export default ThankYou;

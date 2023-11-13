@@ -84,7 +84,7 @@ const LoginBox = () => {
                                         />
                                     </div>
                                     <div className="login-forgot-link">
-                                        <a href="gemora/src/components/auth/login#">Forgot your password?</a>
+                                        <a href="#">Forgot your password?</a>
                                     </div>
                                     <div className="form-group text-center mt-4">
                                         <button type="submit" className="login-button">
@@ -92,7 +92,7 @@ const LoginBox = () => {
                                         </button>
                                     </div>
                                     <div className="login-signup-section">
-                                        <a href="/gemora/src/pages/Register" className="login-signup">Sign up</a>
+                                        <a href="/register" className="login-signup">Sign up</a>
                                         and join to our community!
                                     </div>
                                 </Form>

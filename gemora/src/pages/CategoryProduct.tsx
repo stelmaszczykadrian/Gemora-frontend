@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { fetchAllProductsDataByCategoryAndSort } from "../api/ProductApi";
 import ProductList from "../components/product/productslist/ProductList";
-import PageHeader from "../components/pageheader/PageHeader";
+import PageHeader from "../components/ui/pageheader/PageHeader";
 import ProductsFilter from "../components/product/productfilter/ProductsFilter";
 import {Product} from "../interfaces/ProductInterface";
 import {SortType} from "../constants/constants";
@@ -13,7 +13,7 @@ interface ProductsPageProps {
 }
 
 
-const CategoryProductPage: React.FC<ProductsPageProps> = ({ category ,pageName,pageTitle}) => {
+const CategoryProduct: React.FC<ProductsPageProps> = ({ category ,pageName,pageTitle}) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [selectedValue, setSelectedValue] = useState("");
     const [selectedCategory] = useState<string>(category);
@@ -63,4 +63,4 @@ const CategoryProductPage: React.FC<ProductsPageProps> = ({ category ,pageName,p
     );
 };
 
-export default CategoryProductPage;
+export default CategoryProduct;

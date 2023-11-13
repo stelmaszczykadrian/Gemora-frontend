@@ -4,7 +4,7 @@ import CartContext from "../../context/CartContext";
 import {calculateTotal} from "../../utils/utils";
 import OrderSummary from "../../components/ordersummary/OrderSummary";
 import {shippingPrice} from "../../constants/constants";
-import './CheckoutPage.css'
+import './Checkout.css'
 import {payUconfig} from "../../env";
 import {createOrder} from "../../api/OrderApi";
 

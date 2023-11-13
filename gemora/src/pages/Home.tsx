@@ -1,15 +1,15 @@
-import FeaturedCategories from "../components/featuredcategories/FeaturedCategories";
-import Banner from "../components/banner/Banner";
+import FeaturedCategories from "../components/ui/featuredcategories/FeaturedCategories";
+import Banner from "../components/ui/banners/banner/Banner";
 import engagementRingImage from '../assets/images/engagement-ring.jpg'
 import necklaceImage from '../assets/images/necklace.jpg'
 import giftImage from '../assets/images/gift.jpg'
 
-import LogosGallery from "../components/logosgallery/LogosGallery";
+import LogosGallery from "../components/ui/logosgallery/LogosGallery";
 import RecommendedSlider from "../components/product/recommendedslider/RecommendedSlider";
-import HeadingWithLines from "../components/headingwithlines/HeadingWithLines";
+import HeadingWithLines from "../components/ui/headingwithlines/HeadingWithLines";
 import React from "react";
 import ProudProducts from "../components/product/proudproducts/ProudProducts";
-import MainBanner from "../components/mainbanner/MainBanner";
+import MainBanner from "../components/ui/banners/mainbanner/MainBanner";
 
 
 const firstBannerTitle = 'Timeless Elegance with Gemora';

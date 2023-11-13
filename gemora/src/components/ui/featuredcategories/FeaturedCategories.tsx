@@ -1,12 +1,12 @@
 import React from "react";
 import './FeaturedCategories.css'
 
-import engagementRing from "../../assets/categories/engagement-rings.jpg";
-import bracelets from "../../assets/categories/bracelets.jpg";
-import pendants from "../../assets/categories/pendants.jpg";
-import rings from "../../assets/categories/rings.jpg";
-import earrings from "../../assets/categories/earrings.jpg";
-import gemstones from "../../assets/categories/gemstones.jpg";
+import engagementRing from "../../../assets/categories/engagement-rings.jpg";
+import bracelets from "../../../assets/categories/bracelets.jpg";
+import pendants from "../../../assets/categories/pendants.jpg";
+import rings from "../../../assets/categories/rings.jpg";
+import earrings from "../../../assets/categories/earrings.jpg";
+import gemstones from "../../../assets/categories/gemstones.jpg";
 import FeaturedCategory, {Category} from "./FeaturedCategory";
 
 const categories: Category[] = [

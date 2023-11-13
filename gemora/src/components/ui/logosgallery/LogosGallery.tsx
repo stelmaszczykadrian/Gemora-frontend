@@ -1,9 +1,9 @@
 import React from "react";
-import kingsCrownLogo from "../../assets/brand-logos/kingscrown.jpg";
-import crownLogo from "../../assets/brand-logos/crown.jpg";
-import berliansLogo from "../../assets/brand-logos/berlians.jpg";
-import luxuryLogo from "../../assets/brand-logos/luxury.jpg";
-import wonderLogo from "../../assets/brand-logos/wonder.jpg";
+import kingsCrownLogo from "../../../assets/brand-logos/kingscrown.jpg";
+import crownLogo from "../../../assets/brand-logos/crown.jpg";
+import berliansLogo from "../../../assets/brand-logos/berlians.jpg";
+import luxuryLogo from "../../../assets/brand-logos/luxury.jpg";
+import wonderLogo from "../../../assets/brand-logos/wonder.jpg";
 import './LogosGallery.css';
 
 const logoData = [

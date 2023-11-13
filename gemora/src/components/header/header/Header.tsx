@@ -1,14 +1,14 @@
 import './Header.css'
-import gemoraLogo from '../../assets/GemoraLogo.jpg';
+import gemoraLogo from '../../../assets/GemoraLogo.jpg';
 
 import React, {useState} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
-import SearchButton from "../buttons/searchbutton/SearchButton";
-import CartButton from "../buttons/cartbutton/CartButton";
-import AccountButton from "../buttons/accountbutton/AccountButton";
-import ShoppingCart from "../cart/shoppingcart/ShoppingCart";
-import SearchOffcanvas from "../search/SearchOffcanvas";
-import ProfileOffcanvas from "../profile/profileoffcanvas/ProfileOffcanvas";
+import SearchButton from "../../buttons/searchbutton/SearchButton";
+import CartButton from "../../buttons/cartbutton/CartButton";
+import AccountButton from "../../buttons/accountbutton/AccountButton";
+import ShoppingCart from "../../cart/shoppingcart/ShoppingCart";
+import SearchOffcanvas from "../../search/SearchOffcanvas";
+import ProfileOffcanvas from "../../profile/profileoffcanvas/ProfileOffcanvas";
 import {Link} from "react-router-dom";
 
 const Header: React.FC = () => {

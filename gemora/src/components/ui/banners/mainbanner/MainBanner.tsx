@@ -1,5 +1,5 @@
-import mainBannerLarge from '../../assets/images/banner.jpg';
-import mainBannerSmall from '../../assets/images/mainBannerSmall.jpg';
+import mainBannerLarge from '../../../../assets/images/banner.jpg';
+import mainBannerSmall from '../../../../assets/images/mainBannerSmall.jpg';
 import './MainBanner.css';
 
 
