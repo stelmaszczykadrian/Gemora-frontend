@@ -1,10 +1,8 @@
 import React from 'react';
-import axios from 'axios';
-import ProductForm, {ProductFormData} from "./ProductForm";
+import ProductForm, {ProductFormData} from "../components/product/productform/ProductForm";
+import {createProduct} from "../api/ProductApi";
 
-const AddProductComponent: React.FC = () => {
-
-
+const AddProduct: React.FC = () => {
     const convertImageToBase64 = (image: Blob): Promise<string> => {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -23,11 +21,10 @@ const AddProductComponent: React.FC = () => {
         });
     };
 
-
     const handleSubmit = async (formData: ProductFormData) => {
         const imageBase64 = await convertImageToBase64(formData.image as Blob);
 
-        const body = {
+        const data = {
             name: formData.name,
             price: formData.price,
             manufacturer: formData.manufacturer,
@@ -37,20 +34,26 @@ const AddProductComponent: React.FC = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:8080/api/products', body);
-
-            console.log('Response:', response.data);
-
+            await createProduct(data)
         } catch (error) {
             console.error('Error saving product:', error);
         }
     };
 
+    const initialData: ProductFormData = {
+        name: '',
+        price: 0,
+        manufacturer: '',
+        description: '',
+        category: '',
+        image: null,
+    };
+
     return (
         <div className="container">
-            <ProductForm onSubmit={handleSubmit}/>
+            <ProductForm onSubmit={handleSubmit} initialData={initialData}/>
         </div>
     );
 };
 
-export default AddProductComponent;
+export default AddProduct;

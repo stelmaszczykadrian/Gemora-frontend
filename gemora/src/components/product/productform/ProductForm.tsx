@@ -3,6 +3,7 @@ import './ProductForm.css';
 
 interface ProductFormProps {
     onSubmit: (formData: ProductFormData) => void;
+    initialData?: ProductFormData;
 }
 
 export interface ProductFormData {
@@ -14,14 +15,14 @@ export interface ProductFormData {
     image: File | null;
 }
 
-const ProductForm: React.FC<ProductFormProps> = ({onSubmit}) => {
+const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData }) => {
     const [formData, setFormData] = useState<ProductFormData>({
-        name: '',
-        price: 0,
-        manufacturer: '',
-        description: '',
-        category: '',
-        image: null,
+        name: initialData?.name ?? '',
+        price: initialData?.price ?? 0,
+        manufacturer: initialData?.manufacturer ?? '',
+        description: initialData?.description ?? '',
+        category: initialData?.category ?? '',
+        image: initialData?.image ?? null,
     });
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -44,7 +45,6 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit}) => {
 
     function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
         const selectedCategory = event.target.value;
-        console.log(selectedCategory)
         setFormData((prevData) => ({
             ...prevData,
             category: selectedCategory,
