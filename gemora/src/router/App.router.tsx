@@ -16,6 +16,8 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import ProductManagement from "../pages/ProductManagement";
 import AddProduct from "../pages/AddProduct";
+import ProtectedRoute from "../components/ProtectedRoute";
+
 
 const allProductsPageName = "ALL PRODUCTS";
 const allProductsPageTitle = "Immerse yourself in our extraordinary world of jewelry, where every piece is meticulously crafted to express your personality and uniqueness. Our unparalleled craftsmanship and commitment to quality ensure that each of our jewelry pieces is exceptional and enduring. With our 30-day money-back guarantee, you can make your choices with confidence. Visit Gemora today and embark on your journey through the world of exquisite jewelry.";
@@ -44,9 +46,18 @@ export const AppRouter = () => {
             <Route path="/" element={<Home/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/products/management" element={<ProductManagement/>}/>
-            <Route path="/products/management/add" element={<AddProduct/>}/>
-                <Route path="/products/:id" element={<ProductPage/>}/>
+            <Route path="/products/management" element={
+                <ProtectedRoute>
+                    <ProductManagement/>
+                </ProtectedRoute>
+
+            }/>
+            <Route path="/products/management/add" element={
+                <ProtectedRoute>
+                    <AddProduct/>
+                </ProtectedRoute>
+            }/>
+            <Route path="/products/:id" element={<ProductPage/>}/>
             <Route path="/products/engagements"
                    element={<CategoryProduct category={Categories.ENGAGEMENTS} pageName={engagementRingsPageName}
                                              pageTitle={engagementRingsPageTitle}/>}/>
