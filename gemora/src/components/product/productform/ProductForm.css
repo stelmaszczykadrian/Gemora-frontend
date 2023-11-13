@@ -1,40 +1,5 @@
-/* ProductForm.css */
-
-/*.container {*/
-/*    width: 70%; !* Ustaw szerokość kontenera na 50% *!*/
-/*}*/
-
-/*.form-label,*/
-/*.form-control {*/
-/*    width: 70%; !* Ustaw szerokość etykiety i pola wejściowego na 50% *!*/
-/*}*/
-
-/*!* Dodatkowe stylizacje, jeśli są potrzebne *!*/
-/*.form-control {*/
-/*    margin-bottom: 10px; !* Dodaj odstęp między polami wejściowymi *!*/
-/*}*/
-
-/*.form-select {*/
-/*    width: 70%; !* Ustaw szerokość dla pola wyboru (select) na 50% *!*/
-/*}*/
-
-/*@media (max-width: 460px) {*/
-
-/*}*/
-
-/*@media (max-width: 300px) {*/
-/*    .product-card {*/
-/*        min-width: 250px;*/
-/*    }*/
-/*}*/
-
-
 .product-form-container {
     max-width: 900px;
-    /*padding: 0 50px 0;*/
-    /*display: grid;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
 }
 
 .product-form-card {
