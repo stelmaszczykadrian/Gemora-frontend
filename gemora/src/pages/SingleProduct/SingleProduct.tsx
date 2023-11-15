@@ -1,17 +1,17 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {useParams} from 'react-router-dom';
-import {Product} from "../../../interfaces/ProductInterface";
-import './ProductPage.css'
-import {formatPrice} from "../../../utils/utils";
-import CartContext from "../../../context/CartContext";
-import checkBox from '../../../assets/svg/checkbox.svg';
-import RecommendedSlider from "../recommendedslider/RecommendedSlider";
-import HeadingWithLines from "../../ui/headingwithlines/HeadingWithLines";
+import {Product} from "../../interfaces/ProductInterface";
+import './SingleProduct.css'
+import {formatPrice} from "../../utils/utils";
+import CartContext from "../../context/CartContext";
+import checkBox from '../../assets/svg/checkbox.svg';
+import RecommendedSlider from "../../components/product/recommendedslider/RecommendedSlider";
+import HeadingWithLines from "../../components/ui/headingwithlines/HeadingWithLines";
 import img from '../../assets/images/banner2.jpg';
-import FeatureBoxes from "../../ui/featureboxes/FeatureBoxes";
-import PaymentLogos from "../../ui/paymentlogos/PaymentLogos";
-import MainBanner from "../../ui/banners/mainbanner/MainBanner";
-import {fetchProductDataById} from "../../../api/ProductApi";
+import FeatureBoxes from "../../components/ui/featureboxes/FeatureBoxes";
+import PaymentLogos from "../../components/ui/paymentlogos/PaymentLogos";
+import MainBanner from "../../components/ui/banners/mainbanner/MainBanner";
+import {fetchProductDataById} from "../../api/ProductApi";
 
 import {toast} from "react-toastify";
 
@@ -23,7 +23,7 @@ const productPromises = [
 ];
 
 
-function ProductPage() {
+function SingleProduct() {
     const {id} = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | null>(null);
     const [quantity, setQuantity] = useState(1);
@@ -123,6 +123,6 @@ function ProductPage() {
     );
 }
 
-export default ProductPage;
+export default SingleProduct;
 
 

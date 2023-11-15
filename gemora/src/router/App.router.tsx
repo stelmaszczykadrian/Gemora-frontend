@@ -3,7 +3,7 @@ import {Route, Routes} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "../pages/Home";
-import ProductPage from "../components/product/proudproduct/ProductPage";
+import SingleProduct from "../pages/SingleProduct/SingleProduct";
 import NoPage from "../pages/NoPage/NoPage";
 import AllProducts from "../pages/Products";
 import CategoryProduct from "../pages/CategoryProduct";
@@ -17,6 +17,7 @@ import Login from "../pages/Login";
 import ProductManagement from "../pages/ProductManagement";
 import AddProduct from "../pages/AddProduct";
 import ProtectedRoute from "../components/ProtectedRoute";
+import EditProduct from "../pages/EditProduct";
 
 
 const allProductsPageName = "ALL PRODUCTS";
@@ -50,14 +51,18 @@ export const AppRouter = () => {
                 <ProtectedRoute>
                     <ProductManagement/>
                 </ProtectedRoute>
-
             }/>
             <Route path="/products/management/add" element={
                 <ProtectedRoute>
                     <AddProduct/>
                 </ProtectedRoute>
             }/>
-            <Route path="/products/:id" element={<ProductPage/>}/>
+            <Route path="/products/:id" element={<SingleProduct/>}/>
+            <Route path="/products/edit/:id" element={
+                <ProtectedRoute>
+                    <EditProduct/>
+                </ProtectedRoute>
+            }/>
             <Route path="/products/engagements"
                    element={<CategoryProduct category={Categories.ENGAGEMENTS} pageName={engagementRingsPageName}
                                              pageTitle={engagementRingsPageTitle}/>}/>
