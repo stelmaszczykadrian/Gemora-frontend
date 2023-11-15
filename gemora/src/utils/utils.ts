@@ -19,3 +19,21 @@ export const calculateTotal = (products: Array<{ price: number; quantity: number
     });
     return total;
 };
+
+export const convertImageToBase64 = (image: Blob): Promise<string> => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.result) {
+                const base64Url = reader.result as string;
+                resolve(base64Url.split(',')[1]);
+            } else {
+                reject('Failed to convert image to base64.');
+            }
+        };
+        reader.onerror = () => {
+            reject('Failed to read image file.');
+        };
+        reader.readAsDataURL(image);
+    });
+};

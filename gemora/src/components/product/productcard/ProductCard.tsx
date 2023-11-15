@@ -28,6 +28,10 @@ export default function ProductCard() {
         navigate(`/products/${productId}`);
     };
 
+    const handleEditProduct = (productId:number) => {
+        navigate(`/products/edit/${productId}`);
+    };
+
     const deleteOffer = async () => {
         await deleteProductById(productId);
         window.location.reload();
@@ -54,7 +58,7 @@ export default function ProductCard() {
                 {productList.map((product) => (
                     <div className="product-card" key={product.id}>
                         <p className="product-card-title" onClick={() => handleProductClick(product.id)}>{product.name}</p>
-                        <p><FontAwesomeIcon icon={faPencil} className="product-item-icon"/></p>
+                        <p><FontAwesomeIcon icon={faPencil} className="product-item-icon" onClick={() => handleEditProduct(product.id)}/></p>
                         <p><FontAwesomeIcon icon={faTrash} className="product-item-icon" onClick={() => handleDeleteOffer(product.id)}/></p>
                     </div>
                 ))}
