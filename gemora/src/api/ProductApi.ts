@@ -39,6 +39,21 @@ export async function fetchProductDataById(id: string | undefined): Promise<Prod
     }
 }
 
+export async function updateProduct(id: string | undefined, updatedData: any): Promise<boolean> {
+    if (!id) {
+        console.error('Invalid product id');
+        return false;
+    }
+
+    try {
+        await axios.put(`${BaseUrl}/api/products/edit/${id}`, updatedData);
+        return true;
+    } catch (error) {
+        console.error(errorMessageDetails, error);
+        return false;
+    }
+}
+
 export async function deleteProductById(id: number): Promise<Product | null> {
     try {
         const response = await axios.delete<Product>(`${BaseUrl}/api/products/${id}`);

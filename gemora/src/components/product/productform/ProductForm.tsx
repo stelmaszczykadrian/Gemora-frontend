@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ProductForm.css';
 
 interface ProductFormProps {
     onSubmit: (formData: ProductFormData) => void;
     initialData?: ProductFormData;
+    pageTitle: string;
+    pageDescription: string;
+    isUpdate: boolean
 }
 
 export interface ProductFormData {
@@ -12,18 +15,35 @@ export interface ProductFormData {
     manufacturer: string;
     description: string;
     category: string;
-    image: File | null;
+    image: File | Blob | string | null;
 }
 
-const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData }) => {
+const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTitle, pageDescription, isUpdate }) => {
+
     const [formData, setFormData] = useState<ProductFormData>({
-        name: initialData?.name ?? '',
-        price: initialData?.price ?? 0,
-        manufacturer: initialData?.manufacturer ?? '',
-        description: initialData?.description ?? '',
-        category: initialData?.category ?? '',
-        image: initialData?.image ?? null,
+        name: '',
+        price: 0,
+        manufacturer: '',
+        description: '',
+        category: '',
+        image: null,
     });
+
+    useEffect(() => {
+        if (initialData) {
+            setFormData((prevData) => ({
+                ...prevData,
+                name: initialData.name,
+                price: initialData.price,
+                manufacturer: initialData.manufacturer,
+                description: initialData.description,
+                category: initialData.category,
+                image: initialData.image || null,
+            }));
+        }
+
+        console.log(initialData)
+    }, [initialData]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const {name, value} = event.target;
@@ -61,9 +81,9 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData }) => {
             <form onSubmit={handleSubmit}>
                 <div className="product-form-card">
                     <div className="product-form-top-section">
-                        <h1 className="product-form-section-title">Add product</h1>
+                        <h1 className="product-form-section-title">{pageTitle}</h1>
                         <p className="product-form-divider"></p>
-                        <p className="product-form-section-txt">You can add product here.</p>
+                        <p className="product-form-section-txt">{pageDescription}</p>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">
@@ -146,6 +166,11 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData }) => {
                         <label htmlFor="image" className="form-label">
                             Image
                         </label>
+                        {isUpdate&&<img
+                            src={`data:image/jpeg;base64,${formData.image}`}
+                            className="card-img-top product-header-img"
+                        />}
+
                         <input
                             type="file"
                             className="form-control product-form-field"
