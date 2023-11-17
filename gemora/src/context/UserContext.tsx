@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useEffect, useState } from "react";
 import {ACCESS_TOKEN, BaseUrl} from "../constants/constants";
 import axios from "axios";
-import {AuthService} from "../api/AuthService";
+import {AuthService} from "../services/AuthService";
 
 export type UserResponse = {
     id: number
