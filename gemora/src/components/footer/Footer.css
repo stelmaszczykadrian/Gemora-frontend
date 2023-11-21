@@ -20,12 +20,14 @@
 }
 
 .footer-nav {
+    line-height: 1em;
     list-style: none;
     padding-left: 0;
 }
 
 .third-column-title,
 .second-column-title {
+    line-height: 1em;
     color: whitesmoke;
 }
 
@@ -49,16 +51,22 @@
     color: #b2b2b2;
 }
 
+.footer-third-column {
+    line-height: 1em;
+}
+
 .footer-third-column i {
     padding-right: 0.5rem;
 
 }
 
 .footer-icon {
+    margin-right: 7px;
     color: #b5a27a;
 }
 
 .footer-divider {
+    line-height: 1em;
     background-color: #b5a27a;
     height: 3px;
     width: 40px;
@@ -66,6 +74,7 @@
 }
 
 .footer-second-row {
+    line-height: 1em;
     background-color: #30373e;
     font-weight: 600;
     color: #b2b2b2;
@@ -75,3 +84,9 @@
     padding: 10px;
 }
 
+
+@media (max-width: 999px) {
+    .first-column-description {
+        font-size: 15px;
+    }
+}
