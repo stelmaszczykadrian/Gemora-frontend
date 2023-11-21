@@ -18,7 +18,7 @@ const firstBannerDescription = 'Experience the fusion of artistry and comfort wi
 const secondBannerTitle = "Embrace Harmony with Gemora";
 const secondBannerDescription = "Our Gemora products are crafted in standardized sizes, granting you the freedom to mix and match as you please, crafting a style that's distinctly your own.";
 
-const thirdBannerTitle = "Perfect Gifts for Every Occasion";
+const thirdBannerTitle = "All-Occasion Gifts";
 const thirdBannerDescription = "Gemora offers a range of products perfect for gifting. Each item combines elegance with comfort, making them ideal for special occasions or thoughtful presents. Discover Gemora, where every product is crafted to bring joy and sophistication to everyday life."
 
 const isMainBanner = false;
