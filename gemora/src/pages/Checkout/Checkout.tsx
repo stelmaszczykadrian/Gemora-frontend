@@ -5,15 +5,21 @@ import {calculateTotal} from "../../utils/utils";
 import OrderSummary from "../../components/ordersummary/OrderSummary";
 import {shippingPrice} from "../../constants/constants";
 import './Checkout.css'
-import {payUconfig} from "../../env";
-import {createOrder} from "../../api/OrderApi";
+import {initiatePayment} from "../../services/PaymentService";
+import HeadingWithLines from "../../components/ui/headingwithlines/HeadingWithLines";
+import {Link} from "react-router-dom";
+import UserContext from "../../context/UserContext";
+import {saveOrder} from "../../api/OrderApi";
 
 interface FormData {
     firstName: string;
     lastName: string;
     address: string;
     city: string;
-    postalCode: string;
+    postcode: string;
+    email: string;
+    note: string;
+
 }
 
 const CheckoutForm = () => {
@@ -22,15 +28,18 @@ const CheckoutForm = () => {
         lastName: "",
         address: "",
         city: "",
-        postalCode: "",
+        postcode: "",
+        email: "",
+        note: ""
+
     });
+    const {currentUser} = useContext(UserContext);
     const {products, clearCart} = useContext(CartContext);
     const totalValue = calculateTotal(products);
 
+    console.log(products)
 
-    const handleChange = (
-        event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-    ) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const {name, value} = event.target;
         setFormData({
             ...formData,
@@ -41,92 +50,75 @@ const CheckoutForm = () => {
     const handlePayUClick = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-
-            const paymentData = {
-                customerIp: payUconfig.customerIp,
-                merchantPosId: payUconfig.merchantPosId,
-                currencyCode: payUconfig.currencyCode,
-                description: payUconfig.description,
-                totalAmount: totalValue * 100
-
+            const orderDetails = {
+                formData,
+                user: currentUser,
+                products: products,
+                totalAmount: totalValue,
             };
 
-            const order = await createOrder(paymentData);
 
-            window.location.href = order;
-            console.log(order);
+            window.location.href = await initiatePayment(totalValue);
             clearCart();
+            await saveOrder(orderDetails);
+
         } catch (error) {
             console.error("Error initiating PayU payment:", error);
+            alert("An error occurred while processing your payment. Please try again later.");
         }
     };
 
     return (
         <div className="container">
+            <HeadingWithLines name="CHECKOUT"/>
+            <div className="checkout-already-account">
+                Already have a Gemora account?
+                <Link to="/login">
+                    <button className="checkout-signin-button">SIGN IN</button>
+                </Link>
+            </div>
             <Form onSubmit={handlePayUClick}>
                 <div className="checkout-container">
                     <div className="checkout-left-section">
-                        <Form.Group controlId="firstName">
-                            <Form.Label>First Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="firstName"
-                                value={formData.firstName}
-                                onChange={handleChange}
-                                required
-                            />
-                        </Form.Group>
+                        <div className="checkout-left-section-title">
+                            Shipping Address:
+                        </div>
+                        <div className="checkout-name-section">
+                            <input className="checkout-input-first" name="firstName" value={formData.firstName}
+                                   onChange={handleChange} required placeholder="First Name*"/>
+                            <input className="checkout-input-lastname" name="lastName" value={formData.lastName}
+                                   onChange={handleChange} required placeholder="Last Name*"/>
+                        </div>
 
-                        <Form.Group controlId="lastName">
-                            <Form.Label>Last Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="lastName"
-                                value={formData.lastName}
-                                onChange={handleChange}
-                                required
-                            />
-                        </Form.Group>
+                        <div className="checkout-address-section">
+                            <input className="checkout-input-address" name="address" value={formData.address}
+                                   onChange={handleChange} required placeholder="Address Line*"/>
+                        </div>
 
-                        <Form.Group controlId="address">
-                            <Form.Label>Address</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="address"
-                                value={formData.address}
-                                onChange={handleChange}
-                                required
-                            />
-                        </Form.Group>
+                        <div className="checkout-town-section">
+                            <input className="checkout-input-town" name="city" value={formData.city}
+                                   onChange={handleChange} required placeholder="City/Town*"/>
+                            <input className="checkout-input-postcode" name="postcode" value={formData.postcode}
+                                   onChange={handleChange} required placeholder="Postcode*"/>
+                        </div>
 
-                        <Form.Group controlId="city">
-                            <Form.Label>City</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="city"
-                                value={formData.city}
-                                onChange={handleChange}
-                                required
-                            />
-                        </Form.Group>
+                        <div className="checkout-email-section">
+                            <input className="checkout-input-email" name="email" value={formData.email}
+                                   onChange={handleChange} required placeholder="Email Address*"/>
+                        </div>
 
-                        <Form.Group controlId="postalCode">
-                            <Form.Label>Postal Code</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="postalCode"
-                                value={formData.postalCode}
-                                onChange={handleChange}
-                                required
-                            />
-                        </Form.Group>
+                        <div className="checkout-left-section-title">
+                            Customer Note:
+                        </div>
+                        <textarea className="checkout-order-note-textarea" name="note" value={formData.note} onChange={handleChange}/>
                     </div>
                     <div className="checkout-right-section">
                         <OrderSummary subtotal={totalValue} shippingPrice={shippingPrice}/>
                     </div>
                 </div>
+
                 <div className="checkout-button-container">
-                    <button type="submit" className="cart-page-proceed-button">PayU Payment</button>
+                    <button type="submit" className="checkout-complete-order-button">COMPLETE ORDER</button>
                 </div>
             </Form>
         </div>
