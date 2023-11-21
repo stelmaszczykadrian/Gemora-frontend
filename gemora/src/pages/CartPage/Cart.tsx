@@ -1,32 +1,54 @@
 import './Cart.css';
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import CartContext from "../../context/CartContext";
 import {calculateTotal, formatPrice} from "../../utils/utils";
 import QuantitySelector from "../../components/cart/quantityselector/QuantitySelector";
 import HeadingWithLines from "../../components/ui/headingwithlines/HeadingWithLines";
 import OrderSummary from "../../components/ordersummary/OrderSummary";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {shippingPrice} from "../../constants/constants";
+import LoginReminderModal from "../../components/ui/modals/loginreminder/LoginReminder";
+import {UserContext} from "../../context/UserContext";
 
 
 const Cart = () => {
     const {products} = useContext(CartContext);
     const totalValue = calculateTotal(products);
+    const {currentUser} = useContext(UserContext);
+    const [isLoginReminderOpen, setIsLoginReminderOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const handleCheckoutClick = () => {
+        if (!currentUser) {
+            setIsLoginReminderOpen(true);
+        } else {
+            goToCheckout();
+        }
+    };
+
+    const handleLoginReminderClose = () => {
+        setIsLoginReminderOpen(false);
+    };
+
+    const goToCheckout = () => {
+        navigate("/checkout")
+    };
 
     return (
         <div className="container">
             <div className="cart-page-wrapper">
                 <HeadingWithLines name="YOUR BAG"/>
                 <div className="cart-page-top-container">
+
+                    <LoginReminderModal isOpen={isLoginReminderOpen} handleCancel={handleLoginReminderClose}/>
                     <div>
                         <Link className="checkout-link" to="/store">
                             <button className="cart-page-continue-button">CONTINUE SHOPPING</button>
                         </Link>
                     </div>
                     <div>
-                        <Link className="checkout-link" to="/checkout">
-                            <button className="cart-page-checkout-button">CHECKOUT NOW</button>
-                        </Link>
+                        <button className="cart-page-checkout-button" onClick={handleCheckoutClick}>CHECKOUT NOW
+                        </button>
                     </div>
                 </div>
                 <h2 className="heading-with-lines"/>
@@ -60,11 +82,8 @@ const Cart = () => {
                     <h2 className="heading-with-lines"/>
                     <OrderSummary subtotal={totalValue} shippingPrice={shippingPrice}/>
                     <div className="checkout-button-container">
-                        <Link className="checkout-link" to="/checkout">
-                            <button className="cart-page-proceed-button">CHECKOUT NOW</button>
-                        </Link>
+                        <button className="cart-page-proceed-button" onClick={handleCheckoutClick}>CHECKOUT NOW</button>
                     </div>
-
                 </div>
             </div>
         </div>
