@@ -2,39 +2,23 @@ import React from "react";
 import mailIcon from "../../../assets/svg/mail.svg";
 import signUpIcon from "../../../assets/svg/signup.svg";
 import signInIcon from "../../../assets/svg/singin.svg";
-import {Container, Row, Col} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Container, Row} from "react-bootstrap";
 import './TopBar.css'
+import TopBarLink from "./link/TopBarkLink";
 
-const TopBar = () => {
+export default function TopBar() {
     return (
         <div className="info-top-bar text-black text-center py-2">
             <Container fluid>
                 <Row className="align-items-center">
-                    {/* Column with mail icon */}
-                    <Col xs={4} style={{borderRight: "1px solid whitesmoke"}}>
-                        <img src={mailIcon} alt="Email Icon" style={{marginRight: "8px"}}/>
-                        <span className="d-none d-md-inline" style={{color: 'whitesmoke'}}>gemora@contact.pl</span>
-                    </Col>
-                    {/* Column with Sign In icon */}
-                    <Col xs={4} style={{borderRight: "1px solid whitesmoke"}}>
-                        <Link to="/login" className="customLink">
-                            <img src={signInIcon} alt="SignIn Icon" style={{marginRight: "8px"}}/>
-                            <span className="d-none d-md-inline">Sign In</span>
-                        </Link>
-                    </Col>
-                    {/* Column with Sign Up icon */}
-                    <Col xs={4}>
-                        <Link to="/register" className="customLink">
-                            <img src={signUpIcon} alt="SignUp Icon" style={{marginRight: "8px"}}/>
-                            <span className="d-none d-md-inline">Sign Up</span>
-                        </Link>
-                    </Col>
+                    <TopBarLink to="/contact" icon={mailIcon} text="Contact Us" />
+                    <TopBarLink to="/login" icon={signInIcon} text="Sign In" />
+                    <TopBarLink to="/register" icon={signUpIcon} text="Sign Up" />
                 </Row>
             </Container>
         </div>
     );
 };
 
-export default TopBar;
+
 
