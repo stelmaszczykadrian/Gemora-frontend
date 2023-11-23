@@ -9,3 +9,10 @@ export interface Product {
     quantity: number;
 
 }
+
+export interface SimplifiedProduct {
+    id: number;
+    name: string;
+    quantity: number;
+    price: number;
+}
