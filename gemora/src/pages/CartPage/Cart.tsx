@@ -6,8 +6,8 @@ import QuantitySelector from "../../components/cart/quantityselector/QuantitySel
 import HeadingWithLines from "../../components/ui/headingwithlines/HeadingWithLines";
 import OrderSummary from "../../components/ordersummary/OrderSummary";
 import {Link, useNavigate} from "react-router-dom";
-import {shippingPrice} from "../../constants/constants";
 import LoginReminderModal from "../../components/ui/modals/loginreminder/LoginReminder";
+import {shippingPrice} from "../../constants/constants";
 import {UserContext} from "../../context/UserContext";
 
 
@@ -39,10 +39,9 @@ const Cart = () => {
             <div className="cart-page-wrapper">
                 <HeadingWithLines name="YOUR BAG"/>
                 <div className="cart-page-top-container">
-
                     <LoginReminderModal isOpen={isLoginReminderOpen} handleCancel={handleLoginReminderClose}/>
                     <div>
-                        <Link className="checkout-link" to="/store">
+                        <Link className="checkout-link" to="/products">
                             <button className="cart-page-continue-button">CONTINUE SHOPPING</button>
                         </Link>
                     </div>
