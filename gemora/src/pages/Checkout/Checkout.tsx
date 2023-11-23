@@ -10,8 +10,9 @@ import HeadingWithLines from "../../components/ui/headingwithlines/HeadingWithLi
 import {Link} from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import {saveOrder} from "../../api/OrderApi";
+import {toast} from "react-toastify";
 
-interface FormData {
+export interface ShippingDetails {
     firstName: string;
     lastName: string;
     address: string;
@@ -19,11 +20,10 @@ interface FormData {
     postcode: string;
     email: string;
     note: string;
-
 }
 
 const CheckoutForm = () => {
-    const [formData, setFormData] = useState<FormData>({
+    const [shippingDetails, setShippingDetails] = useState<ShippingDetails>({
         firstName: "",
         lastName: "",
         address: "",
@@ -37,30 +37,42 @@ const CheckoutForm = () => {
     const {products, clearCart} = useContext(CartContext);
     const totalValue = calculateTotal(products);
 
-    console.log(products)
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const {name, value} = event.target;
-        setFormData({
-            ...formData,
+        setShippingDetails({
+            ...shippingDetails,
             [name]: value,
         });
     };
+
+    const simplifiedProducts = products.map(product => {
+        return {
+            id: product.id,
+            name: product.name,
+            quantity: product.quantity,
+            price: product.price
+        };
+    });
 
     const handlePayUClick = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
             const orderDetails = {
-                formData,
+                shippingDetails: shippingDetails,
                 user: currentUser,
-                products: products,
+                products: simplifiedProducts,
                 totalAmount: totalValue,
             };
 
+            const paymentData = await initiatePayment(totalValue);
 
-            window.location.href = await initiatePayment(totalValue);
-            clearCart();
-            await saveOrder(orderDetails);
+            if (paymentData) {
+                window.location.href = paymentData;
+                clearCart();
+                await saveOrder(orderDetails);
+            } else {
+                toast.error('Failed to initiate payment');
+            }
 
         } catch (error) {
             console.error("Error initiating PayU payment:", error);
@@ -84,33 +96,34 @@ const CheckoutForm = () => {
                             Shipping Address:
                         </div>
                         <div className="checkout-name-section">
-                            <input className="checkout-input-first" name="firstName" value={formData.firstName}
+                            <input className="checkout-input-first" name="firstName" value={shippingDetails.firstName}
                                    onChange={handleChange} required placeholder="First Name*"/>
-                            <input className="checkout-input-lastname" name="lastName" value={formData.lastName}
+                            <input className="checkout-input-lastname" name="lastName" value={shippingDetails.lastName}
                                    onChange={handleChange} required placeholder="Last Name*"/>
                         </div>
 
                         <div className="checkout-address-section">
-                            <input className="checkout-input-address" name="address" value={formData.address}
+                            <input className="checkout-input-address" name="address" value={shippingDetails.address}
                                    onChange={handleChange} required placeholder="Address Line*"/>
                         </div>
 
                         <div className="checkout-town-section">
-                            <input className="checkout-input-town" name="city" value={formData.city}
+                            <input className="checkout-input-town" name="city" value={shippingDetails.city}
                                    onChange={handleChange} required placeholder="City/Town*"/>
-                            <input className="checkout-input-postcode" name="postcode" value={formData.postcode}
+                            <input className="checkout-input-postcode" name="postcode" value={shippingDetails.postcode}
                                    onChange={handleChange} required placeholder="Postcode*"/>
                         </div>
 
                         <div className="checkout-email-section">
-                            <input className="checkout-input-email" name="email" value={formData.email}
+                            <input className="checkout-input-email" name="email" value={shippingDetails.email}
                                    onChange={handleChange} required placeholder="Email Address*"/>
                         </div>
 
                         <div className="checkout-left-section-title">
                             Customer Note:
                         </div>
-                        <textarea className="checkout-order-note-textarea" name="note" value={formData.note} onChange={handleChange}/>
+                        <textarea className="checkout-order-note-textarea" name="note" value={shippingDetails.note}
+                                  onChange={handleChange}/>
                     </div>
                     <div className="checkout-right-section">
                         <OrderSummary subtotal={totalValue} shippingPrice={shippingPrice}/>

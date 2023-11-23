@@ -3,10 +3,10 @@ import {Route, Routes} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "../pages/Home";
-import SingleProduct from "../pages/SingleProduct/SingleProduct";
+import SingleProduct from "../pages/products/SingleProduct/SingleProduct";
 import NoPage from "../pages/NoPage/NoPage";
-import AllProducts from "../pages/Products";
-import CategoryProduct from "../pages/CategoryProduct";
+import AllProducts from "../pages/products/AllProducts/Products";
+import CategoryProduct from "../pages/products/CategoryProducts/CategoryProduct";
 import {Categories} from "../constants/constants";
 import Cart from "../pages/CartPage/Cart";
 import Checkout from "../pages/Checkout/Checkout";
@@ -14,10 +14,11 @@ import ThankYou from "../pages/ThankYou/ThankYou";
 import Contact from "../pages/Contact";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
-import ProductManagement from "../pages/ProductManagement";
-import AddProduct from "../pages/AddProduct";
+import ProductManagement from "../pages/products/ProductManagement/ProductManagement";
+import AddProduct from "../pages/products/AddProduct/AddProduct";
 import ProtectedRoute from "../components/ProtectedRoute";
-import EditProduct from "../pages/EditProduct";
+import EditProduct from "../pages/products/EditProduct/EditProduct";
+import Orders from "../pages/Orders";
 
 
 const allProductsPageName = "ALL PRODUCTS";
@@ -61,6 +62,11 @@ export const AppRouter = () => {
             <Route path="/products/edit/:id" element={
                 <ProtectedRoute>
                     <EditProduct/>
+                </ProtectedRoute>
+            }/>
+            <Route path="/orders" element={
+                <ProtectedRoute>
+                    <Orders/>
                 </ProtectedRoute>
             }/>
             <Route path="/products/engagements"

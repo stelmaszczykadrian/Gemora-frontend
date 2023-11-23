@@ -7,9 +7,8 @@ interface AdminComponentProps {
 
 const adminData = [
     {to: "/products/management", text: "Products"},
-    {to: "#", text: "Orders"},
+    {to: "/orders", text: "Orders"},
     {to: "#", text: "Users"},
-    {to: "#", text: "Statistics"},
 ];
 
 export default function AdminComponent({handleLogout}: AdminComponentProps) {
