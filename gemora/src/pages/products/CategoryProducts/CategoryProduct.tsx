@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { fetchAllProductsDataByCategoryAndSort } from "../api/ProductApi";
-import ProductList from "../components/product/productslist/ProductList";
-import PageHeader from "../components/ui/pageheader/PageHeader";
-import ProductsFilter from "../components/product/productfilter/ProductsFilter";
-import {Product} from "../interfaces/ProductInterface";
-import {SortType} from "../constants/constants";
+import { fetchAllProductsDataByCategoryAndSort } from "../../../api/ProductApi";
+import ProductList from "../../../components/product/productslist/ProductList";
+import PageHeader from "../../../components/ui/pageheader/PageHeader";
+import ProductsFilter from "../../../components/product/productfilter/ProductsFilter";
+import {Product} from "../../../interfaces/ProductInterface";
+import {SortType} from "../../../constants/constants";
 
 interface ProductsPageProps {
     category: string;

@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import ProductForm, {ProductFormData} from "../components/product/productform/ProductForm";
-import {fetchProductDataById, updateProduct} from "../api/ProductApi";
-import {useParams} from "react-router-dom";
-import {convertImageToBase64} from "../utils/utils";
+import ProductForm, {ProductFormData} from "../../../components/product/productform/ProductForm";
+import {fetchProductDataById, updateProduct} from "../../../api/ProductApi";
+import {useNavigate, useParams} from "react-router-dom";
+import {convertImageToBase64} from "../../../utils/utils";
 
 const EditProduct: React.FC = () => {
     const { id } = useParams();
     const pageTitle = "Edit product";
     const pageDescription = "You can edit product here.";
+    const navigate = useNavigate();
 
     const [initialData, setInitialData] = useState<ProductFormData>({
         name: '',
@@ -37,6 +38,7 @@ const EditProduct: React.FC = () => {
                     });
                 } else {
                     console.error('Product not found');
+                    navigate("/")
                 }
             } catch (error) {
                 console.error('Error fetching product:', error);

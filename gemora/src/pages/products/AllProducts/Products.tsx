@@ -1,13 +1,13 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
 import {
     fetchAllProductsDataFromApiBySortType
-} from "../api/ProductApi";
-import ProductList from "../components/product/productslist/ProductList";
-import '../components/product/productfilter/ProductsFilter.css'
+} from "../../../api/ProductApi";
+import ProductList from "../../../components/product/productslist/ProductList";
+import '../../../components/product/productfilter/ProductsFilter.css'
 
-import ProductsFilter from "../components/product/productfilter/ProductsFilter";
-import PageHeader from "../components/ui/pageheader/PageHeader";
-import {SortType} from "../constants/constants";
+import ProductsFilter from "../../../components/product/productfilter/ProductsFilter";
+import PageHeader from "../../../components/ui/pageheader/PageHeader";
+import {SortType} from "../../../constants/constants";
 
 interface ProductsPageProps {
     pageName: string;

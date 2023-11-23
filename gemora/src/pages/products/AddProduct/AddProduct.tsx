@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductForm, {ProductFormData} from "../components/product/productform/ProductForm";
-import {createProduct} from "../api/ProductApi";
-import {convertImageToBase64} from "../utils/utils";
+import ProductForm, {ProductFormData} from "../../../components/product/productform/ProductForm";
+import {createProduct} from "../../../api/ProductApi";
+import {convertImageToBase64} from "../../../utils/utils";
 
 const AddProduct: React.FC = () => {
     const pageTitle = "Add product";
