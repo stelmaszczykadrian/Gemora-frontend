@@ -74,6 +74,16 @@ export const fetchAllProductsDataByCategoryAndSort = async (category: string, so
     }
 };
 
+export const fetchProductsDataBySearchTermAndSort = async (searchTerm: string, sortType: string) => {
+    try {
+        const response = await axios.get(`${BaseUrl}/api/products/search?searchTerm=${searchTerm}&sort=${sortType}`);
+        return response.data;
+    } catch (error) {
+        console.error(errorMessage, error);
+        return [];
+    }
+};
+
 export async function createProduct(data: any) {
     const response = await axios.post(`${BaseUrl}/api/products`, data);
     return response.data;

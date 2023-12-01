@@ -18,7 +18,9 @@ import ProductManagement from "../pages/products/ProductManagement/ProductManage
 import AddProduct from "../pages/products/AddProduct/AddProduct";
 import ProtectedRoute from "../components/ProtectedRoute";
 import EditProduct from "../pages/products/EditProduct/EditProduct";
-import Orders from "../pages/Orders";
+import Orders from "../pages/AdminOrders";
+import UserOrders from "../pages/UserOrders";
+import SearchedProducts from "../pages/SearchedProducts";
 
 
 const allProductsPageName = "ALL PRODUCTS";
@@ -69,6 +71,7 @@ export const AppRouter = () => {
                     <Orders/>
                 </ProtectedRoute>
             }/>
+            <Route path="/my-orders" element={<UserOrders/>}/>
             <Route path="/products/engagements"
                    element={<CategoryProduct category={Categories.ENGAGEMENTS} pageName={engagementRingsPageName}
                                              pageTitle={engagementRingsPageTitle}/>}/>
@@ -92,6 +95,7 @@ export const AppRouter = () => {
             <Route path="/thank-you" element={<ThankYou/>}/>
             <Route path="/products"
                    element={<AllProducts pageName={allProductsPageName} pageTitle={allProductsPageTitle}/>}/>
+            <Route path="searched-products" element={<SearchedProducts/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="*" element={<NoPage/>}/>
         </Routes>

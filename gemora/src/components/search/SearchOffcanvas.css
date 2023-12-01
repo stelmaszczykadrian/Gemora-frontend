@@ -1,0 +1,29 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.search-input {
+    border-radius: 0 !important;
+    border: 1px solid black;
+    margin: 0 auto;
+    flex: 1;
+    max-width: calc(100% - 100px);
+}
+
+.form-control.search-input:focus {
+    border-color: black;
+    box-shadow: none;
+}
+
+.search-offcanvas-button {
+    font-size: 18px;
+    background: #b5a27a;
+    color: white;
+    border: 0;
+    padding: 8px 36px;
+    margin-left: 10px;
+}
