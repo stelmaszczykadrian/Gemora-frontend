@@ -1,6 +1,7 @@
 import React from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import './Navbar.css';
+import {useLocation} from "react-router-dom";
 
 const menuItems = [
     { title: 'Products', link: '/products' },
@@ -13,6 +14,7 @@ const menuItems = [
 ];
 
 const CustomNavbar: React.FC = () => {
+    const location = useLocation();
 
     return (
         <div className="navbar-bg">
@@ -23,7 +25,11 @@ const CustomNavbar: React.FC = () => {
                         <Nav className="me-auto">
                             {menuItems.map((item, index) => (
                                 <Nav.Link key={index} href={item.link}>
-                                    <button className="accordion-button">{item.title}</button>
+                                    <button
+                                        className={`accordion-button ${location.pathname === item.link ? 'active' : ''}`}
+                                    >
+                                        {item.title}
+                                    </button>
                                 </Nav.Link>
                             ))}
                         </Nav>
