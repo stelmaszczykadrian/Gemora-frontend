@@ -3,6 +3,8 @@ import ProductForm, {ProductFormData} from "../../../components/product/productf
 import {fetchProductDataById, updateProduct} from "../../../api/ProductApi";
 import {useNavigate, useParams} from "react-router-dom";
 import {convertImageToBase64} from "../../../utils/utils";
+import {toast} from "react-toastify";
+import {AxiosError} from "axios";
 
 const EditProduct: React.FC = () => {
     const { id } = useParams();
@@ -62,8 +64,22 @@ const EditProduct: React.FC = () => {
 
         try {
             await updateProduct(id, updatedData);
+
+            toast.success("Product updated successfully.")
+
+            setTimeout(() => {
+                navigate(`/products/${id}`);
+            }, 2000);
         } catch (error) {
-            console.error('Error updating product:', error);
+            if (error instanceof AxiosError && error.response) {
+                if (error.response.status === 404) {
+                    toast.error(error.response.data);
+                } else {
+                    toast.error('Something goes wrong.');
+                }
+            } else {
+                console.error('Error sending data to backend:', error);
+            }
         }
     };
 
