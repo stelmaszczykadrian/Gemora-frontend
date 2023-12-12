@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './ProductForm.css';
 
 interface ProductFormProps {
@@ -20,6 +20,7 @@ export interface ProductFormData {
 
 const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTitle, pageDescription, isUpdate }) => {
 
+    const inputRef = useRef<HTMLInputElement | null>(null);
     const [formData, setFormData] = useState<ProductFormData>({
         name: '',
         price: 0,
@@ -74,6 +75,9 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         onSubmit(formData);
+        if(inputRef.current){
+            inputRef.current.value = ''
+        }
     };
 
     return (
@@ -172,6 +176,7 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
                         />}
 
                         <input
+                            ref={inputRef}
                             type="file"
                             className="form-control product-form-field"
                             id="image"
