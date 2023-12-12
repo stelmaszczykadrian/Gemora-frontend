@@ -7,6 +7,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPencil, faPlus, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {Link, useNavigate} from "react-router-dom";
 import DeleteConfirmationModal from "../../ui/modals/deleteconfirmation/DeleteConfirmationModal";
+import {toast} from "react-toastify";
+import {AxiosError} from "axios";
 
 export default function ProductCard() {
     const [productList, setProductList] = useState<Product[]>([]);
@@ -33,9 +35,22 @@ export default function ProductCard() {
     };
 
     const deleteOffer = async () => {
-        await deleteProductById(productId);
-        window.location.reload();
-        setIsDeleteModalOpen(false);
+        try {
+            await deleteProductById(productId);
+            toast.success("Product deleted successfully.")
+            window.location.reload();
+            setIsDeleteModalOpen(false);
+        }catch (error) {
+            if (error instanceof AxiosError && error.response) {
+                if (error.response.status === 404) {
+                    toast.error(error.response.data);
+                } else {
+                    toast.error('Something goes wrong.');
+                }
+            } else {
+                console.error('Error sending data to backend:', error);
+            }
+        }
     };
 
     function handleDeleteOffer(id: number) {

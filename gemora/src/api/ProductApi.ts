@@ -20,7 +20,7 @@ export const fetchFeaturedProductsData = async () => {
         const response = await axios.get(`${BaseUrl}/api/products/featured`);
         return response.data;
     } catch (error) {
-        console.error(errorMessage, error);
+        console.clear()
         return [];
     }
 }
@@ -69,7 +69,7 @@ export const fetchAllProductsDataByCategoryAndSort = async (category: string, so
         const response = await axios.get(`${BaseUrl}/api/products/sorted?category=${category}&sort=${sortType}`);
         return response.data;
     } catch (error) {
-        console.error(errorMessage, error);
+        console.clear()
         return [];
     }
 };
