@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {getAllOrders} from "../../api/OrderApi";
+import {getAllOrders, getOrdersByUserId} from "../../api/OrderApi";
 import {SimplifiedProduct} from "../../interfaces/ProductInterface";
 import {formatPrice} from "../../utils/utils";
 import {ShippingDetails} from "../../pages/Checkout/Checkout";
 import './OrdersCard.css';
 import notOrders from '../../assets/no-orders.jpg';
 
-interface Order {
+export interface Order {
     id: number;
     orderDateTime: string;
     totalAmount: number;
@@ -17,20 +17,25 @@ interface Order {
     shippingDetails: ShippingDetails;
 }
 
-export default function OrdersCard() {
+export default function OrdersCard({ userId, userType }: { userId: number, userType: string }) {
     const [orders, setOrders] = useState<Order[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await getAllOrders();
+                let data;
+                if (userType === 'ADMIN') {
+                    data = await getAllOrders();
+                } else if (userType === 'USER') {
+                    data = await getOrdersByUserId(userId);
+                }
                 setOrders(data);
             } catch (error) {
-                console.error("Error fetching orders:", error);
+                console.clear()
             }
         };
         fetchData();
-    }, []);
+    }, [userId]);
 
 
     const formatDateTime = (dateTimeString: string) => {
@@ -45,9 +50,9 @@ export default function OrdersCard() {
                     <p className="order-card-total-products">Total orders: <span
                         className="product-list-length"> {orders.length}</span></p>
                     <div className="order-card-container">
-                        {orders.map((order) => (
-                            <div className="order-card">
-                                <div key={order.id} className="order-info">
+                        {orders.map((order,index) => (
+                            <div className="order-card" key={order.id}>
+                                <div key={`Orders_${index}`} className="order-info">
                                     <div className="left-section">
                                         <h4 className="red-color">Order ID: {order.id}</h4>
                                         <p>Order Date: <span className="red-color">{formatDateTime(order.orderDateTime)}</span>
@@ -66,8 +71,8 @@ export default function OrdersCard() {
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                {order.products.map((product) => (
-                                                    <tr key={product.id}>
+                                                {order.products.map((product, index) => (
+                                                    <tr key={`ProductTable_${index}`}>
                                                         <td>{product.name}</td>
                                                         <td>{product.quantity}</td>
                                                         <td>{formatPrice(product.price)}</td>
@@ -97,9 +102,10 @@ export default function OrdersCard() {
             ) : (
                 <div className="not-orders-container">
                     <img src={notOrders} className="not-orders-image" alt="Not orders image"></img>
-                    <p className="empty-cart-message">Sorry, but there are no orders.</p>
+                    <p className="empty-cart-message">Sorry there are already not orders.</p>
                 </div>
             )}
         </div>
     );
 }
+
