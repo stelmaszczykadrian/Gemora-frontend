@@ -7,7 +7,7 @@ interface UserComponentProps {
 
 const userData = [
     {to: "#", text: "My profile"},
-    {to: "#", text: "My orders"}
+    {to: "/my-orders", text: "My orders"}
 ];
 
 export default function UserComponent({handleLogout}: UserComponentProps) {
