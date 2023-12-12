@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ProductForm, {ProductFormData} from "../../../components/product/productform/ProductForm";
 import {createProduct} from "../../../api/ProductApi";
 import {convertImageToBase64} from "../../../utils/utils";
+import {AxiosError} from "axios";
+import {toast} from "react-toastify";
 
 const AddProduct: React.FC = () => {
     const pageTitle = "Add product";
     const pageDescription = "You can add product here.";
+
+    const [formData, setFormData] = useState<ProductFormData>({
+        name: '',
+        price: 0,
+        manufacturer: '',
+        description: '',
+        category: '',
+        image: null,
+    });
 
     const handleSubmit = async (formData: ProductFormData) => {
         const imageBase64 = await convertImageToBase64(formData.image as Blob);
@@ -20,23 +31,35 @@ const AddProduct: React.FC = () => {
         };
         try {
             await createProduct(data)
-        } catch (error) {
-            console.error('Error saving product:', error);
-        }
-    };
 
-    const initialData: ProductFormData = {
-        name: '',
-        price: 0,
-        manufacturer: '',
-        description: '',
-        category: '',
-        image: null,
+            toast.success("Product added successfully.")
+
+            setFormData({
+                name: '',
+                price: 0,
+                manufacturer: '',
+                description: '',
+                category: '',
+                image: null,
+            });
+
+        } catch (error) {
+
+            if (error instanceof AxiosError && error.response) {
+                if (error.response.status === 409) {
+                    toast.error(error.response.data);
+                } else {
+                    toast.error('Something goes wrong.');
+                }
+            } else {
+                console.error('Error sending data to backend:', error);
+            }
+        }
     };
 
     return (
         <div className="container">
-            <ProductForm onSubmit={handleSubmit} initialData={initialData} pageTitle={pageTitle} pageDescription={pageDescription} isUpdate={false}/>
+            <ProductForm onSubmit={handleSubmit} initialData={formData} pageTitle={pageTitle} pageDescription={pageDescription} isUpdate={false}/>
         </div>
     );
 };
