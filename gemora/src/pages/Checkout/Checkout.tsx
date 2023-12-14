@@ -37,8 +37,18 @@ const CheckoutForm = () => {
     const {products, clearCart} = useContext(CartContext);
     const totalValue = calculateTotal(products);
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const {name, value} = event.target;
+        const containsOnlyLetters = /^[A-Za-z\s]+$/;
+
+        const allowNumbers = ['address', 'postcode', 'email'];
+        const shouldAllowNumbers = allowNumbers.includes(name);
+
+        if (!containsOnlyLetters.test(value) && !shouldAllowNumbers) {
+            alert(`The ${name} field should contain only letters.`);
+            return;
+        }
+
         setShippingDetails({
             ...shippingDetails,
             [name]: value,
