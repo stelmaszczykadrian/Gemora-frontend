@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import './LoginBox.css';
 import {toast} from "react-toastify";
 import {authenticateUser} from "../../../api/AuthApi";
+import {AxiosError} from "axios";
 
 export interface LoginFormValues {
     email: string;
@@ -36,7 +37,14 @@ const LoginBox = () => {
             toast.success('You are logged in.');
             window.location.reload();
         } catch (error) {
-            console.error('Error sending data to backend:', error);
+            if (error instanceof AxiosError && error.response) {
+                const {data} = error.response;
+                const errorMessage = "User already do not exists in the database.";
+                if (data.validationErrors.error === errorMessage) {
+                    toast.error(errorMessage)
+                    return;
+                }
+            }
             toast.error('Something goes wrong.');
         } finally {
             setSubmitting(false);
