@@ -59,7 +59,8 @@ const AddProduct: React.FC = () => {
 
     return (
         <div className="container">
-            <ProductForm onSubmit={handleSubmit} initialData={formData} pageTitle={pageTitle} pageDescription={pageDescription} isUpdate={false}/>
+            <ProductForm onSubmit={handleSubmit} initialData={formData} pageTitle={pageTitle}
+                         pageDescription={pageDescription} isUpdate={false}/>
         </div>
     );
 };

@@ -41,11 +41,12 @@ const FeatureBoxes = () => {
             <div className="container">
                 <div className="feature-boxes-container">
                     <div className="feature-boxes">
-                    {featureData.map((featureBox, index) => (
-                        <div className="feature-box" key={featureBox.id}>
-                            <FeatureBox key={index} title={featureBox.title} description={featureBox.description} icon={featureBox.icon} />
-                        </div>
-                    ))}
+                        {featureData.map((featureBox, index) => (
+                            <div className="feature-box" key={featureBox.id}>
+                                <FeatureBox key={index} title={featureBox.title} description={featureBox.description}
+                                            icon={featureBox.icon}/>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

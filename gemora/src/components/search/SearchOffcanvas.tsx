@@ -10,7 +10,7 @@ interface SearchOffcanvasProps {
 const SearchOffcanvas: React.FC<SearchOffcanvasProps> = ({show, onHide}) => {
     const [searchTerm, setSearchTerm] = useState("");
 
-    const navigateToSearchResult= () => {
+    const navigateToSearchResult = () => {
         window.location.href = (`/searched-products?search=${searchTerm}`)
     }
 
@@ -25,9 +25,11 @@ const SearchOffcanvas: React.FC<SearchOffcanvasProps> = ({show, onHide}) => {
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <div className="search-container">
-                    <FormControl type="text" placeholder="Search products by name" className="search-input" value={searchTerm}
+                    <FormControl type="text" placeholder="Search products by name" className="search-input"
+                                 value={searchTerm}
                                  onChange={handleInputChange}/>
-                    <button type="button" onClick={navigateToSearchResult} className="search-offcanvas-button">Search</button>
+                    <button type="button" onClick={navigateToSearchResult} className="search-offcanvas-button">Search
+                    </button>
 
                 </div>
             </Offcanvas.Body>

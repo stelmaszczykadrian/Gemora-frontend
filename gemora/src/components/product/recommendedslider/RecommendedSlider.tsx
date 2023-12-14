@@ -33,7 +33,7 @@ function RecommendedSlider() {
                     </div>
                 </div>
                 <div className="row-container" id="slider">
-                    <RecommendedProduct />
+                    <RecommendedProduct/>
                 </div>
             </div>
         </div>

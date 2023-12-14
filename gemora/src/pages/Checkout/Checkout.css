@@ -121,23 +121,6 @@
     }
 }
 
-/*@media (max-width: 767px) {*/
-/*    .checkout-container {*/
-/*        flex-direction: column;*/
-/*    }*/
-
-/*    .checkout-left-section,*/
-/*    .checkout-right-section {*/
-/*        flex: none;*/
-/*        width: 100%;*/
-/*        padding: 20px;*/
-/*    }*/
-
-/*    .checkout-complete-order-button {*/
-/*        width: 30vh;*/
-/*    }*/
-/*}*/
-
 @media (max-width: 450px) {
     .checkout-already-account {
         font-size: 13px;

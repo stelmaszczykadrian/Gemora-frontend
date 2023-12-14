@@ -7,7 +7,7 @@ interface ProfileButtonProps {
     handleShow: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const AccountButton: FC<ProfileButtonProps> = ({ handleShow }) => (
+const AccountButton: FC<ProfileButtonProps> = ({handleShow}) => (
     <Button
         variant="outline-light"
         className="account-button rounded-circle"

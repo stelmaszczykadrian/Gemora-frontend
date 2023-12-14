@@ -8,7 +8,7 @@ const productManagementPageTitle = "Effortlessly Manage Your Products";
 
 const ProductManagement = () => {
     return <>
-        <PageHeader pageName={productManagementPageName} pageTitle={productManagementPageTitle} />
+        <PageHeader pageName={productManagementPageName} pageTitle={productManagementPageTitle}/>
         <ProductCard/>
     </>;
 };

@@ -22,7 +22,7 @@ const MainBanner = () => {
 
     return (
         <div className="main-banner">
-            <img src={bannerSrc} alt="Main banner" className="banner-image" />
+            <img src={bannerSrc} alt="Main banner" className="banner-image"/>
         </div>
     );
 }

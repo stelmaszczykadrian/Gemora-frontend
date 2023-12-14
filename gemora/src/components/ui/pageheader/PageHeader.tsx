@@ -7,10 +7,10 @@ interface PageHeaderProps {
     pageTitle: string;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ pageName, pageTitle }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({pageName, pageTitle}) => {
     return (
         <div className="page-header">
-            <HeadingWithLines name={pageName} />
+            <HeadingWithLines name={pageName}/>
             <div>{pageTitle}</div>
         </div>
     );

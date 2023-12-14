@@ -13,20 +13,17 @@ import {Link} from "react-router-dom";
 
 const Header: React.FC = () => {
     const [showSearchOffcanvas, setShowSearchOffcanvas] = useState<boolean>(false);
-
-    const handleCloseSearchOffcanvas = () => setShowSearchOffcanvas(false);
     const handleShowSearchOffcanvas = () => setShowSearchOffcanvas(true);
+    const handleCloseSearchOffcanvas = () => setShowSearchOffcanvas(false);
 
     const [showCartOffcanvas, setShowCartOffcanvas] = useState<boolean>(false);
-
-    const handleCloseCartOffcanvas = () => setShowCartOffcanvas(false);
     const handleShowCartOffcanvas = () => setShowCartOffcanvas(true);
+    const handleCloseCartOffcanvas = () => setShowCartOffcanvas(false);
+
 
     const [showProfileOffcanvas, setShowProfileOffcanvas] = useState<boolean>(false);
-
-    const handleCloseProfileOffcanvas = () => setShowProfileOffcanvas(false);
     const handleShowProfileOffcanvas = () => setShowProfileOffcanvas(true);
-
+    const handleCloseProfileOffcanvas = () => setShowProfileOffcanvas(false);
 
     return (
         <div className="header-bg py-3">

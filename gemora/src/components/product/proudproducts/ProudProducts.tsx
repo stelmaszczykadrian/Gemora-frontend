@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import ProductItem from "../productitem/ProductItem";
 
 function ProudProducts() {
-
     const [products, setProducts] = useState<any[]>([]);
 
     useEffect(() => {
@@ -20,7 +19,7 @@ function ProudProducts() {
         <div>
             <div className="container">
                 <div className="proud-products-grid">
-                {products.map((product) => (
+                    {products.map((product) => (
                         <Link
                             key={product.id}
                             to={`/products/${product.id}`}
@@ -32,7 +31,7 @@ function ProudProducts() {
                                 price={product.price}
                                 imageUrl={product.image}/>
                         </Link>
-                ))}
+                    ))}
                 </div>
             </div>
         </div>

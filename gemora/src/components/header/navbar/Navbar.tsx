@@ -4,13 +4,13 @@ import './Navbar.css';
 import {useLocation} from "react-router-dom";
 
 const menuItems = [
-    { title: 'Products', link: '/products' },
-    { title: 'Engagements', link: '/products/engagements' },
-    { title: 'Earrings', link: '/products/earrings' },
-    { title: 'Pendants', link: '/products/pendants' },
-    { title: 'Rings', link: '/products/rings' },
-    { title: 'Bracelets', link: '/products/bracelets' },
-    { title: 'Gemstones', link: '/products/gemstones' },
+    {title: 'Products', link: '/products'},
+    {title: 'Engagements', link: '/products/engagements'},
+    {title: 'Earrings', link: '/products/earrings'},
+    {title: 'Pendants', link: '/products/pendants'},
+    {title: 'Rings', link: '/products/rings'},
+    {title: 'Bracelets', link: '/products/bracelets'},
+    {title: 'Gemstones', link: '/products/gemstones'},
 ];
 
 const CustomNavbar: React.FC = () => {
@@ -20,7 +20,7 @@ const CustomNavbar: React.FC = () => {
         <div className="navbar-bg">
             <Navbar expand="lg">
                 <Container>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             {menuItems.map((item, index) => (

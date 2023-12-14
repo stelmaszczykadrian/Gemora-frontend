@@ -8,18 +8,18 @@ import blikLogo from '../../../assets/payment/logo-blik.svg';
 
 
 const paymentLogos = [
-    { src: visaLogo, alt: "Visa Logo" },
-    { src: masterCardLogo, alt: "Master Card Logo" },
-    { src: certumLogo, alt: "Certum Logo" },
-    { src: payULogo, alt: "PayU Logo" },
-    { src: blikLogo, alt: "Blik Logo" },
+    {src: visaLogo, alt: "Visa Logo"},
+    {src: masterCardLogo, alt: "Master Card Logo"},
+    {src: certumLogo, alt: "Certum Logo"},
+    {src: payULogo, alt: "PayU Logo"},
+    {src: blikLogo, alt: "Blik Logo"},
 ];
 
 function PaymentLogos() {
     return (
         <div className="product-details-logo-container">
             {paymentLogos.map((logo, index) => (
-                <img key={index} className="product-details-logo-image" src={logo.src} alt={logo.alt} />
+                <img key={index} className="product-details-logo-image" src={logo.src} alt={logo.alt}/>
             ))}
         </div>
     );

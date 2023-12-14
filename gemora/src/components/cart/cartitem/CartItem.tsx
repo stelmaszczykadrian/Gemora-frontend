@@ -4,7 +4,7 @@ import QuantitySelector from "../quantityselector/QuantitySelector";
 import './CartItem.css';
 import {formatPrice} from "../../../utils/utils";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import CartContext from "../../../context/CartContext";
 
 interface CartItemProps {
@@ -12,10 +12,8 @@ interface CartItemProps {
     quantity: number;
 }
 
-const CartItem: React.FC<CartItemProps> = ({item,quantity}) => {
-
-    const {removeProduct } = useContext(CartContext);
-
+const CartItem: React.FC<CartItemProps> = ({item, quantity}) => {
+    const {removeProduct} = useContext(CartContext);
 
     return (
         <div className="col-md-12 col-md-12 cart-product-container">
@@ -35,7 +33,7 @@ const CartItem: React.FC<CartItemProps> = ({item,quantity}) => {
                         <FontAwesomeIcon
                             icon={faXmark}
                             onClick={() => removeProduct(item)}
-                            style={{ cursor: 'pointer' }}
+                            style={{cursor: 'pointer'}}
                         />
                     </div>
                 </div>

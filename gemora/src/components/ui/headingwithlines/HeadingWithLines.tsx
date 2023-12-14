@@ -1,5 +1,6 @@
 import './HeadingWithLines.css'
-const HeadingWithLines = ({ name }: { name: string }) => {
+
+const HeadingWithLines = ({name}: { name: string }) => {
     return (
         <div className="container">
             <h2 className="heading-with-lines">

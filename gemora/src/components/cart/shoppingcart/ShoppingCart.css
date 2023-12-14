@@ -47,7 +47,7 @@
 }
 
 /* Styles for Empty cart */
-.empty-cart-container{
+.empty-cart-container {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -55,7 +55,7 @@
     margin: 10rem auto;
 }
 
-.empty-cart-message{
+.empty-cart-message {
     font-size: 1.2rem;
     position: relative;
     letter-spacing: 5px;

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import "./RecommendedProduct.css";
 import React, {useEffect, useState} from "react";
 import {fetchFeaturedProductsData} from "../../../api/ProductApi";
@@ -6,7 +6,6 @@ import {formatPrice} from "../../../utils/utils";
 import Loading from "../../ui/loading/Loading";
 
 function RecommendedProduct() {
-
     const [products, setProducts] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 

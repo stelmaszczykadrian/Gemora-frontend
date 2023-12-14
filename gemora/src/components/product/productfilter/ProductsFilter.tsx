@@ -9,14 +9,15 @@ interface ProductsFilterProps {
 
 
 export const SortOptions = [
-    { value: SortType.NEWEST, label: "Newest" },
-    { value: SortType.ASCENDING, label: "Price Low - High" },
-    { value: SortType.DESCENDING, label: "Price High - Low" },
+    {value: SortType.NEWEST, label: "Newest"},
+    {value: SortType.ASCENDING, label: "Price Low - High"},
+    {value: SortType.DESCENDING, label: "Price High - Low"},
 ];
+
 function ProductsFilter(props: ProductsFilterProps) {
 
 
-    return(
+    return (
         <div>
             <div className="filter-container">
                 <div className="filter">

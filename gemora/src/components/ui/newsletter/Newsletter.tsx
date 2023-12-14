@@ -48,7 +48,8 @@ const Newsletter = () => {
                 collections, and exclusive offers delivered directly to your email inbox.
             </div>
             <form className="newsletter-input-container" onSubmit={handleSubmit}>
-                <input type="email" className="newsletter-input" value={emailAddress} placeholder="Enter your email address"
+                <input type="email" className="newsletter-input" value={emailAddress}
+                       placeholder="Enter your email address"
                        onChange={handleInputChange}/>
                 <button className="newsletter-button" disabled={!isEmailValid}>
                     Sign Up

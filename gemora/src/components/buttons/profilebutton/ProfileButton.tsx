@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import './ProfileButton.css';
 
 interface ProfileButtonProps {
@@ -7,16 +7,15 @@ interface ProfileButtonProps {
     text: string;
 }
 
-const ProfileButton: React.FC<ProfileButtonProps> = ({ to, text }) => (
+const ProfileButton: React.FC<ProfileButtonProps> = ({to, text}) => (
 
-        <Link to={to}>
-            <div className="profile-button-container">
-                <div className="profile-button">
-                    {text}
-                </div>
+    <Link to={to}>
+        <div className="profile-button-container">
+            <div className="profile-button">
+                {text}
             </div>
-        </Link>
+        </div>
+    </Link>
 );
-
 
 export default ProfileButton;

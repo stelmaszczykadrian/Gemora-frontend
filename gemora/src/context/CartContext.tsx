@@ -70,9 +70,9 @@ export const CartContextProvider = ({children}: React.PropsWithChildren) => {
             }
             const savedProduct = cartContents.find(p => p.id === product.id);
 
-            if(savedProduct){
+            if (savedProduct) {
                 savedProduct.quantity += product.quantity;
-            }else{
+            } else {
                 cartContents.push(product);
             }
 
@@ -157,7 +157,8 @@ export const CartContextProvider = ({children}: React.PropsWithChildren) => {
 
 
     return (
-        <CartContext.Provider value={{products, addProduct, removeProduct, increaseQuantity, decreaseQuantity, clearCart }}>
+        <CartContext.Provider
+            value={{products, addProduct, removeProduct, increaseQuantity, decreaseQuantity, clearCart}}>
             {children}
         </CartContext.Provider>
     );

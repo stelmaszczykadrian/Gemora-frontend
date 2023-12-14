@@ -7,11 +7,11 @@ import wonderLogo from "../../../assets/brand-logos/wonder.jpg";
 import './LogosGallery.css';
 
 const logoData = [
-    { src: kingsCrownLogo, alt: "Kings Crown" },
-    { src: crownLogo, alt: "Crown" },
-    { src: berliansLogo, alt: "Berlians" },
-    { src: luxuryLogo, alt: "Luxury" },
-    { src: wonderLogo, alt: "Wonder" },
+    {src: kingsCrownLogo, alt: "Kings Crown"},
+    {src: crownLogo, alt: "Crown"},
+    {src: berliansLogo, alt: "Berlians"},
+    {src: luxuryLogo, alt: "Luxury"},
+    {src: wonderLogo, alt: "Wonder"},
 ];
 
 const LogosGallery = () => {
@@ -19,7 +19,7 @@ const LogosGallery = () => {
         <>
             <div className="logos-container">
                 {logoData.map((logo, index) => (
-                    <img key={index} src={logo.src} alt={logo.alt} className="scale-element logo-image" />
+                    <img key={index} src={logo.src} alt={logo.alt} className="scale-element logo-image"/>
                 ))}
             </div>
         </>

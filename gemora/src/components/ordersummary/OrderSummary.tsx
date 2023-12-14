@@ -1,6 +1,7 @@
 import React from 'react';
 import {formatPrice} from "../../utils/utils";
 import './OrderSummary.css';
+
 interface OrderSummaryProps {
     subtotal: number;
     shippingPrice: number;

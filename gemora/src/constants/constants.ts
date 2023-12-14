@@ -5,7 +5,7 @@ export const shippingPrice = 0;
 
 
 export enum Categories {
-    ENGAGEMENTS= 'ENGAGEMENTS',
+    ENGAGEMENTS = 'ENGAGEMENTS',
     EARRINGS = 'EARRINGS',
     PENDANTS = 'PENDANTS',
     RINGS = 'RINGS',
@@ -15,7 +15,7 @@ export enum Categories {
 }
 
 export enum SortType {
-    ASCENDING= 'ascending',
+    ASCENDING = 'ascending',
     DESCENDING = 'descending',
     NEWEST = 'newest',
 }

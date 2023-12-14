@@ -30,7 +30,8 @@ const Home = () => {
         <MainBanner/>
         <HeadingWithLines name="CATEGORIES"/>
         <FeaturedCategories/>
-        <Banner reverse={isReversedBanner} img={engagementRingImage} text={firstBannerDescription} title={firstBannerTitle}/>
+        <Banner reverse={isReversedBanner} img={engagementRingImage} text={firstBannerDescription}
+                title={firstBannerTitle}/>
         <HeadingWithLines name="SPECIAL PRODUCTS"/>
         <ProudProducts/>
         <Banner reverse={isMainBanner} img={necklaceImage} text={secondBannerDescription} title={secondBannerTitle}/>

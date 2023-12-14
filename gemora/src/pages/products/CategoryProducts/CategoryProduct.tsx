@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { fetchAllProductsDataByCategoryAndSort } from "../../../api/ProductApi";
+import React, {ChangeEvent, useEffect, useState} from "react";
+import {fetchAllProductsDataByCategoryAndSort} from "../../../api/ProductApi";
 import ProductList from "../../../components/product/productslist/ProductList";
 import PageHeader from "../../../components/ui/pageheader/PageHeader";
 import ProductsFilter from "../../../components/product/productfilter/ProductsFilter";
@@ -12,12 +12,10 @@ interface ProductsPageProps {
     pageTitle: string;
 }
 
-
-const CategoryProduct: React.FC<ProductsPageProps> = ({ category ,pageName,pageTitle}) => {
+const CategoryProduct: React.FC<ProductsPageProps> = ({category, pageName, pageTitle}) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [selectedValue, setSelectedValue] = useState("");
     const [selectedCategory] = useState<string>(category);
-
 
 
     const fetchAndSetProducts = async (category: string, sortOption: string) => {
@@ -56,9 +54,9 @@ const CategoryProduct: React.FC<ProductsPageProps> = ({ category ,pageName,pageT
 
     return (
         <div className="container">
-            <PageHeader pageName={pageName} pageTitle={pageTitle} />
-            <ProductsFilter selectedValue={selectedValue} handleChange={handleChange} />
-            <ProductList products={products} />
+            <PageHeader pageName={pageName} pageTitle={pageTitle}/>
+            <ProductsFilter selectedValue={selectedValue} handleChange={handleChange}/>
+            <ProductList products={products}/>
         </div>
     );
 };

@@ -15,7 +15,7 @@ interface ProductsPageProps {
 }
 
 
-const ProductsPage: React.FC<ProductsPageProps> = ({ pageName, pageTitle }) => {
+const ProductsPage: React.FC<ProductsPageProps> = ({pageName, pageTitle}) => {
     const [products, setProducts] = useState<any[]>([]);
     const [selectedValue, setSelectedValue] = useState("");
 

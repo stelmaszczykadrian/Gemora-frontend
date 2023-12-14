@@ -26,11 +26,11 @@ export default function ProductCard() {
             });
     }, []);
 
-    const handleProductClick = (productId:number) => {
+    const handleProductClick = (productId: number) => {
         navigate(`/products/${productId}`);
     };
 
-    const handleEditProduct = (productId:number) => {
+    const handleEditProduct = (productId: number) => {
         navigate(`/products/edit/${productId}`);
     };
 
@@ -40,7 +40,7 @@ export default function ProductCard() {
             toast.success("Product deleted successfully.")
             window.location.reload();
             setIsDeleteModalOpen(false);
-        }catch (error) {
+        } catch (error) {
             if (error instanceof AxiosError && error.response) {
                 if (error.response.status === 404) {
                     toast.error(error.response.data);
@@ -63,7 +63,8 @@ export default function ProductCard() {
         <div className="container d-flex justify-content-center product-card-container">
             <div>
                 <div className="container product-card-info">
-                    <p className="product-card-total-products">Total products: <span className="product-list-length"> {productList.length}</span></p>
+                    <p className="product-card-total-products">Total products: <span
+                        className="product-list-length"> {productList.length}</span></p>
                     <p>
                         <Link to="/products/management/add">
                             <FontAwesomeIcon icon={faPlus} className="product-card-plus-icon"/>
@@ -72,9 +73,12 @@ export default function ProductCard() {
                 </div>
                 {productList.map((product) => (
                     <div className="product-card" key={product.id}>
-                        <p className="product-card-title" onClick={() => handleProductClick(product.id)}>{product.name}</p>
-                        <p><FontAwesomeIcon icon={faPencil} className="product-item-icon" onClick={() => handleEditProduct(product.id)}/></p>
-                        <p><FontAwesomeIcon icon={faTrash} className="product-item-icon" onClick={() => handleDeleteOffer(product.id)}/></p>
+                        <p className="product-card-title"
+                           onClick={() => handleProductClick(product.id)}>{product.name}</p>
+                        <p><FontAwesomeIcon icon={faPencil} className="product-item-icon"
+                                            onClick={() => handleEditProduct(product.id)}/></p>
+                        <p><FontAwesomeIcon icon={faTrash} className="product-item-icon"
+                                            onClick={() => handleDeleteOffer(product.id)}/></p>
                     </div>
                 ))}
             </div>

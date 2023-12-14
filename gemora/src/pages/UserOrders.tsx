@@ -12,8 +12,8 @@ const UserOrders = () => {
     const userId = currentUser?.id || -1;
 
     return <>
-        <PageHeader pageName={ordersPageName} pageTitle={ordersPageTitle} />
-        <OrdersCard userId={userId} userType="USER" />
+        <PageHeader pageName={ordersPageName} pageTitle={ordersPageTitle}/>
+        <OrdersCard userId={userId} userType="USER"/>
     </>;
 };
 

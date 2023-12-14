@@ -7,7 +7,7 @@ import {toast} from "react-toastify";
 import {AxiosError} from "axios";
 
 const EditProduct: React.FC = () => {
-    const { id } = useParams();
+    const {id} = useParams();
     const pageTitle = "Edit product";
     const pageDescription = "You can edit product here.";
     const navigate = useNavigate();
@@ -85,7 +85,8 @@ const EditProduct: React.FC = () => {
 
     return (
         <div className="container">
-            <ProductForm onSubmit={handleSubmit} initialData={initialData} pageTitle={pageTitle} pageDescription={pageDescription} isUpdate/>
+            <ProductForm onSubmit={handleSubmit} initialData={initialData} pageTitle={pageTitle}
+                         pageDescription={pageDescription} isUpdate/>
         </div>
     );
 };

@@ -11,9 +11,9 @@ export default function TopBar() {
         <div className="info-top-bar text-black text-center py-2">
             <Container fluid>
                 <Row className="align-items-center">
-                    <TopBarLink to="/contact" icon={mailIcon} text="Contact Us" />
-                    <TopBarLink to="/login" icon={signInIcon} text="Sign In" />
-                    <TopBarLink to="/register" icon={signUpIcon} text="Sign Up" />
+                    <TopBarLink to="/contact" icon={mailIcon} text="Contact Us"/>
+                    <TopBarLink to="/login" icon={signInIcon} text="Sign In"/>
+                    <TopBarLink to="/register" icon={signUpIcon} text="Sign Up"/>
                 </Row>
             </Container>
         </div>

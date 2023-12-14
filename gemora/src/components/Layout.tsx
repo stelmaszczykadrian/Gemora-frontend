@@ -1,13 +1,13 @@
 import Navbar from "./header/navbar/Navbar";
 import Footer from "./footer/Footer";
-import React, {ReactElement, JSXElementConstructor, ReactNode, ReactPortal} from "react";
+import React, {ReactElement, ReactNode, ReactPortal} from "react";
 import TopBar from "./header/topbar/TopBar";
 import Header from "./header/header/Header";
 import Newsletter from "./ui/newsletter/Newsletter";
-import { ToastContainer} from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Layout(props: { children: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; }) {
+function Layout(props: { children: string | number | boolean | ReactElement | Iterable<ReactNode> | ReactPortal | null | undefined; }) {
 
     return (
         <div>

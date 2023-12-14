@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import "./Banner.css";
 
 interface BannerProps {
@@ -9,7 +9,7 @@ interface BannerProps {
     reverse?: boolean;
 }
 
-function Banner({ title, text, img, reverse  }: BannerProps) {
+function Banner({title, text, img, reverse}: BannerProps) {
 
     const containerClass = reverse ? "banner-container-reverse" : "banner-container";
 
@@ -27,7 +27,7 @@ function Banner({ title, text, img, reverse  }: BannerProps) {
                         </div>
                     </div>
                     <div className="img-side">
-                        <img src={img} alt="banner" />
+                        <img src={img} alt="banner"/>
                     </div>
                 </div>
             </div>

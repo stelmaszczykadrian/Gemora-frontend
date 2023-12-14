@@ -14,9 +14,9 @@ const companyInfo = {
 };
 
 const footerLinks = [
-    { text: 'Contact Us', url: '/contact' },
-    { text: 'Sign Up', url: '/register' },
-    { text: 'Sign In', url: '/login' },
+    {text: 'Contact Us', url: '/contact'},
+    {text: 'Sign Up', url: '/register'},
+    {text: 'Sign In', url: '/login'},
 ];
 
 const Footer: React.FC = () => {
@@ -28,9 +28,10 @@ const Footer: React.FC = () => {
                         <div className="row">
                             <div className="col-md-4 col-lg-5 col-12">
                                 <div className="text-center" style={{marginBottom: '20px'}}>
-                                    <img src={gemoraLogo} alt="Gemora logo" width="35%" height="35%" />
+                                    <img src={gemoraLogo} alt="Gemora logo" width="35%" height="35%"/>
                                 </div>
-                                <p className="first-column-description">Discover exquisite, high-quality jewelry that adds
+                                <p className="first-column-description">Discover exquisite, high-quality jewelry that
+                                    adds
                                     sparkle and elegance to your style. Enhance your individuality with our unique
                                     accessories.</p>
                             </div>
@@ -53,9 +54,11 @@ const Footer: React.FC = () => {
                                 <p><FontAwesomeIcon icon={faPhone} className="footer-icon"/> {companyInfo.phone}</p>
                                 <p className="footer-email">
                                     <FontAwesomeIcon icon={faEnvelope} className="footer-icon"/>{" "}
-                                    <a href="mailto:gemora@contact.pl" className="footer-nav-link">{companyInfo.email}</a>
+                                    <a href="mailto:gemora@contact.pl"
+                                       className="footer-nav-link">{companyInfo.email}</a>
                                 </p>
-                                <p><FontAwesomeIcon icon={faLocationDot} className="footer-icon"/> {companyInfo.location}</p>
+                                <p><FontAwesomeIcon icon={faLocationDot}
+                                                    className="footer-icon"/> {companyInfo.location}</p>
 
                             </div>
                         </div>

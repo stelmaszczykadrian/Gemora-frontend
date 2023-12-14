@@ -17,7 +17,7 @@ export interface Order {
     shippingDetails: ShippingDetails;
 }
 
-export default function OrdersCard({ userId, userType }: { userId: number, userType: string }) {
+export default function OrdersCard({userId, userType}: { userId: number, userType: string }) {
     const [orders, setOrders] = useState<Order[]>([]);
 
     useEffect(() => {
@@ -50,14 +50,16 @@ export default function OrdersCard({ userId, userType }: { userId: number, userT
                     <p className="order-card-total-products">Total orders: <span
                         className="product-list-length"> {orders.length}</span></p>
                     <div className="order-card-container">
-                        {orders.map((order,index) => (
+                        {orders.map((order, index) => (
                             <div className="order-card" key={order.id}>
                                 <div key={`Orders_${index}`} className="order-info">
                                     <div className="left-section">
                                         <h4 className="red-color">Order ID: {order.id}</h4>
-                                        <p>Order Date: <span className="red-color">{formatDateTime(order.orderDateTime)}</span>
+                                        <p>Order Date: <span
+                                            className="red-color">{formatDateTime(order.orderDateTime)}</span>
                                         </p>
-                                        <p>Total Amount: <span className="red-color">{formatPrice(order.totalAmount)}</span></p>
+                                        <p>Total Amount: <span
+                                            className="red-color">{formatPrice(order.totalAmount)}</span></p>
                                         <p>User Email: <span className="red-color">{order.user.email}</span></p>
                                         <div className="ordered-section"/>
                                         <div className="ordered-products">

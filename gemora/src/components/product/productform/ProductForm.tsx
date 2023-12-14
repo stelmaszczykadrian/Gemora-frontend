@@ -19,7 +19,6 @@ export interface ProductFormData {
 }
 
 const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTitle, pageDescription, isUpdate }) => {
-
     const inputRef = useRef<HTMLInputElement | null>(null);
     const [formData, setFormData] = useState<ProductFormData>({
         name: '',
@@ -42,8 +41,6 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
                 image: initialData.image || null,
             }));
         }
-
-        console.log(initialData)
     }, [initialData]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -71,15 +68,6 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
             category: selectedCategory,
         }));
     }
-
-    // const handleSubmit = (event: React.FormEvent) => {
-    //     event.preventDefault();
-    //     onSubmit(formData);
-    //     if(inputRef.current){
-    //         inputRef.current.value = ''
-    //     }
-    // };
-
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();

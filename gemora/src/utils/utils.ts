@@ -8,7 +8,7 @@ export function groupBy<T>(arr: T[], fn: (item: T) => any) {
         const groupKey = fn(curr);
         const group = prev[groupKey] || [];
         group.push(curr);
-        return { ...prev, [groupKey]: group };
+        return {...prev, [groupKey]: group};
     }, {});
 }
 
