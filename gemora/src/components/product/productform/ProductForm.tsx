@@ -72,11 +72,52 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
         }));
     }
 
+    // const handleSubmit = (event: React.FormEvent) => {
+    //     event.preventDefault();
+    //     onSubmit(formData);
+    //     if(inputRef.current){
+    //         inputRef.current.value = ''
+    //     }
+    // };
+
+
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        onSubmit(formData);
-        if(inputRef.current){
-            inputRef.current.value = ''
+
+        const containsOnlyLetters = /^[A-Za-z\s]+$/;
+
+        if (
+            formData.price > 0 &&
+            formData.name.length <= 20 &&
+            containsOnlyLetters.test(formData.name) &&
+            formData.manufacturer.length <= 20 &&
+            containsOnlyLetters.test(formData.manufacturer) &&
+            formData.description.length <= 20 &&
+            containsOnlyLetters.test(formData.description)
+        ) {
+            onSubmit(formData);
+            if (inputRef.current) {
+                inputRef.current.value = '';
+            }
+        } else {
+            if (formData.name.length > 20) {
+                alert('Name should be 20 characters or less.');
+            }
+            if (!containsOnlyLetters.test(formData.name)) {
+                alert('Name should contain only letters.');
+            }
+            if (formData.manufacturer.length > 20) {
+                alert('Manufacturer should be 20 characters or less.');
+            }
+            if (!containsOnlyLetters.test(formData.manufacturer)) {
+                alert('Manufacturer should contain only letters.');
+            }
+            if (formData.description.length > 20) {
+                alert('Description should be 20 characters or less.');
+            }
+            if (!containsOnlyLetters.test(formData.description)) {
+                alert('Description should contain only letters.');
+            }
         }
     };
 
@@ -109,6 +150,8 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
                         </label>
                         <input
                             type="number"
+                            min="1"
+                            max="10000"
                             className="form-control product-form-field"
                             id="price"
                             name="price"
@@ -136,7 +179,7 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
                             Description
                         </label>
                         <textarea
-                            className="form-control product-form-field"
+                            className="form-control product-form-field product-textarea"
                             id="description"
                             name="description"
                             value={formData.description}
