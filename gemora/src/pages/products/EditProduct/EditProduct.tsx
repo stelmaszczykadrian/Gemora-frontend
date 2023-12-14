@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import ProductForm, {ProductFormData} from "../../../components/product/productform/ProductForm";
 import {fetchProductDataById, updateProduct} from "../../../api/ProductApi";
 import {useNavigate, useParams} from "react-router-dom";
-import {convertImageToBase64} from "../../../utils/utils";
 import {toast} from "react-toastify";
 import {AxiosError} from "axios";
 
@@ -51,15 +50,13 @@ const EditProduct: React.FC = () => {
 
 
     const handleSubmit = async (formData: ProductFormData) => {
-        const imageBase64 = await convertImageToBase64(formData.image as Blob);
-
         const updatedData = {
             name: formData.name,
             price: formData.price,
             manufacturer: formData.manufacturer,
             description: formData.description,
             category: formData.category,
-            image: imageBase64,
+            image: formData.image,
         };
 
         try {

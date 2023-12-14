@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import ProductForm, {ProductFormData} from "../../../components/product/productform/ProductForm";
 import {createProduct} from "../../../api/ProductApi";
-import {convertImageToBase64} from "../../../utils/utils";
 import {AxiosError} from "axios";
 import {toast} from "react-toastify";
 
@@ -19,15 +18,13 @@ const AddProduct: React.FC = () => {
     });
 
     const handleSubmit = async (formData: ProductFormData) => {
-        const imageBase64 = await convertImageToBase64(formData.image as Blob);
-
         const data = {
             name: formData.name,
             price: formData.price,
             manufacturer: formData.manufacturer,
             description: formData.description,
             category: formData.category,
-            image: imageBase64
+            image: formData.image
         };
         try {
             await createProduct(data)

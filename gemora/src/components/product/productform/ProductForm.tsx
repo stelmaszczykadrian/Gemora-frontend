@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import './ProductForm.css';
+import {convertImageToBase64} from "../../../utils/utils";
 
 interface ProductFormProps {
     onSubmit: (formData: ProductFormData) => void;
@@ -15,10 +16,10 @@ export interface ProductFormData {
     manufacturer: string;
     description: string;
     category: string;
-    image: File | Blob | string | null;
+    image: string | null;
 }
 
-const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTitle, pageDescription, isUpdate }) => {
+const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTitle, pageDescription, isUpdate}) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
     const [formData, setFormData] = useState<ProductFormData>({
         name: '',
@@ -51,13 +52,15 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
         }));
     };
 
-    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
             const imageFile = event.target.files[0];
+            const imageBase64 = await convertImageToBase64(imageFile);
             setFormData((prevData) => ({
                 ...prevData,
-                image: imageFile,
+                image: imageBase64,
             }));
+
         }
     };
 
@@ -201,7 +204,7 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
                         <label htmlFor="image" className="form-label">
                             Image
                         </label>
-                        {isUpdate&&<img
+                        {isUpdate && <img
                             src={`data:image/jpeg;base64,${formData.image}`}
                             className="card-img-top product-header-img"
                         />}
