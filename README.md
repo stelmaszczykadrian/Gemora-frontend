@@ -62,8 +62,23 @@ https://github.com/stelmaszczykadrian/Gemora-frontend/assets/106514178/6c3d54c7-
 
 
 ## 🖼️ Screenshots
-
-![Gemora1](https://github.com/stelmaszczykadrian/Gemora-frontend/assets/106514178/b862d10b-942a-46bd-9ee1-923225c66b7b)
+### Welcome Page
+![Gemora1](https://github.com/stelmaszczykadrian/Gemora-frontend/assets/106514178/6236c46b-8892-4793-85a3-6533a5252dbd)
+![Gemora7](https://github.com/stelmaszczykadrian/Gemora-frontend/assets/106514178/96f53ad5-f2a1-4b88-88c8-4ac2ff0e01e7)
+![Gemora2](https://github.com/stelmaszczykadrian/Gemora-frontend/assets/106514178/0cf7911e-f287-4133-9f77-8b76fa1a4e2b)
+![Gemora3](https://github.com/stelmaszczykadrian/Gemora-frontend/assets/106514178/c7e83cd4-9548-467f-9be0-9e2ff695bf2c)
+![Gemora4](https://github.com/stelmaszczykadrian/Gemora-frontend/assets/106514178/2f8ac798-6d82-4199-a1f8-4e6c854799aa)
+![Gemora5](https://github.com/stelmaszczykadrian/Gemora-frontend/assets/106514178/1a165522-a3eb-458b-a77d-10bc7a860474)
+![Gemora6](https://github.com/stelmaszczykadrian/Gemora-frontend/assets/106514178/00fe4f3a-446d-4fba-8ef1-45456e3c5caa)
+### Page with all products
+### Product page
+### Login page
+### Register page
+### Contact page
+### Orders page
+### Page where you can create new product
+### Checkout page
+### Search product bar
 
 
 **This repository contains the frontend code of our application.**
