@@ -20,6 +20,7 @@ export interface ShippingDetails {
     postcode: string;
     email: string;
     note: string;
+    [key: string]: string;
 }
 
 const CheckoutForm = () => {
@@ -39,15 +40,6 @@ const CheckoutForm = () => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const {name, value} = event.target;
-        const containsOnlyLetters = /^[A-Za-z\s]+$/;
-
-        const allowNumbers = ['address', 'postcode', 'email'];
-        const shouldAllowNumbers = allowNumbers.includes(name);
-
-        if (!containsOnlyLetters.test(value) && !shouldAllowNumbers) {
-            alert(`The ${name} field should contain only letters.`);
-            return;
-        }
 
         setShippingDetails({
             ...shippingDetails,
@@ -66,6 +58,17 @@ const CheckoutForm = () => {
 
     const handlePayUClick = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        const errors = validateFields(shippingDetails);
+        const errorValues = Object.values(errors).filter(error => error !== "");
+
+        if (errorValues.length > 0) {
+            errorValues.forEach(error => {
+                alert(error);
+            });
+            return;
+        }
+
         try {
             const orderDetails = {
                 shippingDetails: shippingDetails,
@@ -90,6 +93,28 @@ const CheckoutForm = () => {
         }
     };
 
+    const validateFields = (fields: ShippingDetails): Partial<Record<keyof ShippingDetails, string>> => {
+        const errors: Partial<Record<keyof ShippingDetails, string>> = {};
+        const validators: { [key in keyof ShippingDetails]: (value: string) => string } = {
+            firstName: value => (!value ? "First name cannot be empty" : value.length < 2 ? "First name must be at least 2 characters long" : ""),
+            lastName: value => (!value ? "Last name cannot be empty" : value.length < 2 ? "Last name must be at least 2 characters long" : ""),
+            address: value => (!value ? "Address cannot be empty" : value.length < 5 ? "Address must be at least 5 characters long" : ""),
+            city: value => (!value ? "City cannot be empty" : value.length < 3 ? "City must be at least 3 characters long" : ""),
+            postcode: value => (!value ? "Postcode cannot be empty" : ""),
+            email: value => {
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return !emailRegex.test(value) ? "Invalid email address ex. gemora@gemora.com" : "";
+            },
+            note: value => (value.length > 200 ? "Note cannot exceed 200 characters" : ""),
+        };
+
+        Object.keys(validators).forEach(key => {
+            errors[key as keyof ShippingDetails] = validators[key as keyof ShippingDetails](fields[key as keyof ShippingDetails]);
+        });
+
+        return errors;
+    };
+
     return (
         <div className="container">
             <HeadingWithLines name="CHECKOUT"/>
@@ -99,7 +124,7 @@ const CheckoutForm = () => {
                     <button className="checkout-signin-button">SIGN IN</button>
                 </Link>
             </div>
-            <Form onSubmit={handlePayUClick}>
+            <Form onSubmit={handlePayUClick} noValidate>
                 <div className="checkout-container">
                     <div className="checkout-left-section">
                         <div className="checkout-left-section-title">
