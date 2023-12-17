@@ -34,24 +34,22 @@
 }
 
 .product-details-title {
-    /*font-size: 1.2rem;*/
     text-transform: capitalize;
     font-weight: 700;
     position: relative;
     color: #12263a;
     margin: 1rem 0;
     font-family: var(--main-font);
-    /*border-bottom: 1px solid #888;*/
 }
 
 .product-details-price {
+    color:  #b5a27a;
     margin: 1rem 0;
-    /*font-size: 1rem;*/
     font-weight: 700;
 }
 
 .product-detail-description {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 0.3rem;
     opacity: 0.8;
     border-bottom: 1px solid #888;
@@ -60,7 +58,6 @@
 .product-info-list {
     margin: 1rem 0;
     font-size: 0.9rem;
-    /*border-bottom: 1px solid #888;*/
 }
 
 .product-info-item {
