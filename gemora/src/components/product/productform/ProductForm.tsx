@@ -82,9 +82,7 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
             formData.name.length <= 20 &&
             containsOnlyLetters.test(formData.name) &&
             formData.manufacturer.length <= 20 &&
-            containsOnlyLetters.test(formData.manufacturer) &&
-            formData.description.length <= 20 &&
-            containsOnlyLetters.test(formData.description)
+            containsOnlyLetters.test(formData.manufacturer)
         ) {
             onSubmit(formData);
             if (inputRef.current) {
@@ -102,12 +100,6 @@ const ProductForm: React.FC<ProductFormProps> = ({onSubmit, initialData, pageTit
             }
             if (!containsOnlyLetters.test(formData.manufacturer)) {
                 alert('Manufacturer should contain only letters.');
-            }
-            if (formData.description.length > 20) {
-                alert('Description should be 20 characters or less.');
-            }
-            if (!containsOnlyLetters.test(formData.description)) {
-                alert('Description should contain only letters.');
             }
         }
     };
