@@ -27,4 +27,3 @@ yarn-error.log*
 *.iml
 *.ipr
 /gemora/node_modules/
-/gemora/src/env.ts
